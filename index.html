@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Luxury Bakery</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --bg: #fff8f0;
+      --text: #111111;
+      --card: #ffffff;
+
+      /* ONLY 2 COLORS */
+      --primary: #ff7a00;
+      --secondary: #000000;
+
+      --gradient: linear-gradient(135deg, #ff7a00, #000000);
+
+      --shadow: 0 10px 30px rgba(255, 122, 0, 0.18);
+    }
+
+    body.dark {
+      --bg: #000000;
+      --text: #ffffff;
+      --card: #111111;
+
+      /* ONLY 2 COLORS */
+      --primary: #ff7a00;
+      --secondary: #000000;
+
+      --gradient: linear-gradient(135deg, #ff7a00, #000000);
+
+      --shadow: 0 10px 30px rgba(255, 122, 0, 0.2);
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      transition: 0.4s ease;
+      overflow-x: hidden;
+    }
+
+    /* HEADER */
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      backdrop-filter: blur(18px);
+      background: rgba(0, 0, 0, 0.92);
+      border-bottom: 1px solid rgba(255, 122, 0, 0.2);
+      box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+      animation: slideDown 1s ease;
+    }
+
+    @keyframes slideDown {
+      from {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .navbar {
+      width: 90%;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: 700;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glow 3s infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        filter: drop-shadow(0 0 5px rgba(255, 122, 0, 0.3));
+      }
+
+      to {
+        filter: drop-shadow(0 0 20px rgba(255, 122, 0, 0.9));
+      }
+    }
+
+    nav ul {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 500;
+      transition: 0.3s;
+      position: relative;
+    }
+
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0;
+      height: 3px;
+      background: var(--primary);
+      transition: 0.4s;
+      border-radius: 20px;
+    }
+
+    nav ul li a:hover {
+      color: var(--primary);
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    .header-buttons {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .theme-btn,
+    .rtl-btn {
+      border: none;
+      padding: 12px 18px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 600;
+      background: var(--primary);
+      color: white;
+      transition: 0.4s;
+      box-shadow: var(--shadow);
+      font-size: 18px;
+    }
+
+    .theme-btn:hover,
+    .rtl-btn:hover {
+      transform: translateY(-5px) scale(1.05);
+      background: #ff9a2f;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 120px 10% 50px;
+      gap: 60px;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: var(--primary);
+      filter: blur(170px);
+      opacity: .18;
+      top: -100px;
+      right: -100px;
+      animation: float 6s infinite ease-in-out;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(40px);
+      }
+    }
+
+    .hero-content {
+      flex: 1;
+      animation: fadeLeft 1.2s ease;
+    }
+
+    @keyframes fadeLeft {
+      from {
+        transform: translateX(-80px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .hero-content h1 {
+      font-size: 4rem;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .hero-content span {
+      color: var(--primary);
+    }
+
+    .hero-content p {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      margin-bottom: 30px;
+      animation: fadeText 2s ease;
+    }
+
+    @keyframes fadeText {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 16px 34px;
+      border: none;
+      border-radius: 50px;
+      background: var(--primary);
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.4s;
+      box-shadow: var(--shadow);
+    }
+
+    .btn:hover {
+      transform: translateY(-8px);
+      background: #ff9a2f;
+    }
+
+    .outline-btn {
+      background: transparent;
+      border: 2px solid var(--primary);
+      color: var(--text);
+    }
+
+    .hero-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      animation: fadeRight 1.5s ease;
+    }
+
+    @keyframes fadeRight {
+      from {
+        transform: translateX(80px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .hero-image img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 40px;
+      box-shadow: var(--shadow);
+      animation: bounce 4s infinite ease-in-out;
+      border: 4px solid var(--primary);
+    }
+
+    @keyframes bounce {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    /* SECTION */
+
+    section {
+      padding: 100px 10%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-title h2 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      color: var(--primary);
+    }
+
+    .section-title p {
+      max-width: 700px;
+      margin: auto;
+      line-height: 1.8;
+    }
+
+    /* FEATURES */
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .feature-card {
+      background: var(--card);
+      padding: 40px 30px;
+      border-radius: 30px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: 0.5s;
+      position: relative;
+      overflow: hidden;
+      border: 2px solid transparent;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-15px);
+      border-color: var(--primary);
+    }
+
+    .feature-card h3 {
+      margin: 20px 0;
+      font-size: 1.5rem;
+      color: var(--primary);
+    }
+
+    .feature-card p {
+      line-height: 1.8;
+    }
+
+    /* PRODUCTS */
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 35px;
+    }
+
+    .product-card {
+      background: var(--card);
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: 0.5s;
+      border: 2px solid transparent;
+    }
+
+    .product-card:hover {
+      transform: scale(1.04);
+      border-color: var(--primary);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 30px;
+    }
+
+    .product-info h3 {
+      margin-bottom: 10px;
+      color: var(--primary);
+    }
+
+    .product-info p {
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    /* TESTIMONIAL */
+
+    .testimonial {
+      background: var(--primary);
+      border-radius: 40px;
+      color: white;
+      text-align: center;
+      padding: 70px 50px;
+      box-shadow: var(--shadow);
+      animation: zoom 5s infinite alternate;
+    }
+
+    @keyframes zoom {
+      from {
+        transform: scale(1);
+      }
+
+      to {
+        transform: scale(1.02);
+      }
+    }
+
+    .testimonial p {
+      font-size: 1.2rem;
+      line-height: 2;
+      margin: 30px 0;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #000000;
+      color: white;
+      padding: 80px 10% 30px;
+      position: relative;
+      overflow: hidden;
+      border-top: 2px solid var(--primary);
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: var(--primary);
+      filter: blur(180px);
+      opacity: .15;
+      bottom: -250px;
+      left: -100px;
+      animation: float 7s infinite ease-in-out;
+    }
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+
+    .footer-box h3 {
+      margin-bottom: 25px;
+      font-size: 1.5rem;
+      color: var(--primary);
+    }
+
+    .footer-box p,
+    .footer-box li {
+      line-height: 2;
+      color: #d4d4d4;
+      list-style: none;
+    }
+
+    .footer-box ul li:hover {
+      color: var(--primary);
+      transform: translateX(5px);
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .copyright {
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, .1);
+      padding-top: 25px;
+      color: #bdbdbd;
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:992px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-btns {
+        justify-content: center;
+      }
+
+      .hero-content h1 {
+        font-size: 3rem;
+      }
+
+      nav {
+        display: none;
+      }
+    }
+
+    @media(max-width:600px) {
+      .hero-content h1 {
+        font-size: 2.3rem;
+      }
+
+      .section-title h2 {
+        font-size: 2rem;
+      }
+
+      .navbar {
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header>
+    <div class="navbar">
+
+      <div class="logo">Sweet Crumbs</div>
+
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-buttons">
+        <button class="theme-btn" onclick="toggleTheme()">🌙</button>
+        <button class="rtl-btn" onclick="toggleRTL()">⇄</button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- HERO -->
+
+  <section class="hero" id="home">
+
+    <div class="hero-content">
+
+      <h1>
+        Freshly Baked <span>Luxury Delights</span> Everyday
+      </h1>
+
+      <p>
+        Experience premium handcrafted cakes, pastries, breads,
+        and desserts designed with love and perfection.
+      </p>
+
+      <div class="hero-btns">
+        <button class="btn">Order Now</button>
+        <button class="btn outline-btn">Explore Menu</button>
+      </div>
+
+    </div>
+
+    <div class="hero-image">
+      <img
+        src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?q=80&w=1000&auto=format&fit=crop"
+        alt="Bakery">
+    </div>
+
+  </section>
+
+  <!-- FEATURES -->
+
+  <section id="features">
+
+    <div class="section-title">
+      <h2>Why Choose Us</h2>
+
+      <p>
+        We create premium bakery experiences with world-class ingredients.
+      </p>
+    </div>
+
+    <div class="features">
+
+      <div class="feature-card">
+        <h3>Fresh Ingredients</h3>
+
+        <p>
+          Every product is crafted daily using organic ingredients.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <h3>Premium Designs</h3>
+
+        <p>
+          Elegant cakes and desserts designed artistically.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <h3>Fast Delivery</h3>
+
+        <p>
+          Quick and reliable doorstep delivery.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PRODUCTS -->
+
+  <section id="products">
+
+    <div class="section-title">
+      <h2>Popular Bakery Specials</h2>
+
+      <p>
+        Explore our customer favorite desserts.
+      </p>
+    </div>
+
+    <div class="products">
+
+      <div class="product-card">
+
+        <img
+          src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=1000&auto=format&fit=crop"
+          alt="Cake">
+
+        <div class="product-info">
+
+          <h3>Chocolate Luxury Cake</h3>
+
+          <p>
+            Rich chocolate layers with creamy frosting.
+          </p>
+
+          <button class="btn">Buy Now</button>
+
+        </div>
+      </div>
+
+      <div class="product-card">
+
+        <img
+          src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1000&auto=format&fit=crop"
+          alt="Bread">
+
+        <div class="product-info">
+
+          <h3>Artisan Bread</h3>
+
+          <p>
+            Crispy outside and soft inside bread baked fresh.
+          </p>
+
+          <button class="btn">Buy Now</button>
+
+        </div>
+      </div>
+
+      <div class="product-card">
+
+        <img
+          src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?q=80&w=1000&auto=format&fit=crop"
+          alt="Pastry">
+
+        <div class="product-info">
+
+          <h3>Premium Pastries</h3>
+
+          <p>
+            Soft and creamy pastries filled with delicious flavors.
+          </p>
+
+          <button class="btn">Buy Now</button>
+
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- TESTIMONIAL -->
+
+  <section id="about">
+
+    <div class="testimonial">
+
+      <h2>Customer Love</h2>
+
+      <p>
+        “The most premium bakery experience ever.”
+      </p>
+
+      <h3>— Happy Customer</h3>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer id="contact">
+
+    <div class="footer-container">
+
+      <div class="footer-box">
+
+        <h3>Sweet Crumbs</h3>
+
+        <p>
+          Premium bakery delivering handcrafted desserts.
+        </p>
+
+      </div>
+
+      <div class="footer-box">
+
+        <h3>Quick Links</h3>
+
+        <ul>
+          <li>Home</li>
+          <li>About</li>
+          <li>Products</li>
+          <li>Services</li>
+          <li>Contact</li>
+        </ul>
+
+      </div>
+
+      <div class="footer-box">
+
+        <h3>Opening Hours</h3>
+
+        <p>Monday - Friday : 8 AM - 10 PM</p>
+        <p>Saturday : 9 AM - 11 PM</p>
+        <p>Sunday : 9 AM - 9 PM</p>
+
+      </div>
+
+      <div class="footer-box">
+
+        <h3>Newsletter</h3>
+
+        <p>
+          Subscribe to receive premium offers.
+        </p>
+
+      </div>
+
+    </div>
+
+    <div class="copyright">
+      © 2026 Sweet Crumbs Bakery. All Rights Reserved.
+    </div>
+
+  </footer>
+
+  <!-- JAVASCRIPT -->
+
+  <script>
+
+    const body = document.body;
+    const html = document.documentElement;
+
+    function toggleTheme() {
+
+      body.classList.toggle('dark');
+
+      const themeButton = document.querySelector('.theme-btn');
+
+      if (body.classList.contains('dark')) {
+
+        themeButton.innerHTML = '☀️';
+
+      } else {
+
+        themeButton.innerHTML = '🌙';
+
+      }
+    }
+
+    function toggleRTL() {
+
+      const rtlButton = document.querySelector('.rtl-btn');
+
+      if (html.getAttribute('dir') === 'rtl') {
+
+        html.setAttribute('dir', 'ltr');
+
+        rtlButton.innerHTML = '⇄';
+
+      } else {
+
+        html.setAttribute('dir', 'rtl');
+
+        rtlButton.innerHTML = '⇆';
+
+      }
+    }
+
+  </script>
+
+</body>
+
+</html>
