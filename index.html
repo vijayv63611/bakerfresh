@@ -27,13 +27,9 @@
       --bg: #fff8f0;
       --text: #111111;
       --card: #ffffff;
-
-      /* ONLY 2 COLORS */
       --primary: #ff7a00;
       --secondary: #000000;
-
       --gradient: linear-gradient(135deg, #ff7a00, #000000);
-
       --shadow: 0 10px 30px rgba(255, 122, 0, 0.18);
     }
 
@@ -41,14 +37,6 @@
       --bg: #000000;
       --text: #ffffff;
       --card: #111111;
-
-      /* ONLY 2 COLORS */
-      --primary: #ff7a00;
-      --secondary: #000000;
-
-      --gradient: linear-gradient(135deg, #ff7a00, #000000);
-
-      --shadow: 0 10px 30px rgba(255, 122, 0, 0.2);
     }
 
     body {
@@ -57,8 +45,6 @@
       transition: 0.4s ease;
       overflow-x: hidden;
     }
-
-    /* HEADER */
 
     header {
       position: fixed;
@@ -69,19 +55,6 @@
       background: rgba(0, 0, 0, 0.92);
       border-bottom: 1px solid rgba(255, 122, 0, 0.2);
       box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
-      animation: slideDown 1s ease;
-    }
-
-    @keyframes slideDown {
-      from {
-        transform: translateY(-100%);
-        opacity: 0;
-      }
-
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
     }
 
     .navbar {
@@ -99,23 +72,17 @@
       background: var(--gradient);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: glow 3s infinite alternate;
-    }
-
-    @keyframes glow {
-      from {
-        filter: drop-shadow(0 0 5px rgba(255, 122, 0, 0.3));
-      }
-
-      to {
-        filter: drop-shadow(0 0 20px rgba(255, 122, 0, 0.9));
-      }
     }
 
     nav ul {
       display: flex;
       gap: 30px;
       list-style: none;
+      align-items: center;
+    }
+
+    nav ul li {
+      position: relative;
     }
 
     nav ul li a {
@@ -123,27 +90,44 @@
       color: #ffffff;
       font-weight: 500;
       transition: 0.3s;
-      position: relative;
-    }
-
-    nav ul li a::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: -6px;
-      width: 0;
-      height: 3px;
-      background: var(--primary);
-      transition: 0.4s;
-      border-radius: 20px;
+      padding: 10px;
+      display: block;
     }
 
     nav ul li a:hover {
       color: var(--primary);
     }
 
-    nav ul li a:hover::after {
+    /* DROPDOWN */
+
+    .dropdown-menu {
+      position: absolute;
+      top: 45px;
+      left: 0;
+      background: #111;
+      width: 180px;
+      border-radius: 15px;
+      display: none;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    }
+
+    .dropdown-menu li {
       width: 100%;
+    }
+
+    .dropdown-menu li a {
+      padding: 14px 20px;
+      color: white;
+    }
+
+    .dropdown-menu li a:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      display: block;
     }
 
     .header-buttons {
@@ -172,8 +156,6 @@
       background: #ff9a2f;
     }
 
-    /* HERO */
-
     .hero {
       min-height: 100vh;
       display: flex;
@@ -181,49 +163,10 @@
       align-items: center;
       padding: 120px 10% 50px;
       gap: 60px;
-      position: relative;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      width: 500px;
-      height: 500px;
-      background: var(--primary);
-      filter: blur(170px);
-      opacity: .18;
-      top: -100px;
-      right: -100px;
-      animation: float 6s infinite ease-in-out;
-    }
-
-    @keyframes float {
-
-      0%,
-      100% {
-        transform: translateY(0px);
-      }
-
-      50% {
-        transform: translateY(40px);
-      }
     }
 
     .hero-content {
       flex: 1;
-      animation: fadeLeft 1.2s ease;
-    }
-
-    @keyframes fadeLeft {
-      from {
-        transform: translateX(-80px);
-        opacity: 0;
-      }
-
-      to {
-        transform: translateX(0);
-        opacity: 1;
-      }
     }
 
     .hero-content h1 {
@@ -240,17 +183,6 @@
       font-size: 1.1rem;
       line-height: 1.9;
       margin-bottom: 30px;
-      animation: fadeText 2s ease;
-    }
-
-    @keyframes fadeText {
-      from {
-        opacity: 0;
-      }
-
-      to {
-        opacity: 1;
-      }
     }
 
     .hero-btns {
@@ -286,19 +218,6 @@
       flex: 1;
       display: flex;
       justify-content: center;
-      animation: fadeRight 1.5s ease;
-    }
-
-    @keyframes fadeRight {
-      from {
-        transform: translateX(80px);
-        opacity: 0;
-      }
-
-      to {
-        transform: translateX(0);
-        opacity: 1;
-      }
     }
 
     .hero-image img {
@@ -306,23 +225,8 @@
       max-width: 500px;
       border-radius: 40px;
       box-shadow: var(--shadow);
-      animation: bounce 4s infinite ease-in-out;
       border: 4px solid var(--primary);
     }
-
-    @keyframes bounce {
-
-      0%,
-      100% {
-        transform: translateY(0px);
-      }
-
-      50% {
-        transform: translateY(-20px);
-      }
-    }
-
-    /* SECTION */
 
     section {
       padding: 100px 10%;
@@ -339,14 +243,6 @@
       color: var(--primary);
     }
 
-    .section-title p {
-      max-width: 700px;
-      margin: auto;
-      line-height: 1.8;
-    }
-
-    /* FEATURES */
-
     .features {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -360,14 +256,10 @@
       text-align: center;
       box-shadow: var(--shadow);
       transition: 0.5s;
-      position: relative;
-      overflow: hidden;
-      border: 2px solid transparent;
     }
 
     .feature-card:hover {
       transform: translateY(-15px);
-      border-color: var(--primary);
     }
 
     .feature-card h3 {
@@ -375,12 +267,6 @@
       font-size: 1.5rem;
       color: var(--primary);
     }
-
-    .feature-card p {
-      line-height: 1.8;
-    }
-
-    /* PRODUCTS */
 
     .products {
       display: grid;
@@ -394,12 +280,10 @@
       overflow: hidden;
       box-shadow: var(--shadow);
       transition: 0.5s;
-      border: 2px solid transparent;
     }
 
     .product-card:hover {
       transform: scale(1.04);
-      border-color: var(--primary);
     }
 
     .product-card img {
@@ -417,13 +301,6 @@
       color: var(--primary);
     }
 
-    .product-info p {
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
-
-    /* TESTIMONIAL */
-
     .testimonial {
       background: var(--primary);
       border-radius: 40px;
@@ -431,47 +308,13 @@
       text-align: center;
       padding: 70px 50px;
       box-shadow: var(--shadow);
-      animation: zoom 5s infinite alternate;
     }
-
-    @keyframes zoom {
-      from {
-        transform: scale(1);
-      }
-
-      to {
-        transform: scale(1.02);
-      }
-    }
-
-    .testimonial p {
-      font-size: 1.2rem;
-      line-height: 2;
-      margin: 30px 0;
-    }
-
-    /* FOOTER */
 
     footer {
       background: #000000;
       color: white;
       padding: 80px 10% 30px;
-      position: relative;
-      overflow: hidden;
       border-top: 2px solid var(--primary);
-    }
-
-    footer::before {
-      content: '';
-      position: absolute;
-      width: 500px;
-      height: 500px;
-      background: var(--primary);
-      filter: blur(180px);
-      opacity: .15;
-      bottom: -250px;
-      left: -100px;
-      animation: float 7s infinite ease-in-out;
     }
 
     .footer-container {
@@ -488,17 +331,12 @@
     }
 
     .footer-box p,
-    .footer-box li {
+    .footer-box li,
+    .footer-box a {
       line-height: 2;
       color: #d4d4d4;
+      text-decoration: none;
       list-style: none;
-    }
-
-    .footer-box ul li:hover {
-      color: var(--primary);
-      transform: translateX(5px);
-      transition: 0.3s;
-      cursor: pointer;
     }
 
     .copyright {
@@ -507,8 +345,6 @@
       padding-top: 25px;
       color: #bdbdbd;
     }
-
-    /* RESPONSIVE */
 
     @media(max-width:992px) {
       .hero {
@@ -522,10 +358,6 @@
 
       .hero-content h1 {
         font-size: 3rem;
-      }
-
-      nav {
-        display: none;
       }
     }
 
@@ -542,13 +374,15 @@
         flex-direction: column;
         gap: 20px;
       }
+
+      nav ul {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
 
 <body>
-
-  <!-- HEADER -->
 
   <header>
     <div class="navbar">
@@ -557,11 +391,21 @@
 
       <nav>
         <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#feature">Features</a></li>
-          <li><a href="#product">Products</a></li>
+
+          <li class="dropdown">
+            <a href="#">Home ▼</a>
+
+            <ul class="dropdown-menu">
+              <li><a href="#home1">Home 1</a></li>
+              <li><a href="#home2">Home 2</a></li>
+            </ul>
+          </li>
+
+          <li><a href="#features">Features</a></li>
+          <li><a href="#products">Products</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
+
         </ul>
       </nav>
 
@@ -573,9 +417,9 @@
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- HOME 1 -->
 
-  <section class="hero" id="home">
+  <section class="hero" id="home1">
 
     <div class="hero-content">
 
@@ -599,6 +443,36 @@
       <img
         src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?q=80&w=1000&auto=format&fit=crop"
         alt="Bakery">
+    </div>
+
+  </section>
+
+  <!-- HOME 2 -->
+
+  <section class="hero" id="home2">
+
+    <div class="hero-image">
+      <img
+        src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1000&auto=format&fit=crop"
+        alt="Bread">
+    </div>
+
+    <div class="hero-content">
+
+      <h1>
+        Delicious <span>Bakery Specials</span> For Everyone
+      </h1>
+
+      <p>
+        Enjoy handcrafted breads, premium cakes and sweet desserts
+        baked fresh every day with love.
+      </p>
+
+      <div class="hero-btns">
+        <button class="btn">Shop Now</button>
+        <button class="btn outline-btn">View More</button>
+      </div>
+
     </div>
 
   </section>
@@ -681,25 +555,6 @@
       <div class="product-card">
 
         <img
-          src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1000&auto=format&fit=crop"
-          alt="Bread">
-
-        <div class="product-info">
-
-          <h3>Artisan Bread</h3>
-
-          <p>
-            Crispy outside and soft inside bread baked fresh.
-          </p>
-
-          <button class="btn">Buy Now</button>
-
-        </div>
-      </div>
-
-      <div class="product-card">
-
-        <img
           src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?q=80&w=1000&auto=format&fit=crop"
           alt="Pastry">
 
@@ -720,7 +575,7 @@
 
   </section>
 
-  <!-- TESTIMONIAL -->
+  <!-- ABOUT -->
 
   <section id="about">
 
@@ -759,32 +614,11 @@
         <h3>Quick Links</h3>
 
         <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Products</li>
-          <li>Services</li>
-          <li>Contact</li>
+          <li><a href="#home1">Home 1</a></li>
+          <li><a href="#home2">Home 2</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
-
-      </div>
-
-      <div class="footer-box">
-
-        <h3>Opening Hours</h3>
-
-        <p>Monday - Friday : 8 AM - 10 PM</p>
-        <p>Saturday : 9 AM - 11 PM</p>
-        <p>Sunday : 9 AM - 9 PM</p>
-
-      </div>
-
-      <div class="footer-box">
-
-        <h3>Newsletter</h3>
-
-        <p>
-          Subscribe to receive premium offers.
-        </p>
 
       </div>
 
@@ -795,8 +629,6 @@
     </div>
 
   </footer>
-
-  <!-- JAVASCRIPT -->
 
   <script>
 
