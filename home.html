@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Luxury Bakery</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <link rel="stylesheet" href="home.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header>
+    <div class="navbar">
+
+      <div class="logo">Sweet Crumbs</div>
+
+      <nav>
+        <ul>
+
+          <li class="dropdown">
+            <a href="home.html">Home ▼</a>
+
+            <ul class="dropdown-menu">
+              <li><a href="index.html">Home 1</a></li>
+              
+            </ul>
+          </li>
+
+          <li><a href="#collections">Collections</a></li>
+          <li><a href="#special">Special</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact</a></li>
+
+        </ul>
+      </nav>
+
+      <div class="header-buttons">
+        <button class="theme-btn" onclick="toggleTheme()">
+          <i class="bi bi-moon-stars"></i>
+        </button>
+
+        <button class="rtl-btn" onclick="toggleRTL()">⇄</button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- HERO 1 -->
+
+  <section class="hero hero-one" id="hero1">
+
+    <div class="hero-content">
+
+      <span class="hero-tag">Premium Bakery</span>
+
+      <h1>
+        Handmade <span>Luxury Cakes</span> For Every Celebration
+      </h1>
+
+      <p>
+        Elegant handcrafted desserts, pastries and premium cakes
+        baked fresh every day with artistic perfection.
+      </p>
+
+      <div class="hero-btns">
+        <button class="btn">Order Now</button>
+        <button class="btn outline-btn">Explore Menu</button>
+      </div>
+
+    </div>
+
+    <div class="hero-image">
+
+      <img
+        src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=1200&auto=format&fit=crop"
+        alt="Cake">
+
+    </div>
+
+  </section>
+
+  
+
+  <!-- COLLECTIONS -->
+
+  <section class="collections-section" id="collections">
+
+    <div class="section-title">
+
+      <h2>Luxury Collections</h2>
+
+      <p>
+        Explore our premium handcrafted bakery collection.
+      </p>
+
+    </div>
+
+    <div class="collections-grid">
+
+      <div class="collection-card">
+
+        <img
+          src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?q=80&w=1000&auto=format&fit=crop">
+
+        <div class="collection-content">
+          <h3>Premium Pastries</h3>
+          <p>Soft buttery pastries with rich cream flavors.</p>
+        </div>
+
+      </div>
+
+      <div class="collection-card">
+
+        <img
+          src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?q=80&w=1000&auto=format&fit=crop">
+
+        <div class="collection-content">
+          <h3>Luxury Desserts</h3>
+          <p>Elegant desserts crafted with premium ingredients.</p>
+        </div>
+
+      </div>
+
+      <div class="collection-card">
+
+        <img
+          src="https://images.unsplash.com/photo-1464306076886-da185f6a9d05?q=80&w=1000&auto=format&fit=crop">
+
+        <div class="collection-content">
+          <h3>Celebration Cakes</h3>
+          <p>Beautiful cakes for birthdays and weddings.</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SPECIAL SECTION -->
+
+  <section class="special-section" id="special">
+
+    <div class="special-content">
+
+      <h2>Why Customers Love Sweet Crumbs</h2>
+
+      <p>
+        We combine luxury presentation, fresh ingredients and
+        premium baking artistry for unforgettable taste experiences.
+      </p>
+
+      <div class="special-boxes">
+
+        <div class="special-box">
+          <i class="bi bi-heart-fill"></i>
+          <h3>Fresh Daily</h3>
+        </div>
+
+        <div class="special-box">
+          <i class="bi bi-award-fill"></i>
+          <h3>Premium Quality</h3>
+        </div>
+
+        <div class="special-box">
+          <i class="bi bi-stars"></i>
+          <h3>Luxury Taste</h3>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- GALLERY -->
+
+  <section class="gallery-section" id="gallery">
+
+    <div class="section-title">
+
+      <h2>Bakery Gallery</h2>
+
+      <p>
+        Premium handcrafted bakery presentation.
+      </p>
+
+    </div>
+
+    <div class="gallery-grid">
+
+      <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=1000&auto=format&fit=crop">
+
+      <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?q=80&w=1000&auto=format&fit=crop">
+
+      <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=1000&auto=format&fit=crop">
+
+      <img src="https://images.unsplash.com/photo-1521302200778-33500795e128?q=80&w=1000&auto=format&fit=crop">
+
+    </div>
+
+  </section>
+
+  <footer id="contact">
+
+  <div class="footer-container">
+
+    <div class="footer-box">
+      <h3>About Company</h3>
+      <p>Sweet Crumbs creates handcrafted luxury cakes,
+      pastries and premium bakery products.</p>
+    </div>
+
+    <div class="footer-box">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#hero1">Home</a></li>
+        <li><a href="#collections">Collections</a></li>
+        <li><a href="#special">Special</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-box">
+      <h3>Follow Us</h3>
+
+      <div class="social-icons">
+        <a href="#"><i class="bi bi-instagram"></i></a>
+        <a href="#"><i class="bi bi-facebook"></i></a>
+        <a href="#"><i class="bi bi-twitter"></i></a>
+        <a href="#"><i class="bi bi-whatsapp"></i></a>
+      </div>
+    </div>
+
+    <!-- ✅ FIXED: Newsletter INSIDE container -->
+    <div class="footer-box">
+
+      <h3>Newsletter</h3>
+
+      <p>Subscribe to get special offers and latest bakery updates.</p>
+
+      <input type="email" placeholder="Enter your email"
+        class="newsletter-input">
+
+      <button class="newsletter-btn">Subscribe Now</button>
+
+    </div>
+
+  </div>
+
+  <div class="copyright">
+    © 2026 Sweet Crumbs Bakery. All Rights Reserved.
+  </div>
+
+</footer>
+  <script>
+
+    const body = document.body;
+    const html = document.documentElement;
+
+    function toggleTheme() {
+
+      body.classList.toggle('dark');
+
+      const themeButton = document.querySelector('.theme-btn');
+
+      if (body.classList.contains('dark')) {
+        themeButton.innerHTML =
+          '<i class="bi bi-brightness-high"></i>';
+      }
+
+      else {
+        themeButton.innerHTML =
+          '<i class="bi bi-moon-stars"></i>';
+      }
+    }
+
+    function toggleRTL() {
+
+      const rtlButton = document.querySelector('.rtl-btn');
+
+      if (html.getAttribute('dir') === 'rtl') {
+
+        html.setAttribute('dir', 'ltr');
+        rtlButton.innerHTML = '⇄';
+
+      }
+
+      else {
+
+        html.setAttribute('dir', 'rtl');
+        rtlButton.innerHTML = '⇆';
+
+      }
+    }
+
+  </script>
+
+</body>
+
+</html>
