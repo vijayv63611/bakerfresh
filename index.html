@@ -61,21 +61,14 @@ h1, h2, h3 {
       position: fixed;
       top: 0;
       width: 100%;
+       color:#111;
       z-index: 1000;
-      background: rgba(0,0,0,0.6);
+      background:white;
 backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(255, 122, 0, 0.2);
-      box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 5px 30px white(0, 0, 0, 0.5);
     }
 
-    .navbar {
-      width: 90%;
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 0;
-    }
+    
 
     .logo {
       font-size: 2rem;
@@ -84,13 +77,22 @@ backdrop-filter: blur(20px);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
+.navbar{
+  width:100%;
+  padding:15px 5%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+}
 
-    nav ul {
-      display: flex;
-      gap: 30px;
-      list-style: none;
-      align-items: center;
-    }
+nav ul{
+  display:flex;
+  gap:20px;
+  list-style:none;
+  align-items:center;
+  flex-wrap:wrap;
+}
 
     nav ul li {
       position: relative;
@@ -98,7 +100,7 @@ backdrop-filter: blur(20px);
 
     nav ul li a {
       text-decoration: none;
-      color: #ffffff;
+      color:black;
       font-weight: 500;
       transition: 0.3s;
       padding: 10px;
@@ -109,17 +111,23 @@ backdrop-filter: blur(20px);
       color: var(--primary);
     }
 
-    .dropdown-menu {
-      position: absolute;
-      top: 45px;
-      left: 0;
-      background: #111;
-      width: 180px;
-      border-radius: 15px;
-      display: none;
-      overflow: hidden;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
-    }
+   .dropdown-menu{
+  position:absolute;
+  top:55px;
+  left:0;
+  width:200px;
+  background:rgba(20,20,20,0.95);
+  backdrop-filter: blur(15px);
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 15px 40px rgba(0,0,0,0.4);
+
+  opacity:0;
+  visibility:hidden;
+  transform: translateY(20px);
+  transition:0.4s ease;
+  z-index:1000;
+}
 
     .dropdown-menu li {
       width: 100%;
@@ -135,9 +143,11 @@ backdrop-filter: blur(20px);
       color: white;
     }
 
-    .dropdown:hover .dropdown-menu {
-      display: block;
-    }
+.dropdown:hover .dropdown-menu{
+  opacity:1;
+  visibility:visible;
+  transform: translateY(0);
+}
 
     .header-buttons {
       display: flex;
@@ -165,100 +175,224 @@ backdrop-filter: blur(20px);
       background: #ff9a2f;
     }
 
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 120px 10% 50px;
-      gap: 90px;
-    }
+    /* ================= PREMIUM HERO SECTION ================= */
 
-    .hero-content {
-      flex: 1;
-    }
 
-    .hero-content h1 {
-      font-size: 4rem;
-      line-height: 1.2;
-      margin-bottom: 20px;
-    }
+/* ================= PREMIUM HERO ================= */
 
-    .hero-content span {
-      color: var(--primary);
-    }
+.hero{
+  min-height:100vh;
+  position:relative;
+  display:flex;
+  align-items:center;
+  padding:120px 8%;
+  overflow:hidden;
+  justify-content:center;
+  text-align:center;
+}
 
-    .hero-content p {
-      font-size: 1.1rem;
-      line-height: 1.9;
-      margin-bottom: 30px;
-    }
+/* BACKGROUND IMAGE */
 
-    .hero-btns {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
 
-    .btn {
-      padding: 16px 34px;
-      border: none;
-      border-radius: 50px;
-      background: var(--primary);
-      color: white;
-      font-weight: 600;
-      cursor: pointer;
-      transition: 0.4s;
-      box-shadow: var(--shadow);
-    }
+  background:
+  linear-gradient(
+    rgba(0,0,0,0.45),
+    rgba(0,0,0,0.55)
+  ),
 
-    .btn:hover {
-      transform: translateY(-8px);
-      background: #ff9a2f;
-    }
+  url("https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1800&auto=format&fit=crop");
 
-    .outline-btn {
-      background: transparent;
-      border: 2px solid var(--primary);
-      color: var(--text);
-    }
+  background-size:cover;
+  background-position:center;
 
-    .hero-image {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-    }
+  z-index:-2;
 
-   .hero-image img {
+  animation:heroZoom 18s ease-in-out infinite alternate;
+}
+
+/* SOFT GOLD OVERLAY */
+
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+  linear-gradient(
+    135deg,
+    rgba(255,122,0,0.15),
+    transparent
+  );
+
+  z-index:-1;
+}
+
+/* BACKGROUND ZOOM ANIMATION */
+
+@keyframes heroZoom{
+
+  0%{
+    transform:scale(1);
+  }
+
+  100%{
+    transform:scale(1.08);
+  }
+
+}
+
+/* HERO CONTENT */
+
+.hero-content{
+  max-width:750px;
+  color:white;
+}
+
+/* SMALL TITLE */
+
+.hero-subtitle{
+  letter-spacing:5px;
+  text-transform:uppercase;
+  color:#ffb347;
+  font-weight:600;
+  margin-bottom:25px;
+
+  opacity:0;
+  transform:translateY(30px);
+
+  animation:fadeUp 1s ease forwards;
+}
+
+/* BIG TITLE */
+
+.hero-content h1{
+  font-size:6rem;
+  line-height:1;
+  font-weight:900;
+  text-transform:uppercase;
+  margin-bottom:30px;
+}
+
+/* TEXT ANIMATION */
+
+.hero-content h1 span{
+  display:block;
+  color:white;
+
+  opacity:0;
+  transform:translateY(50px);
+
+  animation:fadeUp 1s ease forwards;
+}
+
+.hero-content h1 span:nth-child(1){
+  animation-delay:0.3s;
+}
+
+.hero-content h1 span:nth-child(2){
+  animation-delay:0.6s;
+}
+
+.hero-content h1 span:nth-child(3){
+  animation-delay:0.9s;
+}
+
+/* DESCRIPTION */
+
+.hero-content p{
+  font-size:1.1rem;
+  line-height:2;
+  max-width:650px;
+  margin-bottom:40px;
+  color:#f1f1f1;
+
+  opacity:0;
+  transform:translateY(30px);
+
+  animation:fadeUp 1s ease forwards;
+  animation-delay:1.2s;
+}
+
+/* BUTTONS */
+
+
+.hero-btns{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:20px;
+  flex-wrap:wrap;
   width:100%;
-  max-width:600px;
-  height:400px;
-  border-radius: 40px;
-  box-shadow: var(--shadow);
-  border: 4px solid var(--primary);
-  animation: floatImage 4s ease-in-out infinite;
-  transition: 0.5s;
+  opacity:0;
+  transform:translateY(30px);
+  animation:fadeUp 1s ease forwards;
+  animation-delay:1.5s;
 }
 
-.hero-image img:hover {
-  transform: scale(1.04) rotate(1deg);
+.btn{
+  padding:16px 36px;
+  border:none;
+  border-radius:60px;
+  background:#ff7a00;
+  color:white;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.5s;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1rem;
+  box-shadow:0 15px 40px rgba(255,122,0,0.3);
 }
 
-@keyframes floatImage {
+.btn:hover{
+  transform:translateY(-8px);
+  background:#ff9f1c;
+}
 
-  0% {
-    transform: translateY(0px);
-  }
+.outline-btn{
+  background:transparent;
+  border:2px solid white;
+  color:white;
+}
 
-  50% {
-    transform: translateY(-20px);
-  }
+/* FADE ANIMATION */
 
-  100% {
-    transform: translateY(0px);
+@keyframes fadeUp{
+
+  to{
+    opacity:1;
+    transform:translateY(0);
   }
 
 }
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+  .hero{
+    text-align:center;
+    justify-content:center;
+  }
+
+  .hero-content h1{
+    font-size:3.5rem;
+  }
+
+  .hero-btns{
+    justify-content:center;
+  }
+
+}
+
+
+
+
+
     section {
       padding: 100px 10%;
     }
@@ -403,9 +537,9 @@ backdrop-filter: blur(20px);
 }
 
 .chef-features{
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
 }
 
 .chef-box{
@@ -429,15 +563,23 @@ backdrop-filter: blur(20px);
 }
 
 .chef-image{
-  flex: 1;
-  overflow: hidden;
-  border-radius: 40px;
+  flex:1;
+  width:100%;
+  max-width:650px;
+  overflow:hidden;
+  border-radius:40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
 .chef-image img{
-  width: 100%;
-  border-radius: 40px;
-  transition: 0.7s;
+  width:100%;
+  height:500px;
+  object-fit:cover;
+  border-radius:40px;
+  transition:0.7s;
+  display:block;
 }
 
 .chef-image:hover img{
@@ -586,17 +728,53 @@ backdrop-filter: blur(20px);
       padding: 70px 50px;
       box-shadow: var(--shadow);
     }
+    /* HEADER LINKS */
+nav ul li a {
+  text-decoration: none;
+  color: #111;   /* changed from white */
+  font-weight: 500;
+  transition: 0.3s;
+  padding: 10px;
+  display: block;
+}
+
+nav ul li a:hover {
+  color: var(--primary);
+}
+
+/* FOOTER TEXT */
+.footer-box p,
+.footer-box li,
+.footer-box a {
+  line-height: 2;
+  color: #222;   /* changed from #d4d4d4 */
+  text-decoration: none;
+  list-style: none;
+  transition: 0.3s;
+}
+
+/* COPYRIGHT */
+.copyright {
+  text-align: center;
+  border-top: 1px solid rgba(0, 0, 0, .1);
+  padding-top: 25px;
+  color: #333;
+  position: relative;
+  z-index: 2;
+  letter-spacing: 1px;
+}
 
     /* FOOTER */
 
     footer {
-      background: #000000;
-      color: white;
+      background:white;
+      color:black;
       padding: 90px 10% 30px;
       border-top: 2px solid var(--primary);
       position: relative;
       overflow: hidden;
     }
+    
 
     footer::before {
       content: "";
@@ -688,16 +866,15 @@ backdrop-filter: blur(20px);
         width: 100%;
       }
     }
-
-    .footer-box p,
-    .footer-box li,
-    .footer-box a {
-      line-height: 2;
-      color: #d4d4d4;
-      text-decoration: none;
-      list-style: none;
-      transition: 0.3s;
-    }
+.footer-box p,
+.footer-box li,
+.footer-box a {
+  line-height: 2;
+  color: #222;
+  text-decoration: none;
+  list-style: none;
+  transition: 0.3s;
+}
 
     .footer-box ul li:hover,
     .footer-box a:hover {
@@ -755,14 +932,11 @@ backdrop-filter: blur(20px);
     }
 
     .copyright {
-      text-align: center;
-      border-top: 1px solid rgba(255, 255, 255, .1);
-      padding-top: 25px;
-      color: #bdbdbd;
-      position: relative;
-      z-index: 2;
-      letter-spacing: 1px;
-    }
+  text-align: center;
+  border-top: 1px solid rgba(0, 0, 0, .1);
+  padding-top: 25px;
+  color: #333;
+}
 
     @media(max-width:992px) {
       .hero {
@@ -843,6 +1017,250 @@ section.show {
   color: var(--primary);
   margin-bottom: 10px;
 }
+/* ===================================
+   FINAL RESPONSIVE FOR ALL DEVICES
+=================================== */
+
+@media(max-width:992px){
+
+  /* HEADER */
+
+  .navbar{
+    width:100%;
+    padding:15px 20px;
+    flex-direction:column;
+    gap:15px;
+  }
+
+  nav ul{
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:12px;
+  }
+
+  /* HERO */
+
+  .hero{
+    padding:140px 25px 90px;
+    min-height:auto;
+  }
+
+  .hero-content h1{
+    font-size:3.5rem;
+  }
+
+  .hero-btns{
+    justify-content:center;
+  }
+
+  /* SECTIONS */
+
+  section{
+    padding:80px 25px;
+  }
+
+  .section-title h2{
+    font-size:2.5rem;
+  }
+
+  /* CHEF */
+
+  .chef-section{
+    flex-direction:column;
+    gap:50px;
+  }
+
+  .chef-content{
+    width:100%;
+  }
+
+  .chef-image{
+    width:100%;
+    max-width:100%;
+  }
+
+  .chef-image img{
+    width:100%;
+    height:450px;
+  }
+
+  /* SHOWCASE */
+
+  .showcase-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  /* FOOTER */
+
+  .footer-container{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+}
+
+
+/* =========================
+   MOBILE DEVICES
+========================= */
+
+@media(max-width:768px){
+
+  body{
+    overflow-x:hidden;
+  }
+
+  /* NAVBAR */
+
+  nav ul{
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .dropdown-menu{
+    position:static;
+    width:100%;
+    margin-top:10px;
+  }
+
+  .logo{
+    font-size:1.7rem;
+    text-align:center;
+  }
+
+  /* HERO */
+
+  .hero{
+    padding-top:180px;
+  }
+
+  .hero-content h1{
+    font-size:2.5rem;
+    line-height:1.2;
+  }
+
+  .hero-content p{
+    font-size:15px;
+  }
+
+  .hero-btns{
+    flex-direction:column;
+  }
+
+  .btn{
+    width:100%;
+    max-width:280px;
+  }
+
+  /* GRID */
+
+  .features,
+  .products,
+  .showcase-grid,
+  .info-section,
+  .customer-grid,
+  .journey-grid{
+    grid-template-columns:1fr;
+  }
+
+  /* CHEF */
+
+  .chef-features{
+    grid-template-columns:1fr;
+  }
+
+  .chef-content h2{
+    font-size:2.2rem;
+  }
+
+  .chef-image img{
+    height:350px;
+  }
+
+  /* EXPERIENCE */
+
+  .experience-section{
+    margin:50px 20px;
+    padding:60px 20px;
+  }
+
+  .experience-box h2{
+    font-size:2rem;
+  }
+
+  /* FOOTER */
+
+  .footer-container{
+    grid-template-columns:1fr;
+  }
+
+}
+
+
+/* =========================
+   SMALL DEVICES
+========================= */
+
+@media(max-width:480px){
+
+  .hero-content h1{
+    font-size:2rem;
+  }
+
+  .section-title h2{
+    font-size:1.8rem;
+  }
+
+  .chef-content h2{
+    font-size:1.8rem;
+  }
+
+  .showcase-overlay h3{
+    font-size:1.4rem;
+  }
+
+  .experience-box h2{
+    font-size:1.7rem;
+  }
+
+  .btn{
+    font-size:14px;
+    padding:14px 20px;
+  }
+
+  .theme-btn,
+  .rtl-btn{
+    padding:10px 14px;
+    font-size:15px;
+  }
+
+}
+/* ================= NEW RESPONSIVE FIX ================= */
+
+html, body{
+  overflow-x: hidden;
+  width: 100%;
+}
+
+img{
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* NAV FIX */
+.navbar{
+  flex-wrap: wrap;
+}
+
+/* HERO FIX */
+.hero-content h1{
+  font-size: clamp(2rem, 6vw, 5rem);
+}
+
+/* SECTION FIX */
+section{
+  padding: 80px 5%;
+}
   </style>
 </head>
 
@@ -863,11 +1281,14 @@ section.show {
               <li><a href="home.html">Home 1</a></li>
             </ul>
           </li>
+          <li><a href="about.html">About</a></li>
+           <li><a href="service.html">Service</a></li>
+           <li><a href="collection.html">Collection</a></li>
+          <li><a href="price.html">Price</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="login.html" class="login-btn">Login</a></li>
 
-          <li><a href="#features">Features</a></li>
-          <li><a href="#products">Products</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
 
         </ul>
       </nav>
@@ -880,36 +1301,36 @@ section.show {
     </div>
   </header>
 
-  <section class="hero" id="home1">
+<section class="hero" id="home1">
 
-    <div class="hero-content">
+  <div class="hero-content">
 
-      <h1>
-        Freshly Baked <span>Luxury Delights</span> Everyday
-      </h1>
+    <div class="hero-subtitle">
+      EST. 2026 • PREMIUM BAKERY
+    </div>
 
-      <p>
-        Experience premium handcrafted cakes, pastries, breads,
-        and desserts designed with love and perfection.
-      </p>
+    <h1>
 
-      <div class="hero-btns">
-        <button class="btn">Order Now</button>
-        <button class="btn outline-btn">Explore Menu</button>
-      </div>
+      <span>Sweet Crumbs</span>
+
+      
+    </h1>
+
+    <div class="hero-btns">
+
+      <button class="btn">
+        Order Now
+      </button>
+
+      <button class="btn outline-btn">
+        Explore Menu
+      </button>
 
     </div>
 
-    <div class="hero-image">
-      <img
-        src="https://market-resized.envatousercontent.com/previews/files/657679704/cakebakery-previews/04-theme-preview.jpg?w=590&h=300&cf_fit=crop&crop=top&format=auto&q=85&s=20f17d40ca6ad71df21344a4813f80d68ac2ebccc371ef2e5b9f954bda515de2"
-        alt="Bakery">
-    </div>
+  </div>
 
-  </section>
-
-  
-
+</section>
   <section id="features">
 
     <div class="section-title">
@@ -1004,19 +1425,18 @@ section.show {
 
 <section class="chef-section">
 
+  <!-- LEFT CONTENT -->
+
   <div class="chef-content">
 
     <span>Luxury Bakery</span>
 
     <h2>
-      Crafted By Professional Master Bakers
+      Luxury Artisan Baking Experience
     </h2>
 
-    <p>
-      Our premium bakery creations are handcrafted daily using
-      world-class ingredients, elegant presentation and luxury
-      baking artistry for unforgettable taste experiences.
-    </p>
+    
+    <!-- FEATURE BOXES -->
 
     <div class="chef-features">
 
@@ -1035,9 +1455,16 @@ section.show {
         <h3>Fresh Everyday</h3>
       </div>
 
+      <div class="chef-box">
+        <i class="bi bi-cup-hot-fill"></i>
+        <h3>Premium Recipes</h3>
+      </div>
+
     </div>
 
   </div>
+
+  <!-- RIGHT IMAGE -->
 
   <div class="chef-image">
 
@@ -1128,44 +1555,50 @@ section.show {
 
 </section>
 
-<!-- PREMIUM INFO CARDS -->
+<section class="info-section-wrapper">
 
-<section class="info-section">
-
-  <div class="info-card">
-
-    <i class="bi bi-cake2-fill"></i>
-
-    <h3>Custom Cakes</h3>
-
-    <p>
-      Beautiful customized cakes for birthdays, weddings
-      and luxury celebrations.
-    </p>
-
+  <div class="section-title">
+    <h2>Why Customers Love Sweet Crumbs</h2>
   </div>
 
-  <div class="info-card">
+  <div class="info-section">
 
-    <i class="bi bi-truck"></i>
+    <div class="info-card">
 
-    <h3>Fast Delivery</h3>
+      <i class="bi bi-cake2-fill"></i>
 
-    <p>
-      Premium doorstep delivery with elegant bakery packaging.
-    </p>
+      <h3>Custom Cakes</h3>
 
-  </div>
+      <p>
+        Beautiful customized cakes for birthdays, weddings
+        and luxury celebrations.
+      </p>
 
-  <div class="info-card">
+    </div>
 
-    <i class="bi bi-gem"></i>
+    <div class="info-card">
 
-    <h3>Luxury Taste</h3>
+      <i class="bi bi-truck"></i>
 
-    <p>
-      Rich premium flavors crafted with artistic perfection.
-    </p>
+      <h3>Fast Delivery</h3>
+
+      <p>
+        Premium doorstep delivery with elegant bakery packaging.
+      </p>
+
+    </div>
+
+    <div class="info-card">
+
+      <i class="bi bi-gem"></i>
+
+      <h3>Luxury Taste</h3>
+
+      <p>
+        Rich premium flavors crafted with artistic perfection.
+      </p>
+
+    </div>
 
   </div>
 
@@ -1293,7 +1726,6 @@ section.show {
 </section>
 
 
-<!-- ================= CUSTOMER EXPERIENCE PREMIUM SECTION ================= -->
 
 <section class="customer-experience">
 
@@ -1359,7 +1791,6 @@ section.show {
 
 </section>
 
-<!-- ================= ANIMATION STYLE ================= -->
 
 <style>
 
@@ -1425,10 +1856,6 @@ section.show {
 
 </style>
 
-<!-- ================= END CUSTOMER SECTION ================= -->
-
-<!-- ================= END EXTRA SECTIONS ================= -->
-
   <!-- NEW PREMIUM FOOTER -->
 
   <footer id="contact">
@@ -1439,7 +1866,7 @@ section.show {
 
       <div class="footer-box">
 
-        <h3>About Company</h3>
+        <h3>Sweet Crumbs </h3>
 
         <p>
           Sweet Crumbs creates handcrafted luxury cakes,

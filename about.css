@@ -22,11 +22,8 @@ body {
 }
 
 body.dark header{
-  background: rgba(0,0,0,0.9);
-    background: var(--header);
-
+  background: var(--header);
 }
-
 body.dark .section{
   background:#1e1e1e;
 }
@@ -55,7 +52,8 @@ header {
   top: 0;
   width: 100%;
   z-index: 1000;
-  background: rgba(0,0,0,0.6);
+  background:white;
+  color: #000000;
   backdrop-filter: blur(20px);
 }
 
@@ -81,7 +79,7 @@ nav ul {
 }
 
 nav ul li a {
-  color: white;
+  color:black;
   text-decoration: none;
   transition: 0.3s;
 }
@@ -99,7 +97,7 @@ nav ul li a:hover {
   display: none;
   position: absolute;
   top: 40px;
-  background: #111;
+  background:white;
   border-radius: 10px;
   overflow: hidden;
 }
@@ -111,7 +109,7 @@ nav ul li a:hover {
 .dropdown-menu li a {
   display: block;
   padding: 10px 15px;
-  color: white;
+  color:black;
 }
 
 /* BUTTONS */
@@ -269,19 +267,46 @@ nav ul li a:hover {
 @media(max-width:768px){
   .hero h1{font-size:40px;}
   .section{flex-direction:column !important;}
+  .navbar{
+  flex-direction:column;
+  padding:10px 5%;
+  gap:8px;
 }
 
+.logo{
+  font-size:1.5rem;
+}
+
+nav ul{
+  flex-direction:row;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:8px;
+  padding:0;
+}
+
+nav ul li a{
+  padding:6px 10px;
+  font-size:14px;
+}
+
+/* reduce button size */
+.header-buttons{
+  gap:10px;
+
+
+}
+}
 
 /* FOOTER */
 
     footer {
-      background: #000000;
-      color: white;
-      padding: 90px 10% 30px;
-      border-top: 2px solid var(--primary);
-      position: relative;
-      overflow: hidden;
-    }
+  background: var(--card);
+  color: var(--text);
+  padding: 90px 10% 30px;
+  border-top: 2px solid #ff7a00;
+  transition: 0.4s;
+}
 
     footer::before {
       content: "";
@@ -446,4 +471,96 @@ nav ul li a:hover {
   border-top: 1px solid #333;
   padding-top: 15px;
 }
-    
+footer {
+  background:white;
+  color: black;
+  padding: 90px 10% 30px;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 40px;
+}
+
+.footer-box h3 {
+  color: #ff7a00;
+  margin-bottom: 15px;
+}
+
+.footer-box p,
+.footer-box a {
+  color:black;
+  text-decoration: none;
+}
+
+.footer-box a:hover {
+  color: #ff7a00;
+}
+
+.social-icons a {
+  margin-right: 10px;
+  font-size: 20px;
+  color: black;
+}
+
+.newsletter-input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 30px;
+  border: none;
+}
+
+.newsletter-btn {
+  margin-top: 10px;
+  width: 100%;
+  padding: 12px;
+  border-radius: 30px;
+  background: #ff7a00;
+  color: black;
+  border: none;
+}
+.footer-box h3 {
+  position: relative;
+  display: inline-block;
+  color: #ff7a00;
+  margin-bottom: 22px;
+  cursor: pointer;
+}
+
+/* underline animation */
+.footer-box h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background: #ff7a00;
+  transition: 0.4s ease;
+}
+
+/* hover effect */
+.footer-box h3:hover::after {
+  width: 100%;
+}
+
+/* optional hover glow */
+.footer-box h3:hover {
+  text-shadow: 0 0 10px rgba(255, 122, 0, 0.6);
+  transform: translateX(5px);
+  transition: 0.3s ease;
+}
+.social-text{
+  color: black;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+.newsletter-text{
+  color: black;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}

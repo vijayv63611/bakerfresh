@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0"/>
+
+  <title>Baker Fresh - Pricing</title>
+
+  <!-- GOOGLE FONT -->
+
+  <link rel="preconnect"
+    href="https://fonts.googleapis.com">
+
+  <link rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- BOOTSTRAP ICONS -->
+
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- CSS FILE -->
+
+  <link rel="stylesheet"
+    href="price.css">
+
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header>
+
+    <div class="navbar">
+
+      <div class="logo">
+        Baker Fresh
+      </div>
+
+      <nav>
+
+        <ul>
+            
+          <li class="dropdown">
+            <a href="index.html">Home ▼</a>
+
+            <ul class="dropdown-menu">
+              <li><a href="home.html">Home 1</a></li>
+            </ul>
+
+          <li><a href="about.html">About</a></li>
+           <li><a href="service.html">Service</a></li>
+           <li><a href="collection.html">Collection</a></li>
+          <li><a href="price.html">Price</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="login.html" class="login-btn">Login</a></li>
+
+
+        </ul>
+
+      </nav>
+
+      <div class="header-buttons">
+
+        <button class="theme-btn"
+          onclick="toggleTheme()">
+
+          <i class="bi bi-moon-stars"></i>
+
+        </button>
+
+        <button class="rtl-btn"
+          onclick="toggleRTL()">
+
+          ⇄
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </header>
+
+  
+<!-- HERO SECTION -->
+
+<section class="pricing-hero">
+
+  <div class="hero-content">
+
+    <span class="hero-tag">
+      Premium Bakery Experience
+    </span>
+
+    <h1>
+      Fresh Bakery <span>Luxury Pricing</span>
+    </h1>
+
+    <p>
+      Discover handcrafted cakes, pastries and dessert
+      collections designed for birthdays, weddings and
+      premium celebrations.
+    </p>
+
+    <div class="hero-btns">
+
+      <button class="btn primary-btn">
+        Explore Pricing
+      </button>
+
+      <button class="btn secondary-btn">
+        View Desserts
+      </button>
+
+    </div>
+
+    <!-- STATS -->
+
+    <div class="hero-stats">
+
+      <div class="stat-box">
+        <h3>15K+</h3>
+        <p>Happy Customers</p>
+      </div>
+
+      <div class="stat-box">
+        <h3>120+</h3>
+        <p>Luxury Cakes</p>
+      </div>
+
+      <div class="stat-box">
+        <h3>4.9★</h3>
+        <p>Customer Rating</p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="hero-image">
+
+    <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=1200&auto=format&fit=crop">
+
+  </div>
+
+</section>
+
+  <!-- PRICING -->
+
+  <section>
+
+    <div class="section-title">
+
+      <h2>Pricing Packages</h2>
+
+      <p>
+        Luxury bakery plans for every celebration.
+      </p>
+
+    </div>
+
+    <div class="pricing-grid">
+
+      <!-- CARD -->
+
+      <div class="pricing-card">
+
+        <h3>Classic Pack</h3>
+
+        <div class="price">$29</div>
+
+        <ul>
+
+          <li>Custom Cupcakes</li>
+
+          <li>Fresh Pastries</li>
+
+          <li>Birthday Dessert Box</li>
+
+          <li>Free Delivery</li>
+
+        </ul>
+
+        <button class="btn secondary-btn">
+          Choose Plan
+        </button>
+
+      </div>
+
+      <!-- POPULAR -->
+
+      <div class="pricing-card popular">
+
+        <div class="tag">
+          Popular
+        </div>
+
+        <h3>Premium Pack</h3>
+
+        <div class="price">$59</div>
+
+        <ul>
+
+          <li>Luxury Cakes</li>
+
+          <li>Premium Desserts</li>
+
+          <li>Event Catering</li>
+
+          <li>Priority Delivery</li>
+
+        </ul>
+
+        <button class="btn primary-btn">
+          Choose Plan
+        </button>
+
+      </div>
+
+      <!-- CARD -->
+
+      <div class="pricing-card">
+
+        <h3>Royal Pack</h3>
+
+        <div class="price">$99</div>
+
+        <ul>
+
+          <li>Wedding Cakes</li>
+
+          <li>Unlimited Desserts</li>
+
+          <li>Luxury Decoration</li>
+
+          <li>VIP Support</li>
+
+        </ul>
+
+        <button class="btn secondary-btn">
+          Choose Plan
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FEATURES -->
+
+  <section>
+
+    <div class="section-title">
+
+      <h2>Why Choose Baker Fresh</h2>
+
+      <p>
+        Premium bakery quality with handcrafted perfection.
+      </p>
+
+    </div>
+
+    <div class="features">
+
+      <div class="feature-card">
+
+        <i class="bi bi-cake2-fill"></i>
+
+        <h3>Fresh Cakes</h3>
+
+        <p>
+          Daily handcrafted cakes with premium ingredients.
+        </p>
+
+      </div>
+
+      <div class="feature-card">
+
+        <i class="bi bi-heart-fill"></i>
+
+        <h3>Luxury Taste</h3>
+
+        <p>
+          Elegant flavors designed for unforgettable moments.
+        </p>
+
+      </div>
+
+      <div class="feature-card">
+
+        <i class="bi bi-truck"></i>
+
+        <h3>Fast Delivery</h3>
+
+        <p>
+          Quick doorstep delivery with premium packaging.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PROCESS -->
+
+  <section>
+
+    <div class="section-title">
+
+      <h2>Luxury Baking Process</h2>
+
+      <p>
+        Premium handcrafted bakery journey.
+      </p>
+
+    </div>
+
+    <div class="features">
+
+      <div class="feature-card">
+
+        <i class="bi bi-basket2-fill"></i>
+
+        <h3>Fresh Ingredients</h3>
+
+        <p>
+          Organic ingredients selected from trusted farms.
+        </p>
+
+      </div>
+
+      <div class="feature-card">
+
+        <i class="bi bi-cake2-fill"></i>
+
+        <h3>Master Baking</h3>
+
+        <p>
+          Expert bakers create handcrafted desserts.
+        </p>
+
+      </div>
+
+      <div class="feature-card">
+
+        <i class="bi bi-gem"></i>
+
+        <h3>Luxury Finish</h3>
+
+        <p>
+          Elegant presentation crafted beautifully.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- GALLERY -->
+
+  <section>
+
+    <div class="section-title">
+
+      <h2>Luxury Dessert Gallery</h2>
+
+      <p>
+        Premium handcrafted dessert collection.
+      </p>
+
+    </div>
+
+    <div class="gallery-grid">
+
+      <div class="gallery-card">
+
+        <img
+          src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=1000&auto=format&fit=crop">
+
+        <div class="gallery-overlay">
+          Chocolate Cakes
+        </div>
+
+      </div>
+
+      <div class="gallery-card">
+
+        <img
+          src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?q=80&w=1000&auto=format&fit=crop">
+
+        <div class="gallery-overlay">
+          Premium Pastries
+        </div>
+
+      </div>
+
+      <div class="gallery-card">
+
+        <img
+          src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1000&auto=format&fit=crop">
+
+        <div class="gallery-overlay">
+          Artisan Bakery
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CTA -->
+
+  <section>
+
+    <div class="testimonial">
+
+      <h2>Ready For Sweet Luxury?</h2>
+
+      <p>
+
+        Order handcrafted premium desserts and celebrate
+        your special moments with Baker Fresh today.
+
+      </p>
+
+      <br><br>
+
+      <button class="btn primary-btn">
+        Order Now
+      </button>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="footer-container">
+
+      <div class="footer-box">
+
+        <h3>Baker Fresh</h3>
+
+        <p>
+          Premium handcrafted bakery creations designed
+          for luxury celebrations and sweet experiences.
+        </p>
+
+      </div>
+
+      <div class="footer-box">
+
+        <h3>Quick Links</h3>
+
+        <ul>
+
+          <li>Home</li>
+
+          <li>Pricing</li>
+
+          <li>Menu</li>
+
+          <li>About</li>
+
+        </ul>
+
+      </div>
+
+      <div class="footer-box">
+
+        <h3>Follow Us</h3>
+
+        <div class="social-icons">
+
+          <a href="#"><i class="bi bi-instagram"></i></a>
+
+          <a href="#"><i class="bi bi-facebook"></i></a>
+
+          <a href="#"><i class="bi bi-twitter"></i></a>
+
+          <a href="#"><i class="bi bi-whatsapp"></i></a>
+
+        </div>
+
+      </div>
+
+      <!-- NEWSLETTER -->
+
+      <div class="footer-box">
+
+        <h3>Newsletter</h3>
+
+        <p>
+          Subscribe for bakery offers and dessert updates.
+        </p>
+
+        <input type="email"
+          placeholder="Enter your email"
+          class="newsletter-input">
+
+        <button class="newsletter-btn">
+          Subscribe Now
+        </button>
+
+      </div>
+
+    </div>
+
+    <div class="copyright">
+      © 2026 Baker Fresh. All Rights Reserved.
+    </div>
+
+  </footer>
+
+  <!-- JS -->
+
+  <script src="price.js"></script>
+
+</body>
+
+</html>
