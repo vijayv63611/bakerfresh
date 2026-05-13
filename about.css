@@ -498,10 +498,37 @@ footer {
   color: #ff7a00;
 }
 
-.social-icons a {
-  margin-right: 10px;
-  font-size: 20px;
-  color: black;
+.social-icons{
+  display:flex;
+  gap:15px;
+  margin-top:20px;
+}
+
+.social-icons a{
+  width:45px;
+  height:45px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:50%;
+
+  background:#ff7a00;
+
+  text-decoration:none;
+
+  transition:0.4s;
+}
+
+.social-icons a i{
+  color:white;
+  font-size:20px;
+}
+
+.social-icons a:hover{
+  background:#ff9a2f;
+  transform:translateY(-5px) scale(1.1);
 }
 
 .newsletter-input {
@@ -563,4 +590,45 @@ footer {
   font-size: 14px;
   line-height: 1.6;
   margin-bottom: 10px;
+}
+/* DARK MODE FOOTER */
+
+body.dark footer{
+  background:#000;
+  color:white;
+}
+
+body.dark .footer-box p,
+body.dark .footer-box a,
+body.dark .footer-box li,
+body.dark .copyright,
+body.dark .social-text,
+body.dark .newsletter-text{
+  color:white;
+}
+
+body.dark .newsletter-input{
+  background:#1e1e1e;
+  color:white;
+  border:1px solid #333;
+}
+
+body.dark .newsletter-input::placeholder{
+  color:#bbb;
+}
+
+body.dark .copyright{
+  border-top:1px solid #333;
+}
+
+body.dark .footer-box a:hover{
+  color:#ff7a00;
+}
+
+body.dark .social-icons a{
+  background:#ff7a00;
+}
+
+body.dark .social-icons a i{
+  color:white;
 }
