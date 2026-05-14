@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sweet Crumbs | Artisan Bread Article</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+<style>
+
+/* ================= RESET ================= */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  background:#f8fafc;
+  color:#111;
+  overflow-x:hidden;
+}
+
+/* ================= ANIMATIONS ================= */
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(40px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes zoom{
+  from{opacity:0; transform:scale(0.9);}
+  to{opacity:1; transform:scale(1);}
+}
+
+/* ================= CONTAINER ================= */
+.container{
+  width:85%;
+  margin:auto;
+}
+
+/* ================= HERO ================= */
+.hero{
+  height:100vh;
+  background:url('https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1400&auto=format&fit=crop')
+  center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  position:relative;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+}
+
+.hero-content{
+  position:relative;
+  color:#fff;
+  animation:fadeUp 1s ease;
+}
+
+.hero-content h1{
+  font-size:55px;
+  margin-bottom:15px;
+}
+
+.hero-content p{
+  max-width:700px;
+  margin:auto;
+  line-height:1.8;
+}
+
+/* ================= SECTION ================= */
+.section{
+  padding:80px 0;
+  animation:fadeUp 0.8s ease;
+}
+
+.title{
+  text-align:center;
+  margin-bottom:50px;
+}
+
+.title h2{
+  font-size:38px;
+}
+
+.title p{
+  color:#666;
+  margin-top:10px;
+}
+
+/* ================= QUOTE ================= */
+.quote{
+  background:#fff;
+  padding:40px;
+  border-left:6px solid #ff7a00;
+  font-size:18px;
+  font-style:italic;
+  box-shadow:0 10px 25px rgba(0,0,0,0.06);
+  border-radius:10px;
+}
+
+/* ================= IMAGE TEXT SECTION ================= */
+.image-text{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:40px;
+  align-items:center;
+}
+
+.image-text img{
+  width:100%;
+  border-radius:20px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+.image-text p{
+  line-height:1.8;
+  color:#444;
+}
+
+/* ================= CARDS ================= */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+}
+
+.card{
+  background:#fff;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+  transition:0.4s;
+  animation:zoom 0.6s ease;
+}
+
+.card:hover{
+  transform:translateY(-10px);
+}
+
+.card img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+}
+
+.card-content{
+  padding:20px;
+}
+
+.card-content h3{
+  margin-bottom:10px;
+}
+
+/* ================= FEATURE STEPS ================= */
+.steps{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+
+.step{
+  background:#fff;
+  padding:25px;
+  border-radius:15px;
+  text-align:center;
+  box-shadow:0 8px 20px rgba(0,0,0,0.08);
+  transition:0.3s;
+}
+
+.step:hover{
+  transform:scale(1.05);
+}
+
+.step i{
+  font-size:35px;
+  color:#ff7a00;
+  margin-bottom:10px;
+}
+
+/* ================= FULL IMAGE ================= */
+.full-img img{
+  width:100%;
+  height:450px;
+  object-fit:cover;
+  border-radius:25px;
+  margin-top:30px;
+}
+
+/* ================= CALL TO ACTION ================= */
+.cta{
+  text-align:center;
+}
+
+.cta a{
+  display:inline-block;
+  padding:14px 35px;
+  background:#ff7a00;
+  color:#fff;
+  border-radius:30px;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+.cta a:hover{
+  background:#ff9a2f;
+  transform:translateY(-5px);
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Why Artisan Bread Tastes Better</h1>
+    <p>Discover the secret behind handcrafted bakery perfection, slow fermentation, and premium ingredients.</p>
+  </div>
+</section>
+
+<!-- ================= SECTION 1 ================= -->
+<section class="section container">
+  <div class="title">
+    <h2>Introduction</h2>
+    <p>Sweet Crumbs premium bakery story</p>
+  </div>
+
+  <div class="quote">
+    Artisan baking is not just food — it is patience, passion, and precision shaped into every loaf.
+  </div>
+</section>
+
+<!-- ================= SECTION 2 ================= -->
+<section class="section container">
+
+  <div class="title">
+    <h2>What Makes Artisan Bread Special?</h2>
+  </div>
+
+  <div class="image-text">
+    <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?q=80&w=1200&auto=format&fit=crop">
+
+    <p>
+      Artisan bread is made using traditional methods without shortcuts.
+      The dough is allowed to rest for hours, developing natural flavor and texture.
+      At Sweet Crumbs, we focus on quality, not speed.
+      Every loaf tells a story of craftsmanship and care.
+    </p>
+  </div>
+
+</section>
+
+<!-- ================= SECTION 3 ================= -->
+<section class="section container">
+
+  <div class="title">
+    <h2>Why Customers Love It</h2>
+  </div>
+
+  <div class="grid">
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1200&auto=format&fit=crop">
+      <div class="card-content">
+        <h3>Natural Ingredients</h3>
+        <p>No chemicals, only fresh bakery essentials.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1548940740-204726a19be3?q=80&w=1200&auto=format&fit=crop">
+      <div class="card-content">
+        <h3>Perfect Texture</h3>
+        <p>Crispy outside, soft inside.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?q=80&w=1200&auto=format&fit=crop">
+      <div class="card-content">
+        <h3>Fresh Daily Bake</h3>
+        <p>Baked fresh every morning.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= SECTION 4 ================= -->
+<section class="section container">
+
+  <div class="title">
+    <h2>Our Baking Process</h2>
+  </div>
+
+  <div class="steps">
+
+    <div class="step">
+      <i class="bi bi-clock-history"></i>
+      <h3>Dough Rest</h3>
+      <p>Slow fermentation for perfect taste.</p>
+    </div>
+
+    <div class="step">
+      <i class="bi bi-heart-fill"></i>
+      <h3>Hand Crafted</h3>
+      <p>Shaped with care by expert bakers.</p>
+    </div>
+
+    <div class="step">
+      <i class="bi bi-fire"></i>
+      <h3>Perfect Bake</h3>
+      <p>Golden crust with rich aroma.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= SECTION 5 ================= -->
+<section class="section container">
+
+  <div class="title">
+    <h2>Inside Sweet Crumbs Kitchen</h2>
+  </div>
+
+  <div class="full-img">
+    <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=1400&auto=format&fit=crop">
+  </div>
+
+</section>
+
+<!-- ================= SECTION 6 ================= -->
+<section class="section container">
+
+  <div class="quote">
+    “Great bread is not made fast — it is made with patience, passion, and perfection.”
+  </div>
+
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="section container">
+
+  <div class="cta">
+    <a href="blog.html">← Back to Blog</a>
+  </div>
+
+</section>
+
+</body>
+</html>

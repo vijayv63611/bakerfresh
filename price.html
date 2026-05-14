@@ -37,72 +37,77 @@
 
 <body>
 
-  <!-- HEADER -->
-
   <header>
 
-    <div class="navbar">
+  <div class="navbar">
 
-      <div class="logo">
-        Sweet Crumbs
-      </div>
+    <div class="logo">
+      Sweet Crumbs
+    </div>
 
-      <nav>
+    <nav>
 
-        <ul>
-            
-          <li class="dropdown">
-            <a href="index.html">Home ▼</a>
+      <ul>
 
-            <ul class="dropdown-menu">
-              <li><a href="home.html">Home 1</a></li>
-            </ul>
+        <!-- DROPDOWN -->
+        <li class="dropdown">
 
-          <li><a href="about.html">About</a></li>
-           <li><a href="service.html">Service</a></li>
-           <li><a href="collection.html">Collection</a></li>
-          <li><a href="price.html">Price</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="login.html" class="login-btn">Login</a></li>
+          <a href="index.html">Home ▼</a>
+
+          <ul class="dropdown-menu">
+            <li><a href="index.html">Home 1</a></li>
+                <li><a href="home.html">Home 2</a></li>
+
+          </ul>
+
+        </li> <!-- MISSING CLOSING -->
+
+        <li><a href="about.html">About</a></li>
+
+        <li><a href="service.html">Service</a></li>
+
+        <li><a href="price.html">Price</a></li>
+
+        <li><a href="blog.html">Blog</a></li>
+
+        <li><a href="contact.html">Contact</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
 
 
-        </ul>
+        <li>
+          <a href="login.html" class="login-btn">
+            <i class="bi bi-box-arrow-in-right"></i> Login
+          </a>
+        </li>
 
-      </nav>
+      </ul>
 
-      <div class="header-buttons">
+    </nav>
 
-        <button class="theme-btn"
-          onclick="toggleTheme()">
+    <div class="header-buttons">
 
-          <i class="bi bi-moon-stars"></i>
+      <button class="theme-btn" onclick="toggleTheme()">
+        <i class="bi bi-moon-stars"></i>
+      </button>
 
-        </button>
-
-        <button class="rtl-btn"
-          onclick="toggleRTL()">
-
-          ⇄
-
-        </button>
-
-      </div>
+      <button class="rtl-btn" onclick="toggleRTL()">
+        ⇄
+      </button>
 
     </div>
 
-  </header>
+  </div>
 
-  
+</header>
+
 <!-- HERO SECTION -->
 
 <section class="pricing-hero">
 
+  <!-- LEFT CONTENT -->
   <div class="hero-content">
 
-    <span class="hero-tag">
-      Premium Bakery Experience
-    </span>
+    
 
     <h1>
       Fresh Bakery <span>Luxury Pricing</span>
@@ -140,14 +145,12 @@
         <p>Luxury Cakes</p>
       </div>
 
-      <div class="stat-box">
-        <h3>4.9★</h3>
-        <p>Customer Rating</p>
-      </div>
-
+    
     </div>
 
   </div>
+
+  <!-- RIGHT IMAGE -->
 
   <div class="hero-image">
 
@@ -457,7 +460,7 @@
 
       <div class="footer-box">
 
-        <h3>Baker Fresh</h3>
+        <h3>Sweet Crumbs</h3>
 
         <p>
           Premium handcrafted bakery creations designed
@@ -487,6 +490,10 @@
       <div class="footer-box">
 
         <h3>Follow Us</h3>
+        <p class="social-text">
+    Stay connected with us on social media for latest bakery updates,
+    offers, and fresh creations every day.
+  </p>
 
         <div class="social-icons">
 

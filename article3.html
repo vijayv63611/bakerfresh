@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sweet Crumbs | Article 3</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+<style>
+
+/* ================= BASE ================= */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  background:#f8fafc;
+  color:#111;
+  overflow-x:hidden;
+}
+
+/* ================= ANIMATION ================= */
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(40px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes zoomIn{
+  from{opacity:0; transform:scale(0.9);}
+  to{opacity:1; transform:scale(1);}
+}
+
+/* ================= CONTAINER ================= */
+.container{
+  width:85%;
+  margin:auto;
+}
+
+/* ================= HERO ================= */
+.hero{
+  height:100vh;
+  background:
+    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+    url('https://images.unsplash.com/photo-1486427944299-d1955d23e34d?q=80&w=1600&auto=format&fit=crop')
+    center/cover no-repeat;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  position:relative;
+}
+
+.hero-content{
+  color:#fff;
+  animation:fadeUp 1s ease;
+  max-width:800px;
+}
+
+.hero-content span{
+  background:rgba(255,255,255,0.15);
+  padding:8px 18px;
+  border-radius:30px;
+  font-size:14px;
+}
+
+.hero-content h1{
+  font-size:55px;
+  margin:20px 0;
+}
+
+.hero-content p{
+  line-height:1.8;
+  color:#f1f1f1;
+}
+
+/* ================= SECTION ================= */
+.section{
+  padding:80px 0;
+  animation:fadeUp 0.8s ease;
+}
+
+/* ================= TITLE ================= */
+.title{
+  text-align:center;
+  margin-bottom:40px;
+}
+
+.title h2{
+  font-size:38px;
+}
+
+.title p{
+  color:#666;
+  max-width:700px;
+  margin:auto;
+  line-height:1.7;
+}
+
+/* ================= STORY ================= */
+.story{
+  background:#fff;
+  padding:40px;
+  border-radius:20px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.06);
+  line-height:1.9;
+  color:#444;
+}
+
+/* ================= TWO COLUMN ================= */
+.twocol{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:40px;
+  align-items:center;
+}
+
+.twocol img{
+  width:100%;
+  border-radius:20px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+.twocol p{
+  line-height:1.9;
+  color:#444;
+}
+
+/* ================= GRID ================= */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+}
+
+.card{
+  background:#fff;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+  transition:0.4s;
+  animation:zoomIn 0.6s ease;
+}
+
+.card:hover{
+  transform:translateY(-10px);
+}
+
+.card img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+}
+
+.card-content{
+  padding:20px;
+}
+
+/* ================= FEATURES ================= */
+.features{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+
+.feature{
+  background:#fff;
+  padding:25px;
+  border-radius:15px;
+  text-align:center;
+  box-shadow:0 8px 20px rgba(0,0,0,0.08);
+  transition:0.3s;
+}
+
+.feature:hover{
+  transform:scale(1.05);
+}
+
+.feature i{
+  font-size:35px;
+  color:#ff7a00;
+  margin-bottom:10px;
+}
+
+/* ================= IMAGE ================= */
+.img-box img{
+  width:75%;
+  height:400px;
+  object-fit:cover;
+  border-radius:25px;
+  margin-top:30px;
+  align-items: center;
+  margin-left: 180px;;
+}
+
+/* ================= QUOTE ================= */
+.quote{
+  background:#fff;
+  padding:40px;
+  border-left:6px solid #ff7a00;
+  font-style:italic;
+  font-size:18px;
+  box-shadow:0 10px 20px rgba(0,0,0,0.06);
+}
+
+/* ================= CTA ================= */
+.cta{
+  text-align:center;
+}
+
+.cta a{
+  display:inline-block;
+  padding:14px 35px;
+  background:#ff7a00;
+  color:#fff;
+  border-radius:30px;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+.cta a:hover{
+  background:#ff9a2f;
+  transform:translateY(-5px);
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="hero-content">
+    <span>Sweet Crumbs Premium Bakery Story</span>
+    <h1>Inside Our Signature Pastries</h1>
+    <p>
+      Discover how Sweet Crumbs crafts luxury pastries with butter-rich layers,
+      artisan techniques, and premium ingredients.
+    </p>
+  </div>
+</section>
+
+<!-- ================= SECTION 1 ================= -->
+<section class="section container">
+
+  <div class="title">
+    <h2>Luxury Pastry Experience</h2>
+    <p>Where baking meets art and emotion</p>
+  </div>
+
+  <div class="story">
+    At Sweet Crumbs, pastries are crafted with precision and passion.
+    Every layer is carefully folded, every ingredient is chosen for premium quality,
+    and every bite delivers a rich, buttery experience.
+
+    We believe pastries are not just desserts — they are emotional experiences
+    that connect people with taste, memory, and joy.
+  </div>
+
+</section>
+
+<!-- ================= SECTION 2 ================= -->
+<section class="section container">
+
+  <div class="twocol">
+
+    <img src="images/r11.jpg">
+
+    <p>
+  Our croissants and pastries follow traditional French baking methods that have been perfected over centuries.
+  Every batch begins with carefully measured ingredients, where high-quality flour, rich butter, and pure yeast
+  come together to create the foundation of excellence.
+
+  The dough is then gently layered with butter through a delicate folding process known as lamination.
+  
+
+  This slow and thoughtful process produces the unmistakable flaky texture, rich buttery aroma,
+  and melt-in-the-mouth experience that defines Sweet Crumbs bakery craftsmanship.
+  Every bite reflects dedication, tradition, and the art of true artisan baking.
+</p>
+
+  </div>
+
+</section>
+
+<!-- ================= SECTION 3 ================= -->
+<section class="section container">
+
+  <div class="title">
+    <h2>Our Signature Pastries</h2>
+  </div>
+
+  <div class="grid">
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=1200&auto=format&fit=crop">
+      <div class="card-content">
+        <h3>Butter Croissant</h3>
+        <p>Flaky, golden, and buttery perfection.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?q=80&w=1200&auto=format&fit=crop">
+      <div class="card-content">
+        <h3>Chocolate Danish</h3>
+        <p>Rich chocolate with soft pastry layers.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1200&auto=format&fit=crop">
+      <div class="card-content">
+        <h3>Fruit Tart</h3>
+        <p>Fresh fruits with creamy filling.</p>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ================= SECTION 4 ================= -->
+<section class="section container">
+
+  <div class="title">
+    <h2>Why Choose Sweet Crumbs</h2>
+  </div>
+
+  <div class="features">
+
+    <div class="feature">
+      <i class="bi bi-droplet-half"></i>
+      <h3>Rich Butter</h3>
+      <p>Premium imported ingredients.</p>
+    </div>
+
+    <div class="feature">
+      <i class="bi bi-clock-history"></i>
+      <h3>Slow Process</h3>
+      <p>Perfect fermentation timing.</p>
+    </div>
+
+    <div class="feature">
+      <i class="bi bi-stars"></i>
+      <h3>Luxury Finish</h3>
+      <p>Elegant bakery presentation.</p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ================= SECTION 5 ================= -->
+<section class="section container">
+
+  <div class="img-box">
+    <img src="images/r12.jpg">
+  </div>
+
+</section>
+
+<!-- ================= SECTION 6 ================= -->
+<section class="section container">
+
+  <div class="quote">
+    “Every pastry is crafted with patience, passion, and perfection — the true signature of Sweet Crumbs.”
+  </div>
+
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="section container">
+
+  <div class="cta">
+    <a href="blog.html">← Back to Blog</a>
+  </div>
+
+</section>
+
+</body>
+</html>

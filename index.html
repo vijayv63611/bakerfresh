@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Luxury Bakery</title>
-
+<link rel="preload" as="image" href="./images/c2.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -43,43 +43,31 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.m
   --shadow: 0 10px 30px rgba(0,0,0,0.12);
 }
 
-/* DARK THEME */
 body.dark {
   --bg: #0f0f0f;
   --text: #ffffff;
   --card: #1a1a1a;
-
   --primary: #ff9a2f;
   --secondary: #ffb347;
-
   --header-bg: #111111;
   --footer-bg: #111111;
-
   --shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-/* OPTIONAL LIGHT THEME CLASS (explicit) */
 body.light {
   --bg: #fff8f0;
   --text: #111111;
   --card: #ffffff;
-
   --primary: #ff7a00;
   --secondary: #ff9f1c;
-
   --header-bg: #ffffff;
   --footer-bg: #ffffff;
-
   --shadow: 0 10px 30px rgba(0,0,0,0.12);
 }
-
-
-
     p {
   line-height: 1.8;
   opacity: 0.85;
 }
-
 h1, h2, h3 {
   letter-spacing: 0.5px;
 }
@@ -91,9 +79,10 @@ h1, h2, h3 {
       overflow-x: hidden;
     }
 
-    header {
+ header {
   position: fixed;
-  top: 0;
+  top:0;
+  height:80px;
   width: 100%;
   z-index: 1000;
   background: var(--header-bg);
@@ -102,12 +91,10 @@ h1, h2, h3 {
   transition: 0.4s ease;
 }
 
-    
-
     .logo {
   font-size: 2rem;
   font-weight: 700;
-  color:orange;   /* ✅ visible in both themes */
+  color:orange;   
   transition: 0.3s ease;
 }
 .navbar{
@@ -153,7 +140,6 @@ nav ul li a {
   backdrop-filter: blur(15px);
   border-radius:18px;
   overflow:hidden;
-  
 box-shadow: 0 15px 40px rgba(0,0,0,0.4);
   opacity:0;
   visibility:hidden;
@@ -170,7 +156,7 @@ box-shadow: 0 15px 40px rgba(0,0,0,0.4);
 }
 .dropdown-menu li a{
   display:block;
-  padding:8px 12px;   /* smaller height */
+  padding:8px 12px;   
   color:white;
   font-size:14px;
 }
@@ -230,14 +216,6 @@ box-shadow: 0 15px 40px rgba(0,0,0,0.4);
       background: #ff9a2f;
     }
 
-    /* ================= PREMIUM HERO SECTION ================= */
-
-
-/* ================= PREMIUM HERO ================= */
-
-/* =========================
-   TEXT ANIMATION HERO
-========================= */
 
 .hero{
   min-height:100vh;
@@ -248,20 +226,17 @@ box-shadow: 0 15px 40px rgba(0,0,0,0.4);
   position:relative;
   overflow:hidden;
   padding:140px 8%;
-
   background:
   linear-gradient(
     rgba(0,0,0,0.65),
     rgba(0,0,0,0.65)
   ),
   url("images/c2.jpg");
-
   background-size:cover;
   background-position:center;
   background-repeat:no-repeat;
 }
 
-/* LIGHT EFFECTS */
 
 .hero::before{
   content:"";
@@ -1234,10 +1209,7 @@ section.show{
 
   /* HERO */
 
-  .hero{
-    padding:140px 25px 90px;
-    min-height:auto;
-  }
+
 
   .hero-content h1{
     font-size:3.5rem;
