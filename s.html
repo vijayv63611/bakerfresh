@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+ 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ 
+  <title>Velvet Wine</title>
+ 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ 
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+ 
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+ 
+  <style>
+ 
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+      scroll-behavior:smooth;
+    }
+ 
+    :root{
+      --bg:#f8f3ee;
+      --text:#111111;
+      --card:#ffffff;
+      --primary:#7b112c;
+      --secondary:#000000;
+      --gradient:linear-gradient(135deg,#7b112c,#000000);
+      --shadow:0 10px 30px rgba(123,17,44,0.25);
+    }
+ 
+    body.dark{
+  --bg:#0d0d0d;
+  --text:#ffffff;
+  --card:#151515;
+  --section:#111;
+}
+    body{
+      background:var(--bg);
+      color:var(--text);
+      overflow-x:hidden;
+      transition:0.3s;
+    }
+ 
+    /* HEADER */
+ 
+    header{
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:1000;
+ 
+  /* TWO COLORS */
+  background:linear-gradient(90deg,#7b112c,#000000);
+ 
+  border-bottom:2px solid #d4af37;
+  box-shadow:0 5px 20px rgba(0,0,0,0.4);
+}
+ 
+.logo{
+  font-size:2rem;
+  font-weight:700;
+  color:#ffffff;
+  text-shadow:0 0 10px rgba(212,175,55,0.8);
+}
+ 
+/* NAV ALIGN FIX */
+.navbar{
+  width:95%;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 0;
+}
+ 
+nav ul.nav-links{
+  display:flex;
+  gap:20px;
+  list-style:none;
+  align-items:center;
+}
+ 
+/* LINKS */
+nav ul.nav-links li a{
+  text-decoration:none;
+  color:white;
+  font-weight:500;
+  padding:8px 14px;
+  border-radius:30px;
+  transition:0.3s;
+  font-size:14px;
+}
+ 
+nav ul.nav-links li a:hover{
+  background:#d4af37;
+  color:black;
+}
+ 
+/* DROPDOWN */
+/* DROPDOWN WRAPPER */
+.dropdown{
+  position:relative;
+  display:inline-block;
+}
+ 
+/* DROPDOWN MENU */
+.dropdown-menu{
+  position:absolute;
+  top:100%;   /* IMPORTANT FIX */
+  left:0;
+  background:#111;
+  min-width:160px;
+  border-radius:12px;
+ 
+  display:none;
+  flex-direction:column;
+  padding:10px 0;
+  box-shadow:0 10px 20px rgba(0,0,0,0.3);
+ 
+  /* IMPORTANT: smooth hover stability */
+  margin-top:8px;
+}
+ 
+/* SHOW ON HOVER (STABLE AREA) */
+.dropdown:hover .dropdown-menu{
+  display:flex;
+}
+ 
+/* KEEP MENU OPEN WHEN HOVERING IT */
+.dropdown-menu:hover{
+  display:flex;
+}
+ 
+/* LINKS */
+.dropdown-menu li{
+  list-style:none;
+}
+ 
+.dropdown-menu li a{
+  display:block;
+  padding:10px 15px;
+  color:white;
+}
+ 
+.dropdown-menu li a:hover{
+  background:#7b112c;
+  color:#fff;
+}
+    /* BUTTONS */
+ 
+    .header-buttons{
+      display:flex;
+      gap:15px;
+    }
+ 
+    .theme-btn,
+    .rtl-btn{
+      border:none;
+      padding:12px 18px;
+      border-radius:50px;
+      cursor:pointer;
+      font-weight:600;
+      background:var(--primary);
+      color:white;
+      font-size:18px;
+      box-shadow:var(--shadow);
+    }
+ 
+    /* SECTION */
+ 
+    section{
+      padding:100px 10%;
+    }
+ 
+    /* HERO */
+ 
+    .hero{
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:60px;
+      padding-top:140px;
+    }
+ 
+    .hero-content{
+      flex:1;
+    }
+ 
+    .hero-content h1{
+      font-size:4rem;
+      line-height:1.2;
+      margin-bottom:20px;
+    }
+ 
+    .hero-content span{
+      color:var(--primary);
+    }
+ 
+    .hero-content p{
+      font-size:1.1rem;
+      line-height:1.9;
+      margin-bottom:30px;
+    }
+ 
+    .hero-btns{
+      display:flex;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+ 
+    .btn{
+      padding:16px 34px;
+      border:none;
+      border-radius:50px;
+      background:var(--primary);
+      color:white;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:var(--shadow);
+    }
+ 
+    .outline-btn{
+      background:transparent;
+      border:2px solid var(--primary);
+      color:var(--text);
+    }
+ 
+    .hero-image{
+      flex:1;
+      display:flex;
+      justify-content:center;
+    }
+ 
+    .hero-image img{
+      width:100%;
+      max-width:550px;
+      border-radius:40px;
+      border:4px solid var(--primary);
+      box-shadow:var(--shadow);
+    }
+ 
+    /* SECTION TITLE */
+ 
+    .section-title{
+      text-align:center;
+      margin-bottom:60px;
+    }
+ 
+    .section-title h2{
+      font-size:3rem;
+      margin-bottom:15px;
+      color:var(--primary);
+    }
+ 
+    /* PRODUCTS */
+ 
+    .products{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:30px;
+    }
+ 
+    .product-card{
+      background:var(--card);
+      border-radius:30px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+    }
+ 
+    .product-card img{
+      width:100%;
+      height:280px;
+      object-fit:cover;
+    }
+ 
+    .product-info{
+      padding:25px;
+      text-align:center;
+    }
+ 
+    .product-info h3{
+      margin-bottom:10px;
+      color:var(--primary);
+    }
+ /* TESTIMONIALS */
+ 
+.testimonial-container{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:30px;
+}
+ 
+.testimonial-card{
+  background:var(--card);
+  padding:40px 30px;
+  text-align:center;
+  border-radius:30px;
+  box-shadow:var(--shadow);
+}
+ 
+.testimonial-card img{
+  width:90px;
+  height:90px;
+  border-radius:50%;
+  margin-bottom:20px;
+}
+ 
+.testimonial-card h3{
+  color:var(--primary);
+  margin-bottom:15px;
+}
+ 
+ 
+/* PRICING */
+ 
+.pricing-container{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:30px;
+}
+ 
+.pricing-card{
+  background:var(--card);
+  padding:50px 30px;
+  border-radius:30px;
+  text-align:center;
+  box-shadow:var(--shadow);
+}
+ 
+.pricing-card h1{
+  font-size:3rem;
+  color:var(--primary);
+  margin:20px 0;
+}
+ 
+.pricing-card ul{
+  list-style:none;
+  margin-bottom:25px;
+}
+ 
+.pricing-card ul li{
+  margin:15px 0;
+}
+ 
+.active-price{
+  transform:scale(1.05);
+  border:3px solid var(--primary);
+}
+ 
+ 
+/* TEAM */
+ 
+.team-container{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:30px;
+}
+ 
+.team-card{
+  background:var(--card);
+  padding:30px;
+  text-align:center;
+  border-radius:30px;
+  box-shadow:var(--shadow);
+}
+ 
+.team-card img{
+  width:100%;
+  height:300px;
+  object-fit:cover;
+  border-radius:25px;
+  margin-bottom:20px;
+}
+ 
+.team-card h3{
+  color:var(--primary);
+}
+ 
+ 
+/* NEWSLETTER */
+ 
+.newsletter-box{
+  background:var(--gradient);
+  padding:70px 40px;
+  border-radius:40px;
+  text-align:center;
+  color:white;
+}
+ 
+.newsletter-box h2{
+  font-size:3rem;
+  margin-bottom:20px;
+}
+ 
+.newsletter-form{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  margin-top:30px;
+  flex-wrap:wrap;
+}
+ 
+.newsletter-form input{
+  padding:18px 20px;
+  width:350px;
+  border:none;
+  border-radius:50px;
+  outline:none;
+}
+ 
+ 
+/* RESPONSIVE */
+ 
+@media(max-width:992px){
+ 
+  .testimonial-container,
+  .pricing-container,
+  .team-container{
+    grid-template-columns:1fr;
+  }
+ 
+}
+/* HOME 2 SECTION */
+ 
+.home2-section{
+  background: var(--bg);
+  transition: 0.3s;
+}
+ 
+.home2-container{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:60px;
+  flex-wrap:wrap;
+}
+ 
+.home2-image{
+  flex:1;
+}
+ 
+.home2-image img{
+  width:100%;
+  max-width:550px;
+  border-radius:35px;
+  border:4px solid #7b112c;
+  box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+ 
+.home2-content{
+  flex:1;
+}
+ 
+.home2-content h4{
+  color:#7b112c;
+  font-size:1.2rem;
+  margin-bottom:15px;
+}
+ 
+.home2-content h2{
+  font-size:3rem;
+  margin-bottom:25px;
+  line-height:1.3;
+}
+ 
+.home2-content p{
+  font-size:1rem;
+  line-height:1.9;
+  margin-bottom:20px;
+}
+ 
+@media(max-width:768px){
+ 
+  .home2-container{
+    flex-direction:column;
+    text-align:center;
+  }
+ 
+  .home2-content h2{
+    font-size:2.2rem;
+  }
+ 
+}
+.navbar{
+  width:95%;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 0;
+}
+ 
+nav ul.nav-links{
+  display:flex;
+  gap:20px;
+  list-style:none;
+  align-items:center;
+}
+ 
+nav ul.nav-links li a{
+  text-decoration:none;
+  color:white;
+  font-weight:500;
+  padding:8px 14px;
+  border-radius:30px;
+  transition:0.3s;
+  font-size:14px;
+}
+ 
+nav ul.nav-links li a:hover{
+  background:#d4af37;
+  color:black;
+}
+    /* FOOTER */
+ 
+ 
+   
+     footer{
+  background:linear-gradient(90deg,#7b112c,#000000);
+      color:white;
+      padding:90px 10% 30px;
+      margin-top:80px;
+      border-top:2px solid var(--primary);
+    }
+ 
+    .footer-container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+      gap:40px;
+      margin-bottom:60px;
+    }
+ 
+    .footer-box h3{
+      margin-bottom:20px;
+      color:var(--primary);
+    }
+ 
+    .footer-box p,
+    .footer-box a,
+    .footer-box li{
+      line-height:2;
+      color:#d4d4d4;
+      text-decoration:none;
+      list-style:none;
+    }
+ 
+    .social-icons{
+      display:flex;
+      gap:15px;
+      margin-top:20px;
+    }
+ 
+    .social-icons a{
+      width:45px;
+      height:45px;
+      border-radius:50%;
+      background:rgba(255,255,255,0.08);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:white;
+      font-size:20px;
+      text-decoration:none;
+    }
+ 
+    .copyright{
+      text-align:center;
+      border-top:1px solid rgba(255,255,255,0.1);
+      padding-top:25px;
+      color:#bdbdbd;
+    }
+ 
+    /* RESPONSIVE */
+ 
+    @media(max-width:992px){
+ 
+      .hero{
+        flex-direction:column;
+        text-align:center;
+      }
+ 
+      .products{
+        grid-template-columns:repeat(2,1fr);
+      }
+ 
+    }
+ 
+    @media(max-width:600px){
+ 
+  .products{
+    grid-template-columns:1fr;
+  }
+ 
+  .hero-content h1{
+    font-size:2.5rem;
+  }
+ 
+  .navbar{
+    flex-direction:column;
+    gap:15px;
+  }
+ 
+  nav ul{
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+ 
+}
+/* =========================
+   RTL SUPPORT FIX
+========================= */
+
+html[dir="rtl"] body{
+  text-align: right;
+}
+
+/* NAVBAR RTL */
+html[dir="rtl"] .navbar{
+  flex-direction: row-reverse;
+}
+
+/* MENU RTL */
+html[dir="rtl"] nav ul.nav-links{
+  flex-direction: row-reverse;
+}
+
+/* HERO RTL */
+html[dir="rtl"] .hero{
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+/* HOME2 RTL */
+html[dir="rtl"] .home2-container{
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+/* DROPDOWN RTL FIX */
+html[dir="rtl"] .dropdown-menu{
+  left: auto;
+  right: 0;
+  text-align: right;
+}
+
+/* FOOTER RTL */
+html[dir="rtl"] .footer-container{
+  direction: rtl;
+}
+  </style>
+</head>
+ 
+<body>
+ 
+<header>
+  <div class="navbar">
+ 
+    <div class="logo">Wine bar Vinora</div>
+ 
+    <nav>
+      <ul class="nav-links">
+ 
+        <!-- HOME DROPDOWN -->
+        <li class="dropdown">
+          <a href="#">Home ▾</a>
+ 
+          <ul class="dropdown-menu">
+            <li><a href="index.html">Home 1</a></li>
+            <li><a href="home2.html">Home 2</a></li>
+          </ul>
+        </li>
+ 
+        <li><a href="about1.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+ 
+      </ul>
+    </nav>
+ 
+    <div class="header-buttons">
+      <button class="theme-btn" onclick="toggleTheme()">
+        <i class="bi bi-moon-stars"></i>
+      </button>
+ 
+      <button class="rtl-btn" onclick="toggleRTL()">⇄</button>
+    </div>
+ 
+  </div>
+</header>
+ 
+  <!-- HERO -->
+ 
+  <section class="hero" id="index">
+ 
+    <div class="hero-content">
+ 
+      <h1>
+        Premium <span>Wine Bar</span> & Tasting Room
+      </h1>
+ 
+      <p>
+        Discover handcrafted wines, luxury tasting experiences,
+        elegant evenings, and unforgettable moments.
+      </p>
+ 
+      <div class="hero-btns">
+        <button class="btn">Book Tasting</button>
+        <button class="btn outline-btn">Explore Wines</button>
+      </div>
+ 
+    </div>
+ 
+    <div class="hero-image">
+ 
+      <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=1200&auto=format&fit=crop" alt="Wine Bar">
+ 
+    </div>
+ 
+  </section>
+ 
+  <!-- WINES -->
+ <!-- HOME PAGE 2 -->
+ 
+<section class="home2-section" id="home2">
+ 
+  <div class="home2-container">
+ 
+    <div class="home2-image">
+ 
+      <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=1200&auto=format&fit=crop" alt="Luxury Wine">
+ 
+    </div>
+ 
+    <div class="home2-content">
+ 
+      <h4>Luxury Wine Experience</h4>
+ 
+      <h2>
+        Enjoy Premium Wine Nights
+        With Elegant Atmosphere
+      </h2>
+ 
+      <p>
+        Velvet Wine Bar offers handcrafted premium wines,
+        luxury interiors, live music evenings, and unforgettable
+        tasting experiences for wine lovers.
+      </p>
+ 
+      <p>
+        Experience world-class hospitality, relaxing ambience,
+        exclusive wine collections, and private tasting rooms.
+      </p>
+ 
+      <button class="btn">Explore More</button>
+ 
+    </div>
+ 
+  </div>
+ 
+</section>
+  <section id="wines">
+ 
+    <div class="section-title">
+      <h2>Premium Wines</h2>
+      <p>Luxury handcrafted wines loved by our guests.</p>
+    </div>
+ 
+    <div class="products">
+ 
+      <div class="product-card">
+ 
+        <img src="https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?q=80&w=1200&auto=format&fit=crop" alt="Wine">
+ 
+        <div class="product-info">
+          <h3>Classic Red Wine</h3>
+          <p>Elegant premium red wine with smooth luxury flavor.</p>
+        </div>
+ 
+      </div>
+ 
+      <div class="product-card">
+ 
+        <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?q=80&w=1200&auto=format&fit=crop" alt="Wine">
+ 
+        <div class="product-info">
+          <h3>Luxury White Wine</h3>
+          <p>Fresh handcrafted white wine perfect for elegant nights.</p>
+        </div>
+ 
+      </div>
+ 
+      <div class="product-card">
+ 
+        <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?q=80&w=1200&auto=format&fit=crop" alt="Wine">
+ 
+        <div class="product-info">
+          <h3>Premium Tasting Room</h3>
+          <p>Experience luxury wine tasting with relaxing ambiance.</p>
+        </div>
+ 
+      </div>
+ 
+    </div>
+ 
+  </section>
+  <!-- TESTIMONIAL SECTION -->
+ 
+<section id="testimonials">
+ 
+  <div class="section-title">
+    <h2>Customer Reviews</h2>
+    <p>What our guests say about Velvet Wine Bar.</p>
+  </div>
+ 
+  <div class="testimonial-container">
+ 
+    <div class="testimonial-card">
+      <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="">
+ 
+      <h3>Emma Wilson</h3>
+ 
+      <p>
+        Amazing atmosphere and premium wine collection.
+        Perfect place for relaxing evenings.
+      </p>
+    </div>
+ 
+    <div class="testimonial-card">
+      <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="">
+ 
+      <h3>Michael Brown</h3>
+ 
+      <p>
+        Luxury interiors, delicious wines, and fantastic music nights.
+      </p>
+    </div>
+ 
+    <div class="testimonial-card">
+      <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="">
+ 
+      <h3>Sophia Lee</h3>
+ 
+      <p>
+        One of the best wine tasting experiences I have ever enjoyed.
+      </p>
+    </div>
+ 
+  </div>
+ 
+</section>
+ 
+ 
+ 
+<!-- PRICING SECTION -->
+ 
+<section id="pricing">
+ 
+  <div class="section-title">
+    <h2>Pricing Plans</h2>
+    <p>Choose your premium wine experience.</p>
+  </div>
+ 
+  <div class="pricing-container">
+ 
+    <div class="pricing-card">
+ 
+      <h3>Silver</h3>
+ 
+      <h1>$49</h1>
+ 
+      <ul>
+        <li>3 Premium Wines</li>
+        <li>Live Music Access</li>
+        <li>Luxury Seating</li>
+      </ul>
+ 
+      <button class="btn">Choose Plan</button>
+ 
+    </div>
+ 
+    <div class="pricing-card active-price">
+ 
+      <h3>Gold</h3>
+ 
+      <h1>$99</h1>
+ 
+      <ul>
+        <li>7 Premium Wines</li>
+        <li>VIP Lounge Access</li>
+        <li>Private Tasting</li>
+      </ul>
+ 
+      <button class="btn">Choose Plan</button>
+ 
+    </div>
+ 
+    <div class="pricing-card">
+ 
+      <h3>Platinum</h3>
+ 
+      <h1>$149</h1>
+ 
+      <ul>
+        <li>Unlimited Wine Tasting</li>
+        <li>Private Room</li>
+        <li>Luxury Dinner</li>
+      </ul>
+ 
+      <button class="btn">Choose Plan</button>
+ 
+    </div>
+ 
+  </div>
+ 
+</section>
+ 
+ 
+ 
+<!-- TEAM SECTION -->
+ 
+<section id="team">
+ 
+  <div class="section-title">
+    <h2>Meet Our Experts</h2>
+    <p>Professional wine specialists and chefs.</p>
+  </div>
+ 
+  <div class="team-container">
+ 
+    <div class="team-card">
+ 
+      <img src="https://randomuser.me/api/portraits/men/41.jpg" alt="">
+ 
+      <h3>Daniel Smith</h3>
+ 
+      <p>Wine Expert</p>
+ 
+    </div>
+ 
+    <div class="team-card">
+ 
+      <img src="https://randomuser.me/api/portraits/women/55.jpg" alt="">
+ 
+      <h3>Olivia Grace</h3>
+ 
+      <p>Luxury Chef</p>
+ 
+    </div>
+ 
+    <div class="team-card">
+ 
+      <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="">
+ 
+      <h3>James Walker</h3>
+ 
+      <p>Event Manager</p>
+ 
+    </div>
+ 
+  </div>
+ 
+</section>
+ 
+ 
+ 
+<!-- NEWSLETTER SECTION -->
+ 
+<section id="newsletter">
+ 
+  <div class="newsletter-box">
+ 
+    <h2>Subscribe Newsletter</h2>
+ 
+    <p>
+      Get updates about wine events, luxury nights,
+      and premium offers.
+    </p>
+ 
+    <form class="newsletter-form">
+ 
+      <input type="email" placeholder="Enter your email">
+ 
+      <button class="btn">Subscribe</button>
+ 
+    </form>
+ 
+  </div>
+ 
+</section>
+ 
+ 
+  <!-- FOOTER -->
+ 
+  <footer id="contact">
+ 
+    <div class="footer-container">
+ 
+      <div class="footer-box">
+ 
+        <h3>About Us</h3>
+ 
+        <p>
+          Velvet Wine offers premium wine tasting,
+          handcrafted luxury drinks, elegant interiors,
+          and unforgettable nightlife experiences.
+        </p>
+ 
+      </div>
+ 
+      <div class="footer-box">
+ 
+        <h3>Quick Links</h3>
+ 
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="home2.html">home2</a></li>
+          <li><a href="wines.html">Premium Wines</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+ 
+      </div>
+ 
+      <div class="footer-box">
+ 
+        <h3>Opening Hours</h3>
+ 
+        <p>Monday - Friday : 5 PM - 12 AM</p>
+        <p>Saturday : 4 PM - 2 AM</p>
+        <p>Sunday : 4 PM - 11 PM</p>
+ 
+      </div>
+ 
+      <div class="footer-box">
+ 
+        <h3>Follow Us</h3>
+ 
+        <div class="social-icons">
+          <a href="#"><i class="bi bi-instagram"></i></a>
+          <a href="#"><i class="bi bi-facebook"></i></a>
+          <a href="#"><i class="bi bi-twitter"></i></a>
+          <a href="#"><i class="bi bi-whatsapp"></i></a>
+        </div>
+ 
+      </div>
+ 
+    </div>
+ 
+    <div class="copyright">
+      © 2026 Velvet Wine Bar. All Rights Reserved.
+    </div>
+ 
+  </footer>
+ 
+  <script>
+ 
+    const body = document.body;
+    const html = document.documentElement;
+ 
+    function toggleTheme(){
+ 
+      body.classList.toggle('dark');
+ 
+      const themeButton = document.querySelector('.theme-btn');
+ 
+      if(body.classList.contains('dark')){
+ 
+        themeButton.innerHTML =
+        '<i class="bi bi-brightness-high"></i>';
+ 
+      } else {
+ 
+        themeButton.innerHTML =
+        '<i class="bi bi-moon-stars"></i>';
+ 
+      }
+    }
+ 
+    function toggleRTL(){
+ 
+      const rtlButton =
+      document.querySelector('.rtl-btn');
+ 
+      if(html.getAttribute('dir') === 'rtl'){
+ 
+        html.setAttribute('dir','ltr');
+        rtlButton.innerHTML = '⇄';
+ 
+      } else {
+ 
+        html.setAttribute('dir','rtl');
+        rtlButton.innerHTML = '⇆';
+ 
+      }
+    }
+ function showPage(page) {
+  document.querySelectorAll("section").forEach(sec => {
+    sec.style.display = "none";
+  });
+ 
+  document.getElementById(page).style.display = "block";
+}
+  </script>
+ 
+</body>
+</html>
+ 
+ 

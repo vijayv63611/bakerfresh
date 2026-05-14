@@ -33,8 +33,17 @@ header{
   width:100%;
   top:0;
   z-index:1000;
-  background:rgba(0,0,0,0.7);
+  background:var(--card);
+  color:var(--text);
   backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(255,122,0,0.25);
+  box-shadow:0 5px 25px rgba(255,122,0,0.12);
+}
+
+nav ul li a{
+  text-decoration:none;
+  color:var(--text);
+  transition:0.3s;
 }
 
 .navbar{
@@ -49,7 +58,7 @@ header{
 .logo{
   font-size:2rem;
   font-weight:700;
-  background:var(--gradient);
+  background:orange;
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
@@ -60,11 +69,7 @@ nav ul{
   gap:30px;
 }
 
-nav ul li a{
-  text-decoration:none;
-  color:white;
-  transition:0.3s;
-}
+
 
 nav ul li a:hover{
   color:var(--primary);
@@ -290,14 +295,14 @@ section{
   color:white;
 }
 
-   footer {
-      background: #000000;
-      color: white;
-      padding: 90px 10% 30px;
-      border-top: 2px solid var(--primary);
-      position: relative;
-      overflow: hidden;
-    }
+  footer {
+  background:var(--card);
+  color:var(--text);
+  padding: 90px 10% 30px;
+  border-top: 2px solid var(--primary);
+  position: relative;
+  overflow: hidden;
+}
 
     footer::before {
       content: "";
@@ -409,7 +414,7 @@ section{
     .footer-box li,
     .footer-box a {
       line-height: 2;
-      color: #d4d4d4;
+color: var(--text);
       text-decoration: none;
       list-style: none;
       transition: 0.3s;

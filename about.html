@@ -23,28 +23,38 @@
 
         <li class="dropdown">
           <a href="index.html">Home ▼</a>
+          
           <ul class="dropdown-menu">
             <li><a href="index.html">Home 1</a></li>
+            <li><a href="home.html">Home 2</a></li>
+            
           </ul>
         </li>
+        
 
         <li><a href="about.html">About</a></li>
            <li><a href="service.html">Service</a></li>
-           <li><a href="collection.html">Collection</a></li>
           <li><a href="price.html">Price</a></li>
           <li><a href="blog.html">Blog</a></li>
           <li><a href="contact.html">Contact</a></li>
-          <li><a href="login.html" class="login-btn">Login</a></li>
-
+          <li><a href="dashboard.html">Dashboard</a></li>
+<li>
+    <a href="login.html" class="login-btn">
+      <i class="bi bi-box-arrow-in-right"></i> Login
+    </a>
+  </li>
       </ul>
     </nav>
 
     <div class="header-buttons">
-      <button class="theme-btn">'<i class="bi bi-moon-stars"></i>';</button>
-      <button class="rtl-btn">⇄</button>
-    </div>
 
-  </div>
+  <button class="theme-btn">
+    <i class="bi bi-moon-stars"></i>
+  </button>
+
+  <button class="rtl-btn">⇄</button>
+
+</div>
 </header>
 
 <!-- HERO -->
@@ -136,7 +146,75 @@
     <img src="images/sbc.webp">
   </div>
 </div>
+<div class="section center premium-timeline">
 
+  <h2 class="title">Our Journey</h2>
+
+  <div class="timeline">
+
+    <div class="timeline-box">
+      <i class="bi bi-flag-fill"></i>
+      <h3>Started 2020</h3>
+      <p>We began with a small home bakery passion project.</p>
+    </div>
+
+    <div class="timeline-box">
+      <i class="bi bi-people-fill"></i>
+      <h3>Growing Team</h3>
+      <p>Expert bakers joined to expand creativity and quality.</p>
+    </div>
+
+    <div class="timeline-box">
+      <i class="bi bi-trophy-fill"></i>
+      <h3>Premium Brand</h3>
+      <p>Now recognized as a luxury bakery experience brand.</p>
+    </div>
+
+  </div>
+
+</div>
+<div class="section premium-flex">
+
+  <div class="text animate-left">
+    <h2>Our Philosophy</h2>
+    <p>
+      Baking is not just food — it is emotion, art, and experience.
+      We believe in crafting happiness in every bite.
+    </p>
+  </div>
+
+  <div class="image animate-right">
+    <img src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5">
+  </div>
+
+</div>
+<div class="section center team-section">
+
+  <h2 class="title">Meet Our Expert Bakers</h2>
+
+  <div class="team-grid">
+
+    <div class="team-card">
+      <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1">
+      <h3>Chef Daniel</h3>
+      <p>Head Baker</p>
+    </div>
+
+    <div class="team-card">
+      <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba">
+      <h3>Chef Maria</h3>
+      <p>Pastry Expert</p>
+    </div>
+
+    <div class="team-card">
+      <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c">
+      <h3>Chef John</h3>
+      <p>Designer Cakes</p>
+    </div>
+
+  </div>
+
+</div>
 <!-- FOOTER -->
 <footer id="contact">
 
@@ -154,15 +232,8 @@
     <div class="footer-box">
       <h3>Quick Links</h3>
       <ul>
-        <li class="dropdown">
-
-  <a href="index.html">Home ▼</a>
-
-  <ul class="dropdown-menu">
-    <li><a href="home.html">Home 1</a></li>
-  </ul>
-
 </li>
+        <li><a href="home.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="service.html">Service</a></li>
         <li><a href="contact.html">Contact</a></li>
@@ -205,33 +276,35 @@
 const body = document.body;
 const html = document.documentElement;
 
-// 🌙 DARK / LIGHT THEME
+// THEME TOGGLE
 function toggleTheme() {
-  body.classList.toggle('dark');
+  body.classList.toggle("dark");
 
-  const btn = document.querySelector('.theme-btn');
+  const btn = document.querySelector(".theme-btn");
 
-  if (body.classList.contains('dark')) {
+  if (body.classList.contains("dark")) {
     btn.innerHTML = '<i class="bi bi-brightness-high"></i>';
   } else {
-  }    btn.innerHTML = '<i class="bi bi-brightness-high"></i>';
-
-}
-
-// 🔄 RTL TOGGLE
-function toggleRTL() {
-  const rtlButton = document.querySelector('.rtl-btn');
-
-  if (html.getAttribute('dir') === 'rtl') {
-    html.setAttribute('dir', 'ltr');
-    rtlButton.textContent = '⇄';
-  } else {
-    html.setAttribute('dir', 'rtl');
-    rtlButton.textContent = '⇆';
+    btn.innerHTML = '<i class="bi bi-moon-stars"></i>';
   }
 }
 
-// 🔗 EVENT LISTENERS
+// RTL TOGGLE
+function toggleRTL() {
+  const rtlBtn = document.querySelector(".rtl-btn");
+
+  if (html.dir === "rtl") {
+    html.dir = "ltr";
+    body.classList.remove("rtl");
+    rtlBtn.textContent = "⇄";
+  } else {
+    html.dir = "rtl";
+    body.classList.add("rtl");
+    rtlBtn.textContent = "⇆";
+  }
+}
+
+// EVENTS
 document.querySelector(".theme-btn").addEventListener("click", toggleTheme);
 document.querySelector(".rtl-btn").addEventListener("click", toggleRTL);
 </script>

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -14,343 +15,182 @@
 </head>
 
 <body>
-
-<!-- ================= HEADER ================= -->
 <header class="site-header">
   <div class="navbar">
 
+    <!-- LOGO -->
     <div class="logo">Sweet Crumbs</div>
 
+    <!-- NAV -->
     <nav>
-      <ul>
+      <ul class="nav-list">
+
+        <!-- HOME DROPDOWN -->
         <li class="dropdown">
+          <a href="index.html">Home ▼</a>
 
-  <a href="index.html">Home ▼</a>
+          <ul class="dropdown-menu">
+            <li><a href="index.html">Home 1</a></li>
+            <li><a href="home.html">Home 2</a></li>
+          </ul>
+        </li>
 
-  <ul class="dropdown-menu">
-    <li><a href="home.html">Home 1</a></li>
-  </ul>
-
-</li>
         <li><a href="about.html">About</a></li>
         <li><a href="service.html">Service</a></li>
-        <li><a href="collection.html">Collection</a></li>
         <li><a href="price.html">Price</a></li>
         <li><a href="blog.html">Blog</a></li>
         <li><a href="contact.html">Contact</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+
+        <!-- LOGIN BUTTON -->
+        <li><a href="login.html" class="login-nav-btn">Login</a></li>
+
       </ul>
     </nav>
 
+    <!-- BUTTONS -->
     <div class="header-buttons">
       <button class="theme-btn" onclick="toggleTheme()">
-  <i class="bi bi-moon-stars-fill"></i>
-</button>
+        <i class="bi bi-moon-stars-fill"></i>
+      </button>
+
       <button class="rtl-btn" onclick="toggleRTL()">⇄</button>
     </div>
 
   </div>
 </header>
 
-<body>
-
-  <!-- HERO -->
-
-  <section class="hero">
-
-    <div class="hero-content">
-
-      <h1>Fresh Bakery Services Crafted With Passion</h1>
-
-      <p>
-        Discover premium bakery experiences with handcrafted cakes,
-        artisan breads, luxury desserts, and elegant catering
-        services made fresh every day.
-      </p>
-
-      <a href="#" class="hero-btn">Explore Services</a>
-
-    </div>
-
-  </section>
-
-  <!-- SERVICES -->
-
-  <section class="services">
-
-    <div class="section-title">
-      <h2>Our Bakery Services</h2>
-
-      <p>
-        Fresh handcrafted bakery creations designed with love,
-        elegance, and premium ingredients.
-      </p>
-    </div>
-
-    <div class="service-grid">
-
-      <div class="service-card">
-        <img
-          src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=1200&auto=format&fit=crop">
-
-        <div class="service-content">
-          <h3>Custom Cakes</h3>
-
-          <p>
-            Beautiful wedding, birthday, and celebration cakes
-            handcrafted with luxury finishing.
-          </p>
-        </div>
-      </div>
-
-      <div class="service-card">
-        <img
-          src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1200&auto=format&fit=crop">
-
-        <div class="service-content">
-          <h3>Fresh Breads</h3>
-
-          <p>
-            Fresh artisan breads baked every morning for rich
-            taste and soft texture.
-          </p>
-        </div>
-      </div>
-
-      <div class="service-card">
-        <img
-          src="https://images.unsplash.com/photo-1483695028939-5bb13f8648b0?q=80&w=1200&auto=format&fit=crop">
-
-        <div class="service-content">
-          <h3>Luxury Desserts</h3>
-
-          <p>
-            Elegant pastries and desserts with creamy layers,
-            premium chocolate, and fresh fruits.
-          </p>
-        </div>
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- PREMIUM -->
-
-  <section class="premium">
-
-    <div class="premium-wrapper">
-
-      <div class="premium-image">
-        <img
-          src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?q=80&w=1200&auto=format&fit=crop">
-      </div>
-
-      <div class="premium-text">
-
-        <h2>Premium Fresh Bakery Experience</h2>
-
-        <p>
-          We combine traditional baking techniques with modern
-          luxury presentation to create unforgettable bakery
-          experiences filled with freshness and flavor.
-        </p>
-
-        <div class="premium-list">
-
-          <div>✔ Fresh Ingredients Everyday</div>
-
-          <div>✔ Premium Handcrafted Cakes</div>
-
-          <div>✔ Elegant Dessert Designs</div>
-
-          <div>✔ Fast Fresh Delivery</div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- SPECIAL MENU -->
-
-  <section class="menu">
-
-    <div class="section-title">
-
-      <h2>Popular Bakery Specials</h2>
-
-      <p>
-        Taste our handcrafted signature bakery collection.
-      </p>
-
-    </div>
-
-    <div class="menu-grid">
-
-      <div class="menu-card">
-
-        <img
-          src="https://images.unsplash.com/photo-1559620192-032c4bc4674e?q=80&w=1200&auto=format&fit=crop">
-
-        <div class="menu-content">
-          <h3>Chocolate Cake</h3>
-          <span>$25</span>
-        </div>
-
-      </div>
-
-      <div class="menu-card">
-
-        <img
-          src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec?q=80&w=1200&auto=format&fit=crop">
-
-        <div class="menu-content">
-          <h3>Fresh Croissant</h3>
-          <span>$12</span>
-        </div>
-
-      </div>
-
-      <div class="menu-card">
-
-        <img
-          src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=1200&auto=format&fit=crop">
-
-        <div class="menu-content">
-          <h3>Fruit Pastry</h3>
-          <span>$18</span>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- WHY CHOOSE -->
-
-  <section class="experience">
-
-    <div class="section-title">
-
-      <h2 class="white">Why Choose Us</h2>
-
-      <p class="light">
-        Premium bakery services created with freshness and elegance.
-      </p>
-
-    </div>
-
-    <div class="exp-wrapper">
-
-      <div class="exp-card">
-        <h3>Daily Fresh Baking</h3>
-
-        <p>
-          Bakery products are prepared fresh every day using
-          premium quality ingredients.
-        </p>
-      </div>
-
-      <div class="exp-card">
-        <h3>Luxury Designs</h3>
-
-        <p>
-          Beautiful handcrafted cake and dessert designs perfect
-          for all celebrations.
-        </p>
-      </div>
-
-      <div class="exp-card">
-        <h3>Fast Delivery</h3>
-
-        <p>
-          Quick bakery delivery service keeping products fresh
-          and delicious.
-        </p>
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- TESTIMONIALS -->
-
-  <section class="testimonials">
-
-    <div class="section-title">
-
-      <h2>Customer Reviews</h2>
-
-      <p>
-        Customers love our fresh bakery flavors and luxury experience.
-      </p>
-
-    </div>
-
-    <div class="testimonial-grid">
-
-      <div class="testimonial-card">
-
-        <p>
-          “Absolutely the best bakery experience. Fresh cakes and
-          premium quality service.”
-        </p>
-
-        <h4>- Sophia</h4>
-
-      </div>
-
-      <div class="testimonial-card">
-
-        <p>
-          “The pastries were fresh and beautifully presented.
-          Highly recommended.”
-        </p>
-
-        <h4>- Daniel</h4>
-
-      </div>
-
-      <div class="testimonial-card">
-
-        <p>
-          “Luxury desserts with amazing taste and professional
-          service.”
-        </p>
-
-        <h4>- Emma</h4>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- CTA -->
-
-  <section class="cta">
-
-    <h2>Freshly Baked Happiness Everyday</h2>
-
-    <p>
-      Experience premium handcrafted bakery creations made fresh
-      with passion and elegance.
+<section class="hero">
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <span class="hero-badge">Fresh & Premium Bakery</span>
+
+    <h1 class="hero-title">
+      <span class="line line1">Handcrafted Cakes</span><br>
+      <span class="line line2">Made With Love</span><br>
+      <span class="line line3">For Every Celebration</span>
+    </h1>
+
+    <p class="hero-text">
+      Discover artisan breads, luxury desserts, and custom cakes
+      baked fresh every day with premium ingredients.
     </p>
 
-    <a href="#">Order Fresh Bakery</a>
-
-  </section>
-
-  <script src="services.js"></script>
+    <div class="hero-buttons">
+      <a href="#" class="btn primary">Explore Menu</a>
+      <a href="#" class="btn outline">Order Now</a>
+    </div>
+  </div>
+</section>
 
 </body>
 
+
+<!-- SECTION 1 -->
+<section class="service-section">
+  <h2 class="title reveal">Custom Celebration Cakes</h2>
+
+  <div class="card-grid">
+
+    <div class="card reveal">
+      <img src="https://picsum.photos/400/300?cake1">
+      <h3>Birthday Cakes</h3>
+      <p>Personalized cakes with your favorite design & flavor.</p>
+    </div>
+
+    <div class="card reveal">
+      <img src="https://picsum.photos/400/300?cake2">
+      <h3>Wedding Cakes</h3>
+      <p>Luxury multi-layer cakes for your special day.</p>
+    </div>
+
+    <div class="card reveal">
+      <img src="https://picsum.photos/400/300?cake3">
+      <h3>Photo Cakes</h3>
+      <p>Print your memories directly on delicious cakes.</p>
+    </div>
+
+  </div>
+</section>
+<section class="service-section alt">
+  <h2 class="title reveal">Fresh Bakery Items</h2>
+
+  <div class="card-grid">
+
+    <div class="card reveal">
+      <img src="https://picsum.photos/400/300?bread">
+      <h3>Artisan Bread</h3>
+      <p>Freshly baked daily with traditional recipes.</p>
+    </div>
+
+    <div class="card reveal">
+      <img src="https://picsum.photos/400/300?croissant">
+      <h3>Croissants</h3>
+      <p>Buttery, flaky & soft European-style croissants.</p>
+    </div>
+
+    <div class="card reveal">
+      <img src="https://picsum.photos/400/300?cookies">
+      <h3>Cookies</h3>
+      <p>Crunchy & soft cookies with premium chocolate.</p>
+    </div>
+
+  </div>
+</section>
+<section class="service-section">
+  <h2 class="title reveal">Desserts & Sweet Treats</h2>
+
+  <div class="mini-grid">
+
+    <div class="mini reveal">Cupcakes</div>
+    <div class="mini reveal">Donuts</div>
+    <div class="mini reveal">Brownies</div>
+    <div class="mini reveal">Cheesecake</div>
+    <div class="mini reveal">Pastries</div>
+    <div class="mini reveal">Pudding</div>
+
+  </div>
+</section>
+<section class="service-section alt2">
+  <h2 class="title reveal">Why Choose Sweet Crumbs</h2>
+
+  <div class="feature-box">
+
+    <div class="feature reveal">
+       Fresh Daily Baking
+    </div>
+
+    <div class="feature reveal">
+      Custom Cake Designs
+    </div>
+
+    <div class="feature reveal">
+       Premium Ingredients
+    </div>
+
+    <div class="feature reveal">
+       Fast Home Delivery
+    </div>
+
+  </div>
+</section>
+<section class="service-section">
+  <h2 class="title reveal">Special Offers & Events</h2>
+
+  <div class="project-grid">
+
+    <div class="project reveal"> Birthday Combo Offer</div>
+    <div class="project reveal"> Wedding Special Package</div>
+    <div class="project reveal">Café Combo Deals</div>
+    <div class="project reveal">Festival Discounts</div>
+
+  </div>
+</section>
+
+
+</body>
 </html>
-
-
 <!-- ================= FOOTER ================= -->
 <footer class="site-footer">
 
@@ -373,6 +213,8 @@
 
     <div class="footer-box">
       <h3>Follow Us</h3>
+      <p> Stay connected with our premium bakery updates.
+        </p>
        <div class="social-icons">
           <a href="#"><i class="bi bi-twitter"></i></a>
           <a href="#"><i class="bi bi-instagram"></i></a>
