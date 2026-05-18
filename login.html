@@ -9,127 +9,116 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Poppins',sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins;}
 
 body{
   height:100vh;
   display:flex;
   justify-content:center;
   align-items:center;
-  background:#ffffff;
-  transition:0.4s;
+  background:#f4f4f4;
 }
 
-/* DARK MODE */
-body.dark{
-  background:#0f0f0f;
-  color:#fff;
-}
-
-/* FLOAT BG */
-.bg{
-  position:absolute;
-  width:100%;
-  height:100%;
-  z-index:-1;
-}
-
-.bg span{
-  position:absolute;
-  width:18px;
-  height:18px;
-  background:rgba(255,122,0,0.15);
-  border-radius:50%;
-  animation:float 10s linear infinite;
-  bottom:-120px;
-}
-
-@keyframes float{
-  0%{transform:translateY(0) scale(0);}
-  100%{transform:translateY(-1000px) scale(1);}
-}
-
+/* CARD */
 .card{
   width:380px;
-  background:#fff;
   padding:30px;
   border-radius:18px;
+  background:#fff;
   box-shadow:0 20px 50px rgba(0,0,0,0.1);
-  text-align:center;
+  position:relative;
+  direction:ltr;
 }
 
-body.dark .card{
+/* DARK */
+.card.dark{
   background:#1a1a1a;
   color:#fff;
 }
 
+/* RTL */
+.card.rtl{
+  direction:rtl;
+  text-align:right;
+}
+
+/* TOP TOGGLES */
+.top-icons{
+  position:absolute;
+  top:15px;
+  right:15px;
+  display:flex;
+  flex-direction:row;   /* ✅ same row */
+  gap:10px;
+}
+
+/* RTL support (move to left side if needed) */
+.card.rtl .top-icons{
+  right:auto;
+  left:15px;
+}
+.icon-btn{
+  width:36px;height:36px;
+  border:none;border-radius:50%;
+  background:#ff7a00;color:#fff;
+  cursor:pointer;
+}
+
+/* LOGO */
 .logo{
-  font-size:24px;
+  font-size:22px;
   font-weight:700;
   color:#ff7a00;
+  display:block;
+  margin-bottom:15px;
   text-decoration:none;
 }
 
-.input-box{
-  margin-top:15px;
-}
-
+/* INPUTS */
+.input-box{margin-bottom:12px;}
 .input-box input{
   width:100%;
-  padding:14px;
-  border-radius:10px;
+  padding:12px;
   border:1px solid #ddd;
+  border-radius:10px;
   outline:none;
 }
 
-body.dark .input-box input{
-  background:#222;
-  color:#fff;
-  border:1px solid #444;
-}
-
-.password-box{
-  position:relative;
-}
-
+/* PASSWORD */
+.password-box{position:relative;}
 .eye{
   position:absolute;
-  right:12px;
+  right:10px;
   top:50%;
   transform:translateY(-50%);
   cursor:pointer;
 }
+.card.rtl .eye{
+  right:auto;
+  left:10px;
+}
 
-/* OPTIONS ROW */
+/* OPTIONS */
 .options{
   display:flex;
   justify-content:space-between;
-  font-size:13px;
-  margin-top:10px;
+  font-size:12px;
+  margin:10px 0;
 }
 
-.options a{
-  text-decoration:none;
-  color:#ff7a00;
-}
-
+/* BUTTON */
 .btn{
   width:100%;
-  padding:14px;
-  margin-top:15px;
-  border:none;
-  border-radius:10px;
+  padding:12px;
   background:#ff7a00;
+  border:none;
   color:#fff;
+  border-radius:10px;
   font-weight:600;
   cursor:pointer;
 }
 
+/* SOCIAL */
 .social{
   display:flex;
   justify-content:center;
@@ -138,53 +127,38 @@ body.dark .input-box input{
 }
 
 .social button{
-  width:45px;
-  height:45px;
+  width:40px;height:40px;
   border:1px solid #ddd;
   border-radius:10px;
-  background:#fff;
+  background:transparent;
 }
 
-.top-icons{
-  position:absolute;
-  top:20px;
-  right:20px;
-  display:flex;
-  gap:10px;
-}
-
-.icon-btn{
-  width:40px;
-  height:40px;
-  border:none;
-  border-radius:50%;
-  background:#ff7a00;
-  color:#fff;
-  cursor:pointer;
+/* FOOTER */
+.company{
+  text-align:center;
+  margin-top:20px;
+  font-size:12px;
+  opacity:0.7;
 }
 </style>
 </head>
 
 <body>
 
-<div class="bg">
-  <span></span><span></span><span></span><span></span>
-</div>
+<div class="card" id="card">
 
-<!-- TOP ICONS -->
-<div class="top-icons">
-  <button class="icon-btn" onclick="toggleTheme()"><i class="bi bi-moon"></i></button>
-  <button class="icon-btn" onclick="toggleDir()"><i class="bi bi-arrow-left-right"></i></button>
-</div>
+  <!-- TOP RIGHT TOGGLES -->
+  <div class="top-icons">
+    <button class="icon-btn" onclick="toggleTheme()"><i class="bi bi-moon"></i></button>
+    <button class="icon-btn" onclick="toggleDir()"><i class="bi bi-arrow-left-right"></i></button>
+  </div>
 
-<!-- CARD -->
-<div class="card">
+  <!-- LOGO -->
+  <a class="logo">Sweet Crumbs</a>
 
-  <a href="index.html" class="logo">Sweet Crumbs</a>
-  <h3>Login</h3>
 
   <div class="input-box">
-    <input type="email" placeholder="Email address">
+    <input type="email" placeholder="Email">
   </div>
 
   <div class="input-box password-box">
@@ -192,38 +166,46 @@ body.dark .input-box input{
     <i class="bi bi-eye eye" onclick="togglePass()"></i>
   </div>
 
-  <!-- FORGOT PASSWORD + REMEMBER -->
+  <!-- OPTIONS -->
   <div class="options">
     <label><input type="checkbox"> Remember Me</label>
-    <a href="forgot.html">Forgot Password?</a>
+    <a href="#">Forgot Password?</a>
   </div>
 
   <button class="btn">Login</button>
+  <p style="margin-top:12px; font-size:13px; text-align:center;">
+  New user?
+  <a href="signup.html"
+     style="color:#ff7a00; text-decoration:none; font-weight:600;">
+    Sign Up
+  </a>
+</p>
 
+  <!-- SOCIAL LOGIN -->
   <div class="social">
     <button><i class="bi bi-google"></i></button>
     <button><i class="bi bi-apple"></i></button>
     <button><i class="bi bi-facebook"></i></button>
   </div>
 
-  <p style="margin-top:10px;font-size:13px;">
-    New user? <a href="signup.html" style="color:#ff7a00;text-decoration:none;">Sign Up</a>
-  </p>
+  <div class="company">© 2026 Sweet Crumbs</div>
 
 </div>
 
 <script>
+const card=document.getElementById("card");
+
 function togglePass(){
   let p=document.getElementById("pass");
   p.type = p.type==="password"?"text":"password";
 }
 
 function toggleTheme(){
-  document.body.classList.toggle("dark");
+  card.classList.toggle("dark");
 }
 
 function toggleDir(){
-  document.body.dir = document.body.dir==="rtl"?"ltr":"rtl";
+  card.classList.toggle("rtl");
 }
 </script>
 

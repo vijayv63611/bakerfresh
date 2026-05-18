@@ -4,14 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Sweet Crumbs - Premium Dashboard</title>
-
+<title>
+  <a href="index.html.html">Sweet Crumbs - Premium Dashboard</a>
+</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
 <style>
 
 /* ================= GLOBAL ================= */
+
 *{
   margin:0;
   padding:0;
@@ -19,61 +21,122 @@
   font-family:'Poppins',sans-serif;
 }
 
-body{
-  display:flex;
-  background:#f5f7fb;
-  color:#111;
-  transition:0.3s;
+:root{
+  --bg:#f5f7fb;
+  --text:#111;
+  --card:#ffffff;
+  --sidebar:#111111;
+  --border:#e5e7eb;
+  --primary:#ff7a00;
 }
 
+body{
+  display:flex;
+  background:var(--bg);
+  color:var(--text);
+  transition:.4s;
+  overflow-x:hidden;
+}
+
+/* ================= DARK MODE ================= */
+
 body.dark{
-  background:#0b0b0b;
-  color:#fff;
+  --bg:#0b0b0b;
+  --text:#ffffff;
+  --card:#161616;
+  --sidebar:#000000;
+  --border:#222;
+}
+
+/* ================= RTL ================= */
+
+body.rtl{
+  direction:rtl;
 }
 
 /* ================= SIDEBAR ================= */
+
 .sidebar{
   width:260px;
   height:100vh;
-  background:#111;
+  background:var(--sidebar);
   color:#fff;
+
   position:fixed;
+  top:0;
+  left:0;
+
   display:flex;
   flex-direction:column;
   justify-content:space-between;
-  padding:20px;
+
+  padding:25px;
+  transition:.4s;
+  z-index:1000;
 }
+
+/* RTL SIDEBAR RIGHT */
+
+body.rtl .sidebar{
+  left:auto;
+  right:0;
+}
+
+/* ================= LOGO ================= */
 
 .logo{
-  font-size:22px;
+  font-size:24px;
   font-weight:700;
-  color:#ff7a00;
+  color:var(--primary);
   text-decoration:none;
-  margin-bottom:20px;
+  display:block;
+  margin-bottom:30px;
 }
+
+/* ================= NAVIGATION ================= */
 
 .nav a{
-  display:block;
-  padding:12px;
-  color:#ccc;
+  display:flex;
+  align-items:center;
+  gap:12px;
+
+  padding:14px 16px;
+  margin:8px 0;
+
+  border-radius:14px;
+
   text-decoration:none;
-  border-radius:8px;
-  margin:6px 0;
-  transition:0.3s;
+  color:#d1d5db;
+
+  transition:.3s;
 }
 
-.nav a:hover{
-  background:#ff7a00;
+.nav a:hover,
+.nav a.active{
+  background:var(--primary);
   color:#fff;
+  transform:translateX(6px);
 }
+
+/* RTL HOVER */
+
+body.rtl .nav a:hover,
+body.rtl .nav a.active{
+  transform:translateX(-6px);
+}
+
+/* ================= LOGOUT ================= */
 
 .logout{
-  color:#ff4d4d;
+  padding:14px;
+  border-radius:14px;
   text-decoration:none;
-  padding:10px;
-  border-radius:8px;
   text-align:center;
-  transition:0.3s;
+
+  background:#1f1f1f;
+  color:#ff4d4d;
+
+  transition:.3s;
 }
 
 .logout:hover{
@@ -82,107 +145,174 @@ body.dark{
 }
 
 /* ================= MAIN ================= */
+
 .main{
-  margin-left:260px;
   width:100%;
   min-height:100vh;
-  display:flex;
-  justify-content:center;
+
+  margin-left:260px;
   padding:30px;
+
+  transition:.4s;
 }
+
+/* RTL MAIN */
+
+body.rtl .main{
+  margin-left:0;
+  margin-right:260px;
+}
+
+/* ================= CONTAINER ================= */
 
 .container{
   width:100%;
-  max-width:1100px;
 }
 
 /* ================= TOPBAR ================= */
+
 .topbar{
   display:flex;
-  justify-content:space-between;
   align-items:center;
-  margin-bottom:20px;
+  justify-content:space-between;
+  gap:20px;
+
+  margin-bottom:25px;
 }
 
-.actions{
+/* ================= TOPBAR LEFT/RIGHT ================= */
+
+.topbar-left{
   display:flex;
   align-items:center;
   gap:15px;
 }
 
-.icon{
-  font-size:20px;
-  cursor:pointer;
+.topbar-right{
+  display:flex;
+  align-items:center;
+  gap:14px;
 }
 
-.btn{
-  padding:8px 12px;
+/* ================= MENU BUTTON ================= */
+
+.menu-btn{
+  width:48px;
+  height:48px;
   border:none;
-  border-radius:8px;
+  border-radius:14px;
+
+  background:var(--card);
+  color:var(--text);
+
   cursor:pointer;
+  font-size:20px;
+
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+  transition:.3s;
 }
 
-.dark-btn{
-  background:#ff7a00;
+.menu-btn:hover{
+  background:var(--primary);
   color:#fff;
 }
 
-.logout-btn{
-  background:#ff3b3b;
+/* ================= ICON BUTTON ================= */
+
+.icon-btn{
+  width:48px;
+  height:48px;
+
+  border:none;
+  border-radius:14px;
+
+  background:var(--card);
+  color:var(--text);
+
+  cursor:pointer;
+  font-size:18px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+  transition:.3s;
+}
+
+.icon-btn:hover{
+  background:var(--primary);
   color:#fff;
 }
 
 /* ================= WELCOME ================= */
+
 .welcome{
   background:linear-gradient(135deg,#ff7a00,#111);
   color:#fff;
-  padding:25px;
-  border-radius:18px;
-  margin-bottom:20px;
-  animation:fadeUp 0.5s ease;
+
+  padding:30px;
+  border-radius:24px;
+
+  margin-bottom:25px;
+
+  animation:fadeUp .6s ease;
+}
+
+.welcome h3{
+  font-size:2rem;
+  margin-bottom:10px;
 }
 
 /* ================= CARDS ================= */
+
 .cards{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:15px;
-  margin-bottom:20px;
+  gap:18px;
+
+  margin-bottom:25px;
 }
 
 .card{
-  background:#fff;
-  padding:22px;
-  border-radius:16px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.08);
-  transition:0.3s;
+  background:var(--card);
+
+  padding:24px;
+  border-radius:20px;
+
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+  transition:.3s;
 }
 
 .card:hover{
   transform:translateY(-8px);
 }
 
-body.dark .card{
-  background:#1a1a1a;
-  color:#fff;
+.card h2{
+  color:var(--primary);
+  margin-bottom:8px;
 }
 
-/* ================= SECTIONS ================= */
+/* ================= GRID ================= */
+
 .grid{
   display:grid;
   grid-template-columns:2fr 1fr;
   gap:20px;
 }
 
-/* TABLE */
-.table{
-  background:#fff;
-  padding:15px;
-  border-radius:16px;
-}
+/* ================= TABLE ================= */
 
-body.dark .table{
-  background:#1a1a1a;
+.table{
+  background:var(--card);
+
+  padding:20px;
+  border-radius:20px;
+
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
 }
 
 table{
@@ -190,53 +320,131 @@ table{
   border-collapse:collapse;
 }
 
-th,td{
-  padding:10px;
-  border-bottom:1px solid #444;
+th,
+td{
+  padding:14px;
+  text-align:left;
+  border-bottom:1px solid var(--border);
+}
+
+/* RTL TABLE */
+
+body.rtl th,
+body.rtl td{
+  text-align:right;
 }
 
 th{
-  color:#ff7a00;
+  color:var(--primary);
 }
 
-/* ACTIVITY */
+/* ================= ACTIVITY ================= */
+
 .activity{
-  background:#fff;
-  padding:15px;
-  border-radius:16px;
-}
+  background:var(--card);
 
-body.dark .activity{
-  background:#1a1a1a;
+  padding:20px;
+  border-radius:20px;
+
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
 }
 
 .item{
-  padding:10px;
-  border-bottom:1px solid #eee;
+  padding:14px 0;
+  border-bottom:1px solid var(--border);
 }
 
-/* EXTRA BOXES */
+/* ================= EXTRA ================= */
+
 .extra{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:15px;
-  margin-top:20px;
+  gap:18px;
+
+  margin-top:25px;
 }
 
 .box{
-  background:#fff;
-  padding:15px;
-  border-radius:16px;
+  background:var(--card);
+
+  padding:22px;
+  border-radius:20px;
+
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+  transition:.3s;
 }
 
-body.dark .box{
-  background:#1a1a1a;
+.box:hover{
+  transform:translateY(-8px);
 }
 
-/* ANIMATION */
+/* ================= ANIMATION ================= */
+
 @keyframes fadeUp{
-  from{opacity:0; transform:translateY(15px);}
-  to{opacity:1; transform:translateY(0);}
+
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:992px){
+
+  .sidebar{
+    width:220px;
+  }
+
+  .main{
+    margin-left:220px;
+  }
+
+  body.rtl .main{
+    margin-right:220px;
+  }
+
+}
+
+@media(max-width:768px){
+
+  .sidebar{
+    transform:translateX(-100%);
+  }
+
+  body.rtl .sidebar{
+    transform:translateX(100%);
+  }
+
+  .sidebar.show{
+    transform:translateX(0);
+  }
+
+  body.rtl .sidebar.show{
+    transform:translateX(0);
+  }
+
+  .main{
+    margin-left:0 !important;
+    margin-right:0 !important;
+    padding:20px;
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .topbar{
+    flex-wrap:wrap;
+  }
+
 }
 
 </style>
@@ -245,92 +453,205 @@ body.dark .box{
 <body>
 
 <!-- ================= SIDEBAR ================= -->
-<div class="sidebar">
+
+<div class="sidebar" id="sidebar">
 
   <div>
+
     <a href="index.html" class="logo">Sweet Crumbs</a>
 
     <div class="nav">
-      <a href="#">Dashboard</a>
-      <a href="#">Orders</a>
-      <a href="#">Products</a>
-      <a href="#">Customers</a>
-      <a href="#">Analytics</a>
-      <a href="#">Settings</a>
+
+      <a href="#" class="active">
+        <i class="bi bi-grid-fill"></i>
+        Dashboard
+      </a>
+
+      <a href="#">
+        <i class="bi bi-bag-fill"></i>
+        Orders
+      </a>
+
+      <a href="#">
+        <i class="bi bi-box-seam"></i>
+        Products
+      </a>
+
+      <a href="#">
+        <i class="bi bi-people-fill"></i>
+        Customers
+      </a>
+
+      <a href="#">
+        <i class="bi bi-bar-chart-fill"></i>
+        Analytics
+      </a>
+
+      <a href="#">
+        <i class="bi bi-gear-fill"></i>
+        Settings
+      </a>
+
     </div>
+
   </div>
 
-  <a href="login.html" class="logout">
-    <i class="bi bi-box-arrow-right"></i> Logout
+  <a href="#" class="logout">
+    <i class="bi bi-box-arrow-right"></i>
+    Logout
   </a>
 
 </div>
 
 <!-- ================= MAIN ================= -->
+
 <div class="main">
+
 <div class="container">
 
-<!-- TOPBAR -->
+<!-- ================= TOPBAR ================= -->
+
 <div class="topbar">
 
-  <h2>Admin Dashboard</h2>
+  <!-- LEFT -->
 
-  <div class="actions">
-    <button class="btn dark-btn" onclick="toggleDark()">🌙</button>
-    <i class="bi bi-bell icon"></i>
-    <i class="bi bi-person-circle icon"></i>
+  <div class="topbar-left">
+
+    <button class="menu-btn" onclick="toggleSidebar()">
+      <i class="bi bi-list"></i>
+    </button>
+
+    <h2>Admin Dashboard</h2>
+
+  </div>
+
+  <!-- RIGHT -->
+
+  <div class="topbar-right">
+
+    <!-- RTL / LTR -->
+
+    <button class="icon-btn" onclick="toggleRTL()" id="rtlBtn">
+      LTR
+    </button>
+
+    <!-- DARK MODE -->
+
+    <button class="icon-btn" onclick="toggleDark()" id="themeBtn">
+      <i class="bi bi-moon-stars-fill"></i>
+    </button>
+
+    <button class="icon-btn">
+      <i class="bi bi-bell-fill"></i>
+    </button>
+
+    <button class="icon-btn">
+      <i class="bi bi-person-circle"></i>
+    </button>
+
   </div>
 
 </div>
 
-<!-- WELCOME -->
+<!-- ================= WELCOME ================= -->
+
 <div class="welcome">
-  <h3>Welcome Back, Sweet Crumbs Admin </h3>
-  <p>Manage bakery orders, customers, and performance in one place.</p>
+
+  <h3>Welcome Back, Sweet Crumbs Admin</h3>
+
+  <p>
+    Manage bakery orders, customers and performance in one place.
+  </p>
+
 </div>
 
-<!-- CARDS -->
+<!-- ================= CARDS ================= -->
+
 <div class="cards">
 
-  <div class="card">₹25,000<br>Total Sales</div>
-  <div class="card">1,250<br>Orders</div>
-  <div class="card">850<br>Customers</div>
-  <div class="card">120<br>Products</div>
+  <div class="card">
+    <h2>₹25,000</h2>
+    <p>Total Sales</p>
+  </div>
+
+  <div class="card">
+    <h2>1,250</h2>
+    <p>Orders</p>
+  </div>
+
+  <div class="card">
+    <h2>850</h2>
+    <p>Customers</p>
+  </div>
+
+  <div class="card">
+    <h2>120</h2>
+    <p>Products</p>
+  </div>
 
 </div>
 
-<!-- MAIN GRID -->
+<!-- ================= GRID ================= -->
+
 <div class="grid">
 
   <!-- TABLE -->
+
   <div class="table">
-    <h3>Recent Orders</h3><br>
+
+    <h3>Recent Orders</h3>
+
+    <br>
 
     <table>
+
       <tr>
         <th>ID</th>
         <th>Name</th>
         <th>Status</th>
       </tr>
-      <tr><td>#101</td><td>Rahul</td><td>Delivered</td></tr>
-      <tr><td>#102</td><td>Priya</td><td>Pending</td></tr>
-      <tr><td>#103</td><td>Aman</td><td>Processing</td></tr>
+
+      <tr>
+        <td>#101</td>
+        <td>Rahul</td>
+        <td>Delivered</td>
+      </tr>
+
+      <tr>
+        <td>#102</td>
+        <td>Priya</td>
+        <td>Pending</td>
+      </tr>
+
+      <tr>
+        <td>#103</td>
+        <td>Aman</td>
+        <td>Processing</td>
+      </tr>
+
     </table>
+
   </div>
 
   <!-- ACTIVITY -->
-  <div class="activity">
-    <h3>Live Activity</h3><br>
 
-    <div class="item"> New order received</div>
-    <div class="item"> Order shipped to Bangalore</div>
-    <div class="item"> New 5-star review</div>
-    <div class="item">💰Payment completed</div>
+  <div class="activity">
+
+    <h3>Live Activity</h3>
+
+    <br>
+
+    <div class="item">New order received</div>
+    <div class="item">Order shipped to Bangalore</div>
+    <div class="item">New 5-star review</div>
+    <div class="item">Payment completed</div>
+
   </div>
 
 </div>
 
-<!-- EXTRA -->
+<!-- ================= EXTRA ================= -->
+
 <div class="extra">
 
   <div class="box">
@@ -340,7 +661,7 @@ body.dark .box{
 
   <div class="box">
     <h3>Top Product</h3>
-    <p>Chocolate Truffle Cake </p>
+    <p>Chocolate Truffle Cake</p>
   </div>
 
   <div class="box">
@@ -354,9 +675,57 @@ body.dark .box{
 </div>
 
 <script>
+
+/* ================= DARK MODE ================= */
+
 function toggleDark(){
+
   document.body.classList.toggle("dark");
+
+  const icon = document.querySelector("#themeBtn i");
+
+  if(document.body.classList.contains("dark")){
+
+    icon.classList.remove("bi-moon-stars-fill");
+    icon.classList.add("bi-sun-fill");
+
+  }else{
+
+    icon.classList.remove("bi-sun-fill");
+    icon.classList.add("bi-moon-stars-fill");
+
+  }
+
 }
+
+/* ================= RTL / LTR ================= */
+
+function toggleRTL(){
+
+  document.body.classList.toggle("rtl");
+
+  const btn = document.getElementById("rtlBtn");
+
+  if(document.body.classList.contains("rtl")){
+
+    btn.innerHTML = "RTL";
+
+  }else{
+
+    btn.innerHTML = "LTR";
+
+  }
+
+}
+
+/* ================= MOBILE SIDEBAR ================= */
+
+function toggleSidebar(){
+
+  document.getElementById("sidebar").classList.toggle("show");
+
+}
+
 </script>
 
 </body>

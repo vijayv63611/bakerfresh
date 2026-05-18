@@ -9,118 +9,133 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
 <style>
-
-/* ================= GLOBAL ================= */
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:'Poppins',sans-serif;
-  transition:0.4s ease;
+  font-family:Poppins;
 }
 
 body{
   height:100vh;
-  overflow:hidden;
   display:flex;
   justify-content:center;
   align-items:center;
-
-  /* ⭐ WHITE BACKGROUND */
-  background:#ffffff;
-  color:#111;
-}
-
-/* ================= SOFT BACKGROUND ANIMATION ================= */
-.bg{
-  position:absolute;
-  width:100%;
-  height:100%;
-  z-index:-1;
-  background:#ffffff;
-  overflow:hidden;
-}
-
-.bg span{
-  position:absolute;
-  width:18px;
-  height:18px;
-  background:rgba(255,122,0,0.08);
-  border-radius:50%;
-  animation:float 12s linear infinite;
-  bottom:-150px;
-}
-
-@keyframes float{
-  0%{transform:translateY(0) scale(0);}
-  100%{transform:translateY(-1100px) scale(1);}
-}
-
-.bg span:nth-child(1){left:10%;}
-.bg span:nth-child(2){left:20%;animation-delay:2s;}
-.bg span:nth-child(3){left:30%;animation-delay:4s;}
-.bg span:nth-child(4){left:40%;animation-delay:6s;}
-.bg span:nth-child(5){left:50%;animation-delay:1s;}
-.bg span:nth-child(6){left:60%;animation-delay:3s;}
-.bg span:nth-child(7){left:70%;animation-delay:5s;}
-.bg span:nth-child(8){left:80%;animation-delay:2s;}
-
-/* ================= TOP ICONS ================= */
-.top-icons{
-  position:absolute;
-  top:20px;
-  right:20px;
-  display:flex;
-  gap:12px;
-}
-
-.icon-btn{
-  width:42px;
-  height:42px;
-  border:none;
-  border-radius:50%;
-  background:#fff;
-  box-shadow:0 5px 15px rgba(0,0,0,0.1);
-  cursor:pointer;
-  font-size:18px;
+  background:#f4f4f4;
 }
 
 /* ================= CARD ================= */
 .card{
-  width:420px;
-  background:#fff;
+  width:380px;
   padding:30px;
-  border-radius:20px;
-  text-align:center;
-  box-shadow:0 20px 60px rgba(0,0,0,0.12);
-  z-index:2;
+  border-radius:18px;
+  background:#fff;
+  box-shadow:0 20px 50px rgba(0,0,0,0.1);
+  position:relative;
+  direction:ltr;
+
+  /* ✅ PREMIUM ANIMATION START STATE */
+  opacity:0;
+  transform:translateY(80px) scale(0.85);
+  filter:blur(8px);
+
+  /* animation */
+  animation:cardPop 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ================= PREMIUM KEYFRAME ================= */
+@keyframes cardPop{
+  0%{
+    opacity:0;
+    transform:translateY(80px) scale(0.85);
+    filter:blur(10px);
+  }
+
+  60%{
+    opacity:1;
+    transform:translateY(-10px) scale(1.03);
+    filter:blur(0);
+  }
+
+  80%{
+    transform:translateY(5px) scale(0.98);
+  }
+
+  100%{
+    opacity:1;
+    transform:translateY(0) scale(1);
+    filter:blur(0);
+  }
+}
+
+/* DARK */
+.card.dark{
+  background:#1a1a1a;
+  color:#fff;
+}
+
+/* RTL */
+.card.rtl{
+  direction:rtl;
+  text-align:right;
+}
+
+/* TOP CONTROLS */
+.top-icons{
+  position:absolute;
+  top:15px;
+  right:15px;
+  display:flex;
+  flex-direction:row;
+  gap:10px;
+}
+
+.card.rtl .top-icons{
+  right:auto;
+  left:15px;
+}
+
+.icon-btn{
+  width:36px;
+  height:36px;
+  border:none;
+  border-radius:50%;
+  background:#ff7a00;
+  color:#fff;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:0.3s;
+}
+
+.icon-btn:hover{
+  transform:rotate(12deg) scale(1.1);
 }
 
 /* LOGO */
 .logo{
-  font-size:26px;
+  font-size:22px;
   font-weight:700;
   color:#ff7a00;
+  display:block;
+  margin-bottom:15px;
   text-decoration:none;
-  display:inline-block;
 }
 
-h3{
-  margin:10px 0;
-}
-
-/* ================= INPUT ================= */
+/* INPUTS */
 .input-box{
-  margin-top:12px;
+  margin-bottom:12px;
 }
 
 .input-box input{
   width:100%;
-  padding:14px;
-  border-radius:10px;
+  padding:12px;
   border:1px solid #ddd;
+  border-radius:10px;
   outline:none;
-  background:#fff;
+  background:transparent;
+  color:inherit;
 }
 
 /* PASSWORD */
@@ -130,26 +145,35 @@ h3{
 
 .eye{
   position:absolute;
-  right:12px;
+  right:10px;
   top:50%;
   transform:translateY(-50%);
   cursor:pointer;
 }
 
-/* ================= BUTTON ================= */
-.btn{
-  width:100%;
-  padding:14px;
-  margin-top:15px;
-  border:none;
-  border-radius:10px;
-  background:#ff7a00;
-  color:#fff;
-  font-weight:600;
-  cursor:pointer;
+.card.rtl .eye{
+  right:auto;
+  left:10px;
 }
 
-/* ================= SOCIAL ================= */
+/* BUTTON */
+.btn{
+  width:100%;
+  padding:12px;
+  background:#ff7a00;
+  border:none;
+  color:#fff;
+  border-radius:10px;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.btn:hover{
+  transform:scale(1.03);
+}
+
+/* SOCIAL */
 .social{
   display:flex;
   justify-content:center;
@@ -158,142 +182,99 @@ h3{
 }
 
 .social button{
-  width:45px;
-  height:45px;
-  border:1px solid #eee;
+  width:40px;
+  height:40px;
+  border:1px solid #ddd;
   border-radius:10px;
-  background:#fff;
-  cursor:pointer;
-  font-size:18px;
+  background:transparent;
+  transition:0.3s;
 }
 
-/* LINK */
+.social button:hover{
+  transform:translateY(-5px) scale(1.1);
+  border-color:#ff7a00;
+}
+
+/* LOGIN LINK */
 .link{
-  margin-top:10px;
+  text-align:center;
+  margin-top:12px;
   font-size:13px;
 }
 
 .link a{
   color:#ff7a00;
   text-decoration:none;
+  font-weight:600;
 }
-
-/* ================= DARK MODE ================= */
-body.dark{
-  background:#0b0b0b;
-  color:#fff;
-}
-
-body.dark .bg{
-  background:#0b0b0b;
-}
-
-body.dark .card{
-  background:#1a1a1a;
-  color:#fff;
-}
-
-body.dark input{
-  background:#111;
-  color:#fff;
-  border:1px solid #333;
-}
-
-body.dark .social button{
-  background:#111;
-  border:1px solid #333;
-  color:#fff;
-}
-
-/* ================= RTL ================= */
-body.rtl{
-  direction:rtl;
-}
-
-body.rtl .card{
-  text-align:right;
-}
-
-body.rtl .eye{
-  right:auto;
-  left:12px;
-}
-
 </style>
 </head>
 
 <body>
 
-<!-- BACKGROUND -->
-<div class="bg">
-  <span></span><span></span><span></span><span></span>
-  <span></span><span></span><span></span><span></span>
-</div>
+<div class="card" id="card">
 
-<!-- TOP ICONS -->
-<div class="top-icons">
-  <button class="icon-btn" onclick="toggleTheme()">
-    <i class="bi bi-moon-stars"></i>
-  </button>
+  <!-- TOP CONTROLS -->
+  <div class="top-icons">
+    <button class="icon-btn" onclick="toggleTheme()">
+      <i class="bi bi-moon"></i>
+    </button>
 
-  <button class="icon-btn" onclick="toggleRTL()">
-    ⇄
-  </button>
-</div>
+    <button class="icon-btn" onclick="toggleDir()">
+      <i class="bi bi-arrow-left-right"></i>
+    </button>
+  </div>
 
-<!-- CARD -->
-<div class="card">
-
-  <a href="index.html" class="logo">Sweet Crumbs</a>
-
+  <!-- LOGO -->
+  <a class="logo">Sweet Crumbs</a>
   <h3>Create Account</h3>
 
+  <!-- INPUTS -->
   <div class="input-box">
     <input type="text" placeholder="Full Name">
   </div>
 
   <div class="input-box">
-    <input type="email" placeholder="Email Address">
+    <input type="email" placeholder="Email">
   </div>
 
   <div class="input-box password-box">
-    <input type="password" id="pass" placeholder="Password">
-    <i class="bi bi-eye eye" onclick="togglePass()"></i>
+    <input type="password" placeholder="Password">
+    <i class="bi bi-eye eye"></i>
   </div>
 
-  <div class="input-box">
+  <div class="input-box password-box">
     <input type="password" placeholder="Confirm Password">
   </div>
 
+  <!-- BUTTON -->
   <button class="btn">Sign Up</button>
 
+  <!-- SOCIAL -->
   <div class="social">
     <button><i class="bi bi-google"></i></button>
     <button><i class="bi bi-apple"></i></button>
     <button><i class="bi bi-facebook"></i></button>
   </div>
 
+  <!-- LOGIN LINK -->
   <div class="link">
-    Already have an account? <a href="login.html">Login</a>
+    Already have an account?
+    <a href="login.html">Login</a>
   </div>
 
 </div>
 
 <script>
+const card=document.getElementById("card");
 
 function toggleTheme(){
-  document.body.classList.toggle("dark");
+  card.classList.toggle("dark");
 }
 
-function toggleRTL(){
-  document.body.classList.toggle("rtl");
+function toggleDir(){
+  card.classList.toggle("rtl");
 }
-
-function togglePass(){
-  let p = document.getElementById("pass");
-  p.type = (p.type === "password") ? "text" : "password";
-}
-
 </script>
 
 </body>

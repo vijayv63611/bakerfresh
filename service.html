@@ -85,7 +85,7 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.c
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:52px;
+  gap:20px;
 }
 
 .nav-links > a,
@@ -298,7 +298,9 @@ body.dark{
   color: var(--text);
   border: 1px solid var(--border);
 }
-.footer,
+.footer{
+  color:var(--primary)
+}
 .footer a,
 .footer p{
   color: var(--text);
@@ -379,10 +381,8 @@ justify-content:center;
 text-align:center;
 overflow:hidden;
 position:relative;
-
 background:
-linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.65)),
-url("https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1600&auto=format&fit=crop")
+url("images/j2.jpg")
 center/cover;
 }
 
@@ -998,7 +998,82 @@ body.rtl{
   }
 
 }
+/* PREMIUM SERVICE CARDS */
 
+.premium-services-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:25px;
+}
+
+.premium-service-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:28px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  transition:.4s;
+}
+
+.premium-service-card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 20px 50px rgba(255,122,0,.18);
+}
+
+.premium-img{
+  height:220px;
+  overflow:hidden;
+}
+
+.premium-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:.6s;
+}
+
+.premium-service-card:hover img{
+  transform:scale(1.08);
+}
+
+.premium-content{
+  padding:24px;
+}
+
+.premium-content span{
+  color:var(--primary);
+  font-size:.85rem;
+  font-weight:700;
+  letter-spacing:2px;
+}
+
+.premium-content h3{
+  margin:12px 0;
+  font-size:1.4rem;
+}
+
+.premium-content p{
+  line-height:1.7;
+  opacity:.8;
+  margin-bottom:20px;
+}
+
+.premium-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:12px 20px;
+  border-radius:40px;
+  background:linear-gradient(135deg,#ff7a00,#ffb347);
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+  transition:.3s;
+}
+
+.premium-btn:hover{
+  gap:14px;
+}
 
 
 .footer-grid{
@@ -1228,15 +1303,15 @@ body.rtl{
     <!-- ACTIONS -->
     <div class="header-actions">
 
-      <!-- RTL -->
-      <button class="icon-btn" id="rtlToggle" title="RTL Mode">
-        <i class="bi bi-text-right"></i>
-      </button>
+     <!-- RTL / LTR BUTTON -->
+<button class="icon-btn" id="rtlToggle" title="RTL / LTR Mode">
+  <span id="rtlText">LTR</span>
+</button>
 
-      <!-- DARK MODE -->
-      <button class="icon-btn" id="themeToggle" title="Dark Mode">
-        <i class="bi bi-moon-stars-fill"></i>
-      </button>
+<!-- DARK MODE BUTTON -->
+<button class="icon-btn" id="themeToggle" title="Dark Mode">
+  <i class="bi bi-moon-stars-fill" id="themeIcon"></i>
+</button>
 
       <!-- CTA -->
       <a href="login.html" class="btn btn-outline">  <i class="bi bi-box-arrow-in-right"> Login</i></a>
@@ -1479,6 +1554,101 @@ premium packaging and perfect quality at your doorstep.
   </div>
 
 </section>
+<!-- DELIVERY SERVICES CARDS -->
+
+<section class="premium-services fade">
+
+  <div class="section-title">
+    <span>OUR SERVICES</span>
+    <h2>Bakery Delivery Services</h2>
+    <p>
+      Fast fresh bakery delivery with premium packaging and sweet experiences.
+    </p>
+  </div>
+
+  <div class="premium-services-grid">
+
+    <!-- CARD 1 -->
+    <div class="premium-service-card">
+
+      <div class="premium-img">
+        <img src="https://images.unsplash.com/photo-1523294587484-bae6cc870010?q=80&w=1200&auto=format&fit=crop" alt="">
+      </div>
+
+      <div class="premium-content">
+
+        <span>DOOR DELIVERY</span>
+
+        <h3>Fresh Home Delivery</h3>
+
+        <p>
+          Fresh cakes and pastries delivered safely to your doorstep.
+        </p>
+
+        <a href="order.html" class="premium-btn">
+          Order Now
+          <i class="bi bi-arrow-right"></i>
+        </a>
+
+      </div>
+
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="premium-service-card">
+
+      <div class="premium-img">
+        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1200&auto=format&fit=crop" alt="">
+      </div>
+
+      <div class="premium-content">
+
+        <span>FRESH BAKING</span>
+
+        <h3>Daily Fresh Pastries</h3>
+
+        <p>
+          Premium handcrafted pastries baked fresh every single morning.
+        </p>
+
+        <a href="explore.html" class="premium-btn">
+          Explore
+          <i class="bi bi-arrow-right"></i>
+        </a>
+
+      </div>
+
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="premium-service-card">
+
+      <div class="premium-img">
+        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=1200&auto=format&fit=crop" alt="">
+      </div>
+
+      <div class="premium-content">
+
+        <span>CUSTOM CAKES</span>
+
+        <h3>Luxury Cake Design</h3>
+
+        <p>
+          Beautiful customized cakes for birthdays and celebrations.
+        </p>
+
+        <a href="#" class="premium-btn">
+          View More
+          <i class="bi bi-arrow-right"></i>
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
 <!-- ================= FOOTER ================= -->
 <footer class="footer">
   <div class="container footer-grid">
@@ -1531,11 +1701,10 @@ premium packaging and perfect quality at your doorstep.
 </div>
     <div class="footer-contact">
       <h4>Contact</h4>
-      <p><i class="bi bi-geo-alt"></i> Bangalore, India</p>
-      <p><i class="bi bi-envelope"></i> hello@sweetcrumbs.com</p>
-      <p><i class="bi bi-telephone"></i> +91 98765 43210</p>
+      <p><i class="bi bi-geo-alt"></i>Bangalore, India</p>
+      <p><i class="bi bi-envelope"></i>hello@sweetcrumbs.com</p>
+      <p><i class="bi bi-telephone"></i>+91 98765 43210</p>
     </div>
-
   </div>
 
   <!-- ================= FOOTER BOTTOM ================= -->
@@ -1582,18 +1751,62 @@ section.classList.add("active");
 
 });
 
+
+
+/* =========================================
+   DARK MODE + SUN / MOON TOGGLE
+========================================= */
+
 const themeToggle = document.getElementById("themeToggle");
-const rtlToggle = document.getElementById("rtlToggle");
+const themeIcon = document.getElementById("themeIcon");
 
-/* DARK MODE */
 themeToggle.onclick = () => {
+
+  /* TOGGLE DARK CLASS */
   document.body.classList.toggle("dark");
+
+  /* CHANGE ICON */
+  if(document.body.classList.contains("dark")){
+
+    themeIcon.classList.remove("bi-moon-stars-fill");
+    themeIcon.classList.add("bi-sun-fill");
+
+  } else {
+
+    themeIcon.classList.remove("bi-sun-fill");
+    themeIcon.classList.add("bi-moon-stars-fill");
+
+  }
+
 };
 
-/* RTL MODE */
+
+/* =========================================
+   RTL / LTR TOGGLE
+========================================= */
+
+const rtlToggle = document.getElementById("rtlToggle");
+const rtlText = document.getElementById("rtlText");
+
 rtlToggle.onclick = () => {
+
+  /* TOGGLE RTL CLASS */
   document.body.classList.toggle("rtl");
+
+  /* CHANGE BUTTON TEXT */
+  if(document.body.classList.contains("rtl")){
+
+    rtlText.innerHTML = "RTL";
+
+  } else {
+
+    rtlText.innerHTML = "LTR";
+
+  }
+
 };
+
+
 </script>
 
 </body>

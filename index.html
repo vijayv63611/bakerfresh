@@ -38,16 +38,16 @@
     <!-- ACTIONS -->
     <div class="header-actions">
 
-      <!-- RTL -->
-      <button class="icon-btn" id="rtlToggle" title="RTL Mode">
-        <i class="bi bi-text-right"></i>
-      </button>
+      
+ <!-- RTL / LTR BUTTON -->
+  <button class="icon-btn" id="rtlToggle" title="RTL / LTR Mode">
+    <span id="rtlText">LTR</span>
+  </button>
 
-      <!-- DARK MODE -->
-      <button class="icon-btn" id="themeToggle" title="Dark Mode">
-        <i class="bi bi-moon-stars-fill"></i>
-      </button>
-
+  <!-- DARK / LIGHT MODE BUTTON -->
+  <button class="icon-btn" id="themeToggle" title="Dark Mode">
+    <i class="bi bi-moon-stars-fill" id="themeIcon"></i>
+  </button>
       <!-- CTA -->
       <a href="login.html" class="btn btn-outline">  <i class="bi bi-box-arrow-in-right"> Login</i></a>
 
@@ -118,7 +118,7 @@
 
       <div class="special-card">
         <div class="img-box">
-          <img src="images/c1.jpg" alt="Artisan Cakes">
+          <img src="images/c4.webp" alt="Artisan Cakes">
         </div>
         <i class="bi bi-cup-hot-fill"></i>
         <h3>Artisan Cakes</h3>
@@ -352,7 +352,7 @@
       <div class="signature-card">
 
         <div class="signature-img">
-          <img src="images/c1.jpg" alt="">
+          <img src="images/c4.webp" alt="">
         </div>
 
         <div class="signature-content">
@@ -774,7 +774,7 @@ body{
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:52px;
+  gap:20px;
 }
 
 .nav-links > a,
@@ -958,7 +958,7 @@ body.rtl .dropdown-menu{
 padding:120px 20px;
   background:
 linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
-url("https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=1600&auto=format&fit=crop");
+url("images/sd.jpg");
   background-size:cover;
   background-position:center;
   display:flex;
@@ -2699,17 +2699,53 @@ body.rtl{
 <!-- ================= JS ================= -->
 <script>
 
-const themeToggle = document.getElementById("themeToggle");
-const rtlToggle = document.getElementById("rtlToggle");
+/* ================= THEME TOGGLE ================= */
 
-/* DARK MODE */
+const themeToggle = document.getElementById("themeToggle");
+const themeIcon = document.getElementById("themeIcon");
+
 themeToggle.onclick = () => {
+
   document.body.classList.toggle("dark");
+
+  /* CHANGE ICON */
+
+  if(document.body.classList.contains("dark")){
+
+    themeIcon.classList.remove("bi-moon-stars-fill");
+    themeIcon.classList.add("bi-sun-fill");
+
+  } else {
+
+    themeIcon.classList.remove("bi-sun-fill");
+    themeIcon.classList.add("bi-moon-stars-fill");
+
+  }
+
 };
 
-/* RTL MODE */
+
+/* ================= RTL / LTR TOGGLE ================= */
+
+const rtlToggle = document.getElementById("rtlToggle");
+const rtlText = document.getElementById("rtlText");
+
 rtlToggle.onclick = () => {
+
   document.body.classList.toggle("rtl");
+
+  /* CHANGE TEXT */
+
+  if(document.body.classList.contains("rtl")){
+
+    rtlText.innerHTML = "RTL";
+
+  } else {
+
+    rtlText.innerHTML = "LTR";
+
+  }
+
 };
 
 </script>
