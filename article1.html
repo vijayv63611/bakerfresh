@@ -23,6 +23,12 @@ body{
   overflow-x:hidden;
 }
 
+/* ================= CONTAINER ================= */
+.container{
+  width:85%;
+  margin:auto;
+}
+
 /* ================= ANIMATIONS ================= */
 @keyframes fadeUp{
   from{opacity:0; transform:translateY(40px);}
@@ -34,11 +40,25 @@ body{
   to{opacity:1; transform:scale(1);}
 }
 
-/* ================= CONTAINER ================= */
-.container{
-  width:85%;
-  margin:auto;
+
+:root{
+  --bg:#ffffff;
+  --text:#111827;
+  --card:#ffffff;
+  --border:#e5e7eb;
+  --primary:#ff7a00;
+  --primary-hover:#e96d00;
+  --shadow:0 10px 30px rgba(0,0,0,0.08);
 }
+
+body.dark{
+  --bg:black;
+  --text:#ffffff;
+  --card:black;
+  --border:black;
+}
+
+
 
 /* ================= HERO ================= */
 .hero{
@@ -107,7 +127,7 @@ body{
   border-radius:10px;
 }
 
-/* ================= IMAGE TEXT SECTION ================= */
+/* ================= IMAGE TEXT ================= */
 .image-text{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
@@ -118,7 +138,6 @@ body{
 .image-text img{
   width:100%;
   border-radius:20px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.1);
 }
 
 .image-text p{
@@ -139,7 +158,6 @@ body{
   overflow:hidden;
   box-shadow:0 10px 25px rgba(0,0,0,0.08);
   transition:0.4s;
-  animation:zoom 0.6s ease;
 }
 
 .card:hover{
@@ -156,11 +174,7 @@ body{
   padding:20px;
 }
 
-.card-content h3{
-  margin-bottom:10px;
-}
-
-/* ================= FEATURE STEPS ================= */
+/* ================= STEPS ================= */
 .steps{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
@@ -195,7 +209,7 @@ body{
   margin-top:30px;
 }
 
-/* ================= CALL TO ACTION ================= */
+/* ================= CTA ================= */
 .cta{
   text-align:center;
 }
@@ -207,33 +221,11 @@ body{
   color:#fff;
   border-radius:30px;
   text-decoration:none;
-  transition:0.3s;
 }
 
 .cta a:hover{
   background:#ff9a2f;
-  transform:translateY(-5px);
 }
-<!-- ================= CSS ================= -->
-<style>
-
-:root{
-  --bg:#ffffff;
-  --text:#111827;
-  --card:#ffffff;
-  --border:#e5e7eb;
-  --primary:#ff7a00;
-  --primary-hover:#e96d00;
-  --shadow:0 10px 30px rgba(0,0,0,0.08);
-}
-
-body.dark{
-  --bg:black;
-  --text:#ffffff;
-  --card:black;
-  --border:black;
-}
-
 *{
   margin:0;
   padding:0;
@@ -720,33 +712,14 @@ body.rtl{
 
 }
 
-</style>
-
-
-<!-- ================= JS ================= -->
-<script>
-
-const themeToggle = document.getElementById("themeToggle");
-const rtlToggle = document.getElementById("rtlToggle");
-
-/* DARK MODE */
-themeToggle.onclick = () => {
-  document.body.classList.toggle("dark");
-};
-
-/* RTL MODE */
-rtlToggle.onclick = () => {
-  document.body.classList.toggle("rtl");
-};
-
-</script>
-
-
 
 
 </style>
 </head>
-<!-- ================= HEADER ================= -->
+
+<body
+
+<!================= HEADER ================= -->
 <header class="main-header">
   <div class="container nav-wrapper">
 
@@ -803,21 +776,15 @@ rtlToggle.onclick = () => {
 
   </div>
 </header>
-
-
-
-
-<body>
-
 <!-- ================= HERO ================= -->
 <section class="hero">
   <div class="hero-content">
     <h1>Why Artisan Bread Tastes Better</h1>
-    <p>Discover the secret behind handcrafted bakery perfection, slow fermentation, and premium ingredients.</p>
+    <p>Discover the secret behind handcrafted bakery perfection.</p>
   </div>
 </section>
 
-<!-- ================= SECTION 1 ================= -->
+<!-- ================= INTRO ================= -->
 <section class="section container">
   <div class="title">
     <h2>Introduction</h2>
@@ -825,33 +792,27 @@ rtlToggle.onclick = () => {
   </div>
 
   <div class="quote">
-    Artisan baking is not just food — it is patience, passion, and precision shaped into every loaf.
+    Artisan baking is not just food — it is patience, passion, and precision.
   </div>
 </section>
 
 <!-- ================= SECTION 2 ================= -->
 <section class="section container">
-
   <div class="title">
     <h2>What Makes Artisan Bread Special?</h2>
   </div>
 
   <div class="image-text">
     <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?q=80&w=1200&auto=format&fit=crop">
-
     <p>
-      Artisan bread is made using traditional methods without shortcuts.
-      The dough is allowed to rest for hours, developing natural flavor and texture.
-      At Sweet Crumbs, we focus on quality, not speed.
-      Every loaf tells a story of craftsmanship and care.
+      Artisan bread is made using traditional methods with slow fermentation.
+      Every loaf has natural flavor and texture.
     </p>
   </div>
-
 </section>
 
-<!-- ================= SECTION 3 ================= -->
+<!-- ================= CARDS ================= -->
 <section class="section container">
-
   <div class="title">
     <h2>Why Customers Love It</h2>
   </div>
@@ -859,35 +820,31 @@ rtlToggle.onclick = () => {
   <div class="grid">
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1200&auto=format&fit=crop">
+      <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff">
       <div class="card-content">
         <h3>Natural Ingredients</h3>
-        <p>No chemicals, only fresh bakery essentials.</p>
       </div>
     </div>
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1548940740-204726a19be3?q=80&w=1200&auto=format&fit=crop">
+      <img src="https://images.unsplash.com/photo-1548940740-204726a19be3">
       <div class="card-content">
         <h3>Perfect Texture</h3>
-        <p>Crispy outside, soft inside.</p>
       </div>
     </div>
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?q=80&w=1200&auto=format&fit=crop">
+      <img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d">
       <div class="card-content">
         <h3>Fresh Daily Bake</h3>
-        <p>Baked fresh every morning.</p>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- ================= SECTION 4 ================= -->
+<!-- ================= STEPS ================= -->
 <section class="section container">
-
   <div class="title">
     <h2>Our Baking Process</h2>
   </div>
@@ -897,53 +854,44 @@ rtlToggle.onclick = () => {
     <div class="step">
       <i class="bi bi-clock-history"></i>
       <h3>Dough Rest</h3>
-      <p>Slow fermentation for perfect taste.</p>
     </div>
 
     <div class="step">
       <i class="bi bi-heart-fill"></i>
       <h3>Hand Crafted</h3>
-      <p>Shaped with care by expert bakers.</p>
     </div>
 
     <div class="step">
       <i class="bi bi-fire"></i>
       <h3>Perfect Bake</h3>
-      <p>Golden crust with rich aroma.</p>
     </div>
 
   </div>
 </section>
 
-<!-- ================= SECTION 5 ================= -->
+<!-- ================= IMAGE ================= -->
 <section class="section container">
-
   <div class="title">
-    <h2>Inside Sweet Crumbs Kitchen</h2>
+    <h2>Inside Kitchen</h2>
   </div>
 
   <div class="full-img">
-    <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=1400&auto=format&fit=crop">
+    <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a">
   </div>
-
 </section>
 
-<!-- ================= SECTION 6 ================= -->
+<!-- ================= QUOTE ================= -->
 <section class="section container">
-
   <div class="quote">
-    “Great bread is not made fast — it is made with patience, passion, and perfection.”
+    “Great bread is made with patience and passion.”
   </div>
-
 </section>
 
 <!-- ================= CTA ================= -->
 <section class="section container">
-
   <div class="cta">
     <a href="blog.html">← Back to Blog</a>
   </div>
-
 </section>
 <!-- ================= FOOTER ================= -->
 <footer class="footer">
@@ -1021,5 +969,22 @@ rtlToggle.onclick = () => {
 
 </div>
 </footer>
+<!-- ================= JS ================= -->
+<script>
+
+const themeToggle = document.getElementById("themeToggle");
+const rtlToggle = document.getElementById("rtlToggle");
+
+/* DARK MODE */
+themeToggle.onclick = () => {
+  document.body.classList.toggle("dark");
+};
+
+/* RTL MODE */
+rtlToggle.onclick = () => {
+  document.body.classList.toggle("rtl");
+};
+
+</script>
 </body>
 </html>
