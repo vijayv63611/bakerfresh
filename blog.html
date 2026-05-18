@@ -1,428 +1,1323 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sweet Crumbs</title>
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="blog.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-</head>
-
-<body>
-<header class="site-header">
-  <div class="navbar">
+<!-- ================= HEADER ================= -->
+<header class="main-header">
+  <div class="container nav-wrapper">
 
     <!-- LOGO -->
-    <div class="logo">Sweet Crumbs</div>
+    <a href="#" class="logo">
+      <span>Sweet Crumbs</span>
+    </a>
 
-    <!-- NAV -->
-    <nav>
-      <ul class="nav-list">
+    <!-- NAVIGATION -->
+    <nav class="nav-links">
 
-        <!-- HOME DROPDOWN -->
-        <li class="dropdown">
-          <a href="index.html">Home ▼</a>
+      <!-- HOME DROPDOWN -->
+      <div class="dropdown">
 
-          <ul class="custom-dropdown-menu">
-            <li><a href="index.html">Home1</a></li>
-            <li><a href="home.html">Home2</a></li>
-          </ul>
-        </li>
+        <a href="index.html" class="dropdown-toggle">
+          <span>Home</span>
+          <i class="bi bi-chevron-down"></i>
+        </a>
 
-        <li><a href="about.html">About</a></li>
-        <li><a href="service.html">Service</a></li>
-        <li><a href="price.html">Price</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="dashboard.html">Dashboard</a></li>
+        <div class="dropdown-menu">
+          <a href="index.html">Home1</a>
+          <a href="home.html">Home2</a>
+        </div>
 
-        <!-- LOGIN BUTTON -->
-        <li><a href="login.html" class="login-nav-btn">Login</a></li>
+      </div>
 
-      </ul>
+       <a href="about.html">About</a>
+       <a href="service.html">Service</a>
+      <a href="price.html">Price</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+      <a href="dashboard.html" class="dashboard-link">Dashboard</a>
+
+
     </nav>
 
-    <!-- BUTTONS -->
-    <div class="header-buttons">
-      <button class="theme-btn" onclick="toggleTheme()">
+    <!-- ACTIONS -->
+    <div class="header-actions">
+
+      <!-- RTL -->
+      <button class="icon-btn" id="rtlToggle" title="RTL Mode">
+        <i class="bi bi-text-right"></i>
+      </button>
+
+      <!-- DARK MODE -->
+      <button class="icon-btn" id="themeToggle" title="Dark Mode">
         <i class="bi bi-moon-stars-fill"></i>
       </button>
 
-      <button class="rtl-btn" onclick="toggleRTL()">⇄</button>
+      <!-- CTA -->
+      <a href="login.html" class="btn btn-outline">  <i class="bi bi-box-arrow-in-right"> Login</i></a>
+
     </div>
 
   </div>
 </header>
+<section class="hero">
+  <div class="hero-overlay"></div>
 
+  <div class="hero-content">
 
-<body>
+    <span class="badge"> Sweet Crumbs Bakery</span>
 
-<!-- HERO -->
+    <h1>
+      <span class="static">We Bake</span>
+      <span class="typing-text" id="typing"></span>
+    </h1>
 
-<section class="blog-hero">
+    <p>
+      Fresh cakes, pastries, breads & desserts made with love every day.
+    </p>
 
-<div class="hero-overlay"></div>
+    <div class="hero-buttons">
+      <button class="btn primary">Order Now</button>
+      <button class="btn outline">View Menu</button>
+    </div>
 
-<div class="hero-content">
-
-<span class="tag">Baker Fresh Journal</span>
-
-<h1>
-Premium Bakery <br>
-Stories & Articles
-</h1>
-
-<p>
-Explore artisan baking ideas, premium cake trends,
-dessert inspiration and handcrafted bakery stories.
-</p>
-
-<a href="#featured" class="hero-btn">
-Explore Articles
-</a>
-
-</div>
-
+  </div>
 </section>
 
 
 
-<!-- FEATURED -->
+<!-- 2 FEATURE IMAGE CARDS -->
+<section class="section">
+  <h2 class="title">Featured Stories</h2>
 
-<section class="featured-section" id="featured">
+  <div class="grid3">
 
-<div class="section-title">
-<h2>Featured Articles</h2>
-<p>Fresh stories from our bakery kitchen</p>
-</div>
+    <div class="img-card reveal">
+      <img src="images/ca.jpg">
+      <div class="overlay">
+        <h3>Cake Art</h3>
+      </div>
+    </div>
 
-<div class="featured-grid">
+    <div class="img-card reveal">
+      <img src="images/fb.jfif">
+      <div class="overlay">
+        <h3>Fresh Bread</h3>
+      </div>
+    </div>
 
-<div class="featured-card">
-<img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1200&auto=format&fit=crop">
+    <div class="img-card reveal">
+      <img src="images/ds.jpg">
+      <div class="overlay">
+        <h3>Desserts</h3>
+      </div>
+    </div>
 
-<div class="featured-content">
+  </div>
+</section>
 
-<span>Premium Bread</span>
+<!-- 3 BLOG GRID -->
+<section class="section">
+  <h2 class="title">Latest Blogs</h2>
 
-<h3>
-Why Artisan Bread Tastes Better
-</h3>
+  <div class="blog-grid">
 
-<p>
-Discover the secrets behind handcrafted bakery bread
-and why slow fermentation changes everything.
+    <div class="blog-card reveal">
+      <img src="images/bt.jfif">
+      <div class="content">
+        <h3>Bakery Trends</h3>
+        <p>Modern bakery innovations are changing taste.</p>
+      </div>
+    </div>
+
+    <div class="blog-card reveal">
+      <img src="images/cc.jpg">
+      <div class="content">
+        <h3>Coffee Culture</h3>
+        <p>Perfect pair with bakery items.</p>
+      </div>
+    </div>
+
+    <div class="blog-card reveal">
+      <img src="images/fs.jpg">
+      <div class="content">
+        <h3>Food Stories</h3>
+        <p>Explore global food evolution.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 4 READ MORE CARDS (ANIMATED FLOAT) -->
+<section class="section">
+  <h2 class="title">Read More</h2>
+
+  <div class="read-grid">
+
+    <div class="read-card float reveal">
+      <img src="images/co.webp">
+      <h3>Premium Cakes</h3>
+      <a href="article1.html">Read More</a>
+    </div>
+
+    <div class="read-card float reveal">
+      <img src="images/ck.jpg">
+      <h3>Cookies</h3>
+      <a href="article2.html">Read More</a>
+    </div>
+
+    <div class="read-card float reveal">
+      <img src="images/ps.jpg">
+      <h3>Pastries</h3>
+      <a href="article3.html">Read More</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- 5 ABOUT SECTION -->
+<section class="section about">
+
+  <h2 class="title">About Sweet Crumbs</h2>
+
+  <div class="about-container reveal">
+
+    <!-- LEFT IMAGE -->
+    <div class="about-image">
+      <img src="images/s3.png" alt="About Image">
+    </div>
+
+    <!-- RIGHT TEXT -->
+    <div class="about-text">
+    <p>
+We bring premium bakery storytelling with modern UI design and smooth animations that create an engaging and delightful browsing experience. Our bakery focuses on freshness, quality, and creativity, blending traditional baking techniques with a modern digital presentation. Every product is carefully crafted using high-quality ingredients to ensure rich taste, perfect texture, and unforgettable flavor. 
+
+From beautifully designed cakes to freshly baked pastries, cookies, and desserts, we aim to deliver happiness in every bite. Our UI experience reflects the same care and passion we put into our baking — clean, elegant, and user-friendly with smooth interactions and visually appealing layouts.
 </p>
+    </div>
 
-<a href="article1.html">Read More</a>
-</div>
-</div>
+  </div>
 
+</section>
+<!-- 6 STATS -->
+<section class="section stats">
 
-
-<div class="featured-card">
-<img src="https://images.unsplash.com/photo-1483695028939-5bb13f8648b0?q=80&w=1200&auto=format&fit=crop">
-
-<div class="featured-content">
-
-<span>Cake Trends</span>
-
-<h3>
-Luxury Cakes for Modern Events
-</h3>
-
-<p>
-Elegant cake styling ideas and modern bakery designs
-for birthdays, weddings and celebrations.
-</p>
-
-<a href="article2.html">Read More</a>
-
-</div>
-</div>
-
-
-
-<div class="featured-card">
-<img src="images/r12.jpg">
-<div class="featured-content">
-
-<span>Sweet Desserts</span>
-
-<h3>
-Inside Our Signature Pastries
-</h3>
-
-<p>
-A closer look at flaky croissants,
-premium fillings and bakery craftsmanship.
-</p>
-
-<a href="article3.html">Read More</a>
-
-</div>
-</div>
-
-</div>
+  <div class="stat reveal">120+ Posts</div>
+  <div class="stat reveal">50K Readers</div>
+  <div class="stat reveal">30 Authors</div>
+  <div class="stat reveal">10 Categories</div>
 
 </section>
 
+<!-- 7 CATEGORY IMAGE WALL -->
+<section class="section">
+  <h2 class="title">Categories</h2>
 
+  <div class="wall">
 
-<!-- TRENDING -->
+    <div class="wall-card reveal">
+      <img src="images/c2.jpg">
+      <span>Cakes</span>
+    </div>
 
-<section class="trending-section">
+    <div class="wall-card reveal">
+      <img src="images/fb.jfif">
+      <span>Bread</span>
+    </div>
 
-<div class="section-title">
-<h2>Trending Articles</h2>
-<p>Most loved bakery inspirations</p>
-</div>
+    <div class="wall-card reveal">
+      <img src="images/ds.jpg">
+      <span>Dessert</span>
+    </div>
 
-<div class="trending-wrapper">
+    <div class="wall-card reveal">
+      <img src="images/co.webp">
+      <span>Coffee</span>
+    </div>
 
-<div class="trend-box">
-<i class="bi bi-cup-hot-fill"></i>
-<h3>Morning Coffee Pairings</h3>
-<p>
-Perfect pastries and coffee combinations
-for cozy mornings.
-</p>
-</div>
+  </div>
+</section>
 
-<div class="trend-box">
-<i class="bi bi-cake2-fill"></i>
-<h3>Minimalist Cake Designs</h3>
-<p>
-Luxury clean cake aesthetics are becoming
-the top bakery trend.
-</p>
-</div>
-
-<div class="trend-box">
-<i class="bi bi-heart-fill"></i>
-<h3>Healthy Sweet Options</h3>
-<p>
-Natural ingredients and low sugar desserts
-customers now prefer.
-</p>
-</div>
-
-<div class="trend-box">
-<i class="bi bi-stars"></i>
-<h3>Premium Dessert Styling</h3>
-<p>
-Creative bakery presentation ideas for
-social media engagement.
-</p>
-</div>
-
-</div>
-
+<!-- 8 CTA -->
+<section class="cta reveal">
+  <h2>Start Reading Premium Stories</h2>
+  <p>Join Sweet Crumbs blog today</p>
+  <button>Explore Now</button>
 </section>
 
 
-
-<!-- ARTICLE PAPER -->
-
-<section class="paper-section">
-
-<div class="section-title">
-<h2>Bakery Paper Articles</h2>
-<p>Premium editorial style bakery stories</p>
-</div>
-
-<div class="paper-grid">
-
-<div class="paper-card">
-
-<div class="paper-date">
-15 MAY
-</div>
-
-<h3>
-The Rise Of Luxury Bakeries
-</h3>
-
-<p>
-Modern bakeries now focus on premium customer
-experience, handcrafted products and aesthetic interiors.
-</p>
-
-<a href="#">Continue Reading</a>
-
-</div>
-
-
-
-<div class="paper-card">
-
-<div class="paper-date">
-19 MAY
-</div>
-
-<h3>
-Why Handmade Desserts Matter
-</h3>
-
-<p>
-Freshly baked desserts deliver better texture,
-flavor and emotional customer connection.
-</p>
-
-<a href="#">Continue Reading</a>
-
-</div>
-
-
-
-<div class="paper-card">
-
-<div class="paper-date">
-24 MAY
-</div>
-
-<h3>
-The Art Of Pastry Decoration
-</h3>
-
-<p>
-Luxury bakery decoration combines creativity,
-precision and premium ingredients.
-</p>
-
-<a href="#">Continue Reading</a>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- NEWSLETTER -->
-
-<section class="newsletter-section">
-
-<div class="newsletter-box">
-
-<h2>Weekly Bakery Articles</h2>
-
-<p>
-Subscribe for bakery inspiration,
-cake trends and premium dessert ideas.
-</p>
-
-<div class="newsletter-form">
-
-<input type="email"
-placeholder="Enter your email">
-
-<button>
-Subscribe
-</button>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- GALLERY -->
-
-<section class="gallery-section">
-
-<div class="section-title">
-<h2>Bakery Moments</h2>
-<p>Premium visual inspirations</p>
-</div>
-
-<div class="gallery-grid">
-
-<div class="gallery-item">
-<img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?q=80&w=1200&auto=format&fit=crop">
-</div>
-
-<div class="gallery-item">
-<img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?q=80&w=1200&auto=format&fit=crop">
-</div>
-
-<div class="gallery-item">
-<img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?q=80&w=1200&auto=format&fit=crop">
-</div>
-
-<div class="gallery-item">
-<img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=1200&auto=format&fit=crop">
-</div>
-
-</div>
-
-</section>
-
-
-</body>
-</html>
 <!-- ================= FOOTER ================= -->
-<footer class="site-footer">
+<footer class="footer">
+  <div class="container footer-grid">
 
-  <div class="footer-container">
-
-    <div class="footer-box">
-      <h3>Sweet Crumbs</h3>
- <p>
-        Sweet Crumbs creates handcrafted luxury cakes,
-        pastries and premium bakery products with fresh
-        ingredients and elegant designs every single day.
-      </p>    </div>
-
-    <div class="footer-box">
-      <h3>Quick Links</h3>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Products</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
+    <div class="footer-brand">
+      <h2>Sweet Crumbs</h2>
+      <p>
+        Freshly baked breads, pastries, and cakes crafted
+        with love every single day.
+      </p>
     </div>
 
-    <div class="footer-box">
-      <h3>Follow Us</h3>
-      <p> Stay connected with our premium bakery updates.
-        </p>
-       <div class="social-icons">
-          <a href="#"><i class="bi bi-twitter"></i></a>
-          <a href="#"><i class="bi bi-instagram"></i></a>
-          <a href="#"><i class="bi bi-facebook"></i></a>
-          <a href="#"><i class="bi bi-whatsapp"></i></a>
-        </div>
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <a href="#">Home</a>
+      <a href="#">Shop</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
     </div>
-    <!-- ✅ NEWSLETTER ADDED -->
-    <div class="footer-box">
-      <h3>Newsletter</h3>
-      <p>Subscribe for latest offers and bakery updates.</p>
 
-      <input type="email" placeholder="Enter your email">
-<button class="newsletter-btn">
-  Subscribe Now
-</button>   
- </div>
+  <div class="footer-social">
+
+  <h4>Follow Us</h4>
+
+  <p>
+    Follow Sweet Crumbs for fresh bakery updates,
+    premium cakes and daily dessert inspiration.
+  </p>
+
+  <div class="social-icons">
+
+    <a href="#">
+      <i class="bi bi-facebook"></i>
+    </a>
+
+    <a href="#">
+      <i class="bi bi-instagram"></i>
+    </a>
+
+    <a href="#">
+      <i class="bi bi-twitter-x"></i>
+    </a>
+
+    <a href="#">
+      <i class="bi bi-youtube"></i>
+    </a>
 
   </div>
- <div class="copyright">
-    © 2026 Sweet Crumbs
+
+</div>
+    <div class="footer-contact">
+      <h4>Contact</h4>
+      <p><i class="bi bi-geo-alt"></i> Bangalore, India</p>
+      <p><i class="bi bi-envelope"></i> hello@sweetcrumbs.com</p>
+      <p><i class="bi bi-telephone"></i> +91 98765 43210</p>
+    </div>
+
   </div>
 
+  <!-- ================= FOOTER BOTTOM ================= -->
+
+<div class="footer-bottom">
+  
+  <div class="container">
+
+    <p>© 2026 Sweet Crumbs. All Rights Reserved.</p>
+
+    <div class="footer-bottom-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms & Conditions</a>
+    </div>
+
+  </div>
+
+</div>
 </footer>
 
-<!-- JS -->
-<script src="blog.js"></script>
 
-</body>
-</html>
+<!-- ================= CSS ================= -->
+<style>
+
+:root{
+  --bg:#ffffff;
+  --text:#111827;
+  --card:#ffffff;
+  --border:#e5e7eb;
+  --primary:#ff7a00;
+  --primary-hover:#e96d00;
+  --shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+body.dark{
+  --bg:black;
+  --text:#ffffff;
+  --card:black;
+  --border:black;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Arial, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  transition:.3s;
+}
+
+.container{
+  width:min(1200px,92%);
+  margin:auto;
+}
+
+/* ================= HEADER ================= */
+
+
+.main-header{
+  width:100%;
+  background:var(--card);
+  border-bottom:1px solid var(--border);
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+.nav-wrapper{
+  height:82px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:30px;
+}
+
+
+/* ================= NAV LOGO ORANGE ================= */
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+
+  font-size:2rem;
+  font-weight:600;
+
+  color:var(--primary);   /* ORANGE LOGO */
+
+  letter-spacing:.5px;
+  transition:.3s;
+}
+
+.logo:hover{
+  color:#ff9a3d;
+}
+
+
+
+.logo i{
+  color:var(--primary);
+  font-size:1.7rem;
+}
+
+/* ================= NAVIGATION ================= */
+
+.nav-links{
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:52px;
+}
+
+.nav-links > a,
+.dropdown-toggle{
+  height:46px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  color:var(--text);
+  font-weight:500;
+  position:relative;
+  transition:.3s;
+}
+
+.nav-links > a:hover,
+.dropdown-toggle:hover{
+  color:var(--primary);
+}
+
+
+
+/* ================= DROPDOWN ================= */
+
+.dropdown{
+  position:relative;
+  display:flex;
+  align-items:center;
+}
+
+.dropdown-toggle{
+  gap:8px;
+}
+
+.dropdown-toggle i{
+  font-size:.75rem;
+  transition:.3s;
+}
+
+.dropdown:hover .dropdown-toggle i{
+  transform:rotate(180deg);
+}
+
+/* MENU */
+
+.dropdown-menu{
+  position:absolute;
+  top:115%;
+  left:0;
+  width:140px;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:10px;
+  box-shadow:var(--shadow);
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(10px);
+  transition:.3s;
+  z-index:999;
+}
+
+.dropdown:hover .dropdown-menu{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+
+.dropdown-menu a{
+  display:flex;
+  align-items:center;
+  width:75%;
+  padding:12px 14px;
+  border-radius:10px;
+  text-decoration:none;
+  color:var(--text);
+  transition:.3s;
+}
+
+.dropdown-menu a:hover{
+  background:var(--primary);
+  color:#fff;
+}
+
+/* ================= ACTIONS ================= */
+
+.header-actions{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex-shrink:0;
+}
+
+/* ================= ICON BUTTONS ================= */
+
+.icon-btn{
+  width:46px;
+  height:46px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  background:var(--card);
+  color:var(--text);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.icon-btn i{
+  font-size:1rem;
+}
+
+.icon-btn:hover{
+  background:var(--primary);
+  border-color:var(--primary);
+  color:#fff;
+}
+
+/* ================= CTA ================= */
+
+.btn{
+  height:46px;
+  min-width:95px;
+  padding:0 24px;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  font-weight:600;
+  transition:.3s;
+}
+
+.btn-outline{
+  border:1px solid var(--border);
+  color:var(--text);
+  background:transparent;
+}
+
+.btn-outline:hover{
+  background:var(--primary);
+  border-color:var(--primary);
+  color:#fff;
+}
+
+/* ================= RTL ================= */
+
+body.rtl{
+  direction:rtl;
+}
+
+body.rtl .dropdown-menu{
+  left:auto;
+  right:0;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:992px){
+
+  .nav-wrapper{
+    flex-direction:column;
+    height:auto;
+    padding:18px 0;
+  }
+
+  .nav-links{
+    flex-wrap:wrap;
+    gap:18px;
+  }
+
+  .header-actions{
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+
+}
+/* HERO BACKGROUND */
+.hero{
+  position:relative;
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  overflow:hidden;
+  background:url("https://images.unsplash.com/photo-1509440159596-0249088772ff") center/cover no-repeat;
+  color:#fff;
+}
+
+/* OVERLAY */
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.55);
+}
+
+/* CONTENT */
+.hero-content{
+  position:relative;
+  max-width:800px;
+}
+
+/* TITLE */
+.hero h1{
+  font-size:60px;
+  margin:15px 0;
+}
+
+/* STATIC TEXT */
+.static{
+  font-weight:400;
+  opacity:0.9;
+}
+
+/* TYPING TEXT */
+.typing-text{
+  color:#ffb347;
+  font-weight:700;
+  border-right:3px solid #fff;
+  padding-left:10px;
+  animation:blink .7s infinite;
+}
+
+/* BLINK CURSOR */
+@keyframes blink{
+  50%{border-color:transparent;}
+}
+
+/* BUTTONS */
+.hero-buttons{
+  margin-top:25px;
+  display:flex;
+  gap:15px;
+  justify-content:center;
+}
+
+.btn{
+  padding:12px 22px;
+  border-radius:12px;
+  cursor:pointer;
+  font-weight:600;
+}
+
+.primary{
+  background:#ff7a00;
+  color:#fff;
+}
+
+.outline{
+  background:transparent;
+  border:1px solid #fff;
+  color:#fff;
+}
+
+
+/* ================= MARQUEE ================= */
+.marquee{
+  display:flex;
+  gap:25px;
+  width:max-content;
+  animation:scroll 18s linear infinite;
+}
+
+/* CONTINUOUS MOVE */
+@keyframes scroll{
+  0%{
+    transform:translateX(0);
+  }
+  100%{
+    transform:translateX(-50%);
+  }
+}
+
+/* pause on hover */
+.readmore-section:hover .marquee{
+  animation-play-state:paused;
+}
+
+/* ================= CARD ================= */
+.card{
+  min-width:280px;
+  background:#1a1a22;
+  padding:25px;
+  border-radius:18px;
+  box-shadow:0 20px 50px rgba(0,0,0,0.4);
+  transition:0.4s;
+  position:relative;
+  overflow:hidden;
+}
+
+/* hover effect */
+.card:hover{
+  transform:scale(1.05);
+}
+
+/* glow effect */
+.card::before{
+  content:"";
+  position:absolute;
+  top:-50%;
+  left:-50%;
+  width:200%;
+  height:200%;
+  background:radial-gradient(circle,rgba(255,122,0,0.25),transparent);
+  transform:rotate(0deg);
+  transition:0.6s;
+}
+
+.card:hover::before{
+  transform:rotate(180deg);
+}
+
+/* text */
+.card h3{
+  margin:0 0 10px;
+}
+
+.card p{
+  color:#b5b5b5;
+  font-size:14px;
+  line-height:1.6;
+}
+
+/* link */
+.card a{
+  display:inline-block;
+  margin-top:15px;
+  color:#ff7a00;
+  text-decoration:none;
+  font-weight:600;
+}
+/* ===== THEME ===== */
+:root{
+  --bg:#fff;
+  --text:#111;
+  --card:#fff;
+  --orange:#ff7a00;
+  --shadow:0 15px 40px rgba(0,0,0,0.12);
+}
+
+body.dark{
+  --bg:#0b0b0b;
+  --text:#fff;
+  --card:#151515;
+  --shadow:0 15px 40px rgba(255,255,255,0.08);
+}
+
+body{
+  margin:0;
+  font-family:system-ui;
+  background:var(--bg);
+  color:var(--text);
+}
+
+/* ===== SECTION ===== */
+.section{
+  padding:80px 10%;
+}
+
+.title{
+  text-align:center;
+  font-size:38px;
+  color:var(--orange);
+  margin-bottom:40px;
+}
+
+
+
+
+
+/* ===== GRID ===== */
+.grid3{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+/* ===== IMAGE CARD ===== */
+.img-card{
+  position:relative;
+  overflow:hidden;
+  border-radius:15px;
+}
+
+.img-card img{
+  width:100%;
+  height:250px;
+  object-fit:cover;
+  transition:0.5s;
+}
+
+.img-card:hover img{
+  transform:scale(1.2);
+}
+
+.overlay{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(0,0,0,0.4);
+  color:#fff;
+  font-size:22px;
+}
+
+/* ===== BLOG ===== */
+.blog-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.blog-card{
+  background:var(--card);
+  border-radius:15px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+}
+
+.blog-card img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+}
+
+/* ===== READ MORE ===== */
+.read-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.read-card{
+  background:var(--card);
+  border-radius:15px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  text-align:center;
+  animation:float 4s infinite ease-in-out;
+}
+
+.read-card img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+}
+
+.read-card a{
+  display:inline-block;
+  margin:15px;
+  padding:8px 14px;
+  background:var(--orange);
+  color:#fff;
+  border-radius:10px;
+  text-decoration:none;
+}
+
+/* ===== ABOUT ===== */
+.about{
+  padding: 80px 40px;
+}
+
+/* layout wrapper */
+.about-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+/* LEFT IMAGE */
+.about-image{
+  flex: 1;
+}
+
+.about-image img{
+  width: 100%;
+  max-width: 450px;
+  height: 350px;
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+/* RIGHT TEXT */
+.about-text{
+  flex: 1;
+}
+
+.about-text h2{
+  font-size: 32px;
+  color: var(--orange);
+  margin-bottom: 20px;
+}
+
+.about-text p{
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+/* ===== STATS ===== */
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+ 
+  text-align:center;
+}
+.stats h2{
+    color:var(--orange);
+    text-align: center;
+    margin-bottom: 150px;
+    margin-top: 100px;
+}
+.stat{
+  background:var(--card);
+  padding:30px;
+   width:250px;
+  height:150px;
+  border-radius:15px;
+  border:2px solid orange;
+  box-shadow:var(--shadow);
+}
+
+/* ===== WALL ===== */
+.wall{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+.wall-card{
+  position:relative;
+  overflow:hidden;
+  border-radius:15px;
+}
+
+.wall-card img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+}
+
+.wall-card span{
+  position:absolute;
+  bottom:10px;
+  left:10px;
+  color:#fff;
+  background:var(--orange);
+  padding:5px 10px;
+  border-radius:8px;
+}
+
+/* ===== CTA ===== */
+.cta{
+  background:var(--orange);
+  color:#fff;
+  text-align:center;
+  padding:80px;
+  border-radius:20px;
+}
+
+/* ===== ANIMATIONS ===== */
+.reveal{
+  opacity:0;
+  transform:translateY(40px);
+  transition:0.8s;
+}
+
+.reveal.active{
+  opacity:1;
+  transform:translateY(0);
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-10px);}
+}
+
+@keyframes zoom{
+  from{transform:scale(0.8);opacity:0;}
+  to{transform:scale(1);opacity:1;}
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  .grid3,.blog-grid,.read-grid,.stats,.wall{
+    grid-template-columns:1fr;
+  }
+
+  .about{
+    grid-template-columns:1fr;
+  }
+}
+
+/* ================= FOOTER ================= */
+
+.footer{
+  background:var(--card);
+  border-top:1px solid var(--border);
+  margin-top:80px;/* ================= FOOTER TOP ORANGE ANIMATION ================= */
+
+  position:relative;
+  overflow:hidden;
+}
+
+/* ANIMATED TOP BORDER */
+
+.footer::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:100%;
+  height:3px;
+
+  background:linear-gradient(
+    90deg,
+    transparent,
+    #ff7a00,
+    #ffb347,
+    #ff7a00,
+    transparent
+  );
+
+  animation:footerBorder 4s linear infinite;
+}
+
+/* ANIMATION */
+
+@keyframes footerBorder{
+
+  0%{
+    left:-100%;
+  }
+
+  100%{
+    left:100%;
+  }
+
+}
+
+
+
+.footer-grid{
+  padding:70px 0;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:40px;
+}
+
+/* ================= FOOTER HEADINGS EQUAL SIZE ================= */
+
+.footer h2,
+.footer h4{
+  font-size:1.4rem;   /* SAME SIZE */
+  font-weight:700;
+  color:var(--primary);
+  margin-bottom:20px;
+  line-height:1.2;
+}
+
+.footer p{
+  line-height:1.8;
+  opacity:.85;
+}
+
+.footer-links{
+  display:flex;
+  flex-direction:column;
+}
+
+.footer-links a{
+  text-decoration:none;
+  color:var(--text);
+  margin-bottom:12px;
+  transition:.3s;
+}
+
+.footer-links a:hover{
+  color:var(--primary);
+}
+
+.footer-contact p{
+  margin-bottom:14px;
+}
+
+.footer-contact i{
+  color:var(--primary);
+  margin-right:8px;
+}
+/* ================= FOLLOW US ================= */
+
+.footer-social p{
+  line-height:1.8;
+  opacity:.85;
+  margin-bottom:20px;
+}
+
+.social-icons{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.social-icons a{
+  width:44px;
+  height:44px;
+  border-radius:12px;
+  background:var(--bg);
+  border:1px solid var(--border);
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  text-decoration:none;
+  color:var(--text);
+
+  transition:.3s;
+}
+
+.social-icons a:hover{
+  background:var(--primary);
+  border-color:var(--primary);
+  color:#fff;
+  transform:translateY(-4px);
+}
+
+.social-icons i{
+  font-size:1rem;
+}
+
+/* ================= FOOTER BOTTOM ================= */
+
+.footer-bottom{
+  border-top:1px solid var(--border);
+  padding:22px 0;
+}
+
+.footer-bottom .container{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+/* COPYRIGHT */
+
+.footer-bottom p{
+  margin:0;
+  font-size:.95rem;
+  color:var(--text);
+}
+
+/* RIGHT LINKS */
+
+.footer-bottom-links{
+  display:flex;
+  align-items:center;
+  gap:28px;
+}
+
+.footer-bottom-links a{
+  text-decoration:none;
+  color:var(--text);
+  font-size:.95rem;
+  transition:.3s;
+  white-space:nowrap;
+}
+
+.footer-bottom-links a:hover{
+  color:var(--primary);
+}
+
+/* RTL */
+
+body.rtl .footer-bottom .container{
+  flex-direction:row-reverse;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+  .footer-bottom .container{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .footer-bottom-links{
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:16px;
+  }
+
+}
+
+/* ================= RTL ================= */
+
+body.rtl{
+  direction:rtl;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:992px){
+
+  .nav-wrapper{
+    flex-wrap:wrap;
+    height:auto;
+    padding:18px 0;
+  }
+
+  .nav-links{
+    width:100%;
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+
+  .header-actions{
+    width:100%;
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+
+}
+
+</style>
+
+
+<!-- ================= JS ================= -->
+<script>
+
+const themeToggle = document.getElementById("themeToggle");
+const rtlToggle = document.getElementById("rtlToggle");
+
+/* DARK MODE */
+themeToggle.onclick = () => {
+  document.body.classList.toggle("dark");
+};
+
+/* RTL MODE */
+rtlToggle.onclick = () => {
+  document.body.classList.toggle("rtl");
+};
+
+const texts = [
+  "Fresh Cakes",
+  "Soft Pastries",
+  "Warm Bread",
+  "Sweet Desserts",
+  "Delicious Moments"
+];
+
+let i = 0;
+let j = 0;
+let currentText = "";
+let isDeleting = false;
+
+function typeEffect() {
+  currentText = texts[i];
+
+  if (!isDeleting) {
+    document.getElementById("typing").textContent =
+      currentText.substring(0, j++);
+    
+    if (j > currentText.length) {
+      isDeleting = true;
+      setTimeout(typeEffect, 1200);
+      return;
+    }
+  } else {
+    document.getElementById("typing").textContent =
+      currentText.substring(0, j--);
+
+    if (j < 0) {
+      isDeleting = false;
+      i = (i + 1) % texts.length;
+    }
+  }
+
+  setTimeout(typeEffect, isDeleting ? 60 : 120);
+}
+
+typeEffect();
+// scroll animation
+const items = document.querySelectorAll(".reveal");
+
+window.addEventListener("scroll", () => {
+  items.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if(top < window.innerHeight - 100){
+      el.classList.add("active");
+    }
+  });
+});
+
+</script>
+
+
+<!-- ================= BOOTSTRAP ICONS ================= -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">

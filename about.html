@@ -1,322 +1,2347 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Luxury Bakery - About</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="about.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<title>Luxury Bakery About Page</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+:root{
+--bg:#fff8f0;
+--text:#111;
+--card:rgba(255,255,255,0.14);
+--border:rgba(255,255,255,0.22);
+--primary:#ff7a00;
+--secondary:#ffb347;
+--shadow:0 20px 60px rgba(0,0,0,.12);
+}
+:root{
+  --bg:#ffffff;
+  --text:#111827;
+  --card:#ffffff;
+  --border:#e5e7eb;
+  --primary:#ff7a00;
+  --primary-hover:#e96d00;
+  --shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+body.dark{
+  --bg:black;
+  --text:#ffffff;
+  --card:black;
+  --border:black;
+}
+
+body{
+background:var(--bg);
+color:var(--text);
+overflow-x:hidden;
+transition:.4s;
+}
+
+
+
+body::before{
+content:"";
+position:fixed;
+width:700px;
+height:700px;
+background:rgba(255,122,0,.08);
+border-radius:50%;
+top:-300px;
+right:-200px;
+filter:blur(90px);
+z-index:-1;
+animation:float 10s linear infinite;
+}
+
+body::after{
+content:"";
+position:fixed;
+width:600px;
+height:600px;
+background:rgba(255,255,255,.06);
+border-radius:50%;
+bottom:-250px;
+left:-200px;
+filter:blur(100px);
+z-index:-1;
+animation:float2 12s linear infinite;
+}
+
+section{
+padding:120px 9%;
+position:relative;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:80px;
+}
+
+.section-title span{
+color:var(--primary);
+font-weight:700;
+letter-spacing:3px;
+}
+
+.section-title h2{
+font-size:3.5rem;
+margin:18px 0;
+}
+
+.section-title p{
+max-width:760px;
+margin:auto;
+line-height:2;
+opacity:.8;
+}
+
+/* HERO */
+
+.about-hero{
+height:100vh;
+background:
+linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.65)),
+url("https://images.unsplash.com/photo-1517433670267-08bbd4be890f?q=80&w=1600&auto=format&fit=crop")
+center/cover;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+overflow:hidden;
+}
+
+/* ================= HERO CONTENT ================= */
+
+.hero-content{
+max-width:950px;
+color:#fff;
+position:relative;
+z-index:10;
+
+/* MAIN HERO ANIMATION */
+animation:heroReveal 1.4s ease forwards;
+
+opacity:0;
+transform:translateY(60px);
+}
+
+/* SMALL TEXT */
+
+.hero-content span{
+display:inline-block;
+color:var(--secondary);
+letter-spacing:4px;
+font-weight:600;
+
+animation:slideTop 1s ease forwards;
+animation-delay:.3s;
+
+opacity:0;
+}
+
+/* TITLE */
+
+.hero-content h1{
+font-size:6rem;
+line-height:1.05;
+margin:30px 0;
+font-weight:800;
+
+animation:zoomFade 1.3s ease forwards;
+animation-delay:.6s;
+
+opacity:0;
+}
+
+/* PARAGRAPH */
+
+.hero-content p{
+font-size:1.15rem;
+line-height:2;
+max-width:750px;
+margin:auto;
+opacity:0;
+
+animation:fadeUpText 1.2s ease forwards;
+animation-delay:1s;
+}
+
+/* BUTTONS */
+
+.hero-btns{
+margin-top:45px;
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+
+opacity:0;
+
+animation:fadeButtons 1.2s ease forwards;
+animation-delay:1.4s;
+}
+
+/* FLOATING CARDS */
+
+.floating-card{
+position:absolute;
+background:rgba(255,255,255,.12);
+border:1px solid rgba(255,255,255,.18);
+backdrop-filter:blur(14px);
+
+padding:20px;
+border-radius:24px;
+color:#fff;
+
+animation:
+floatingCard 5s ease-in-out infinite,
+glowCard 6s linear infinite;
+}
+
+/* CARD POSITION */
+
+.card1{
+top:18%;
+left:8%;
+}
+
+.card2{
+bottom:20%;
+right:10%;
+animation-delay:2s;
+}
+
+/* ================= ANIMATIONS ================= */
+
+/* HERO CONTAINER */
+
+@keyframes heroReveal{
+
+0%{
+opacity:0;
+transform:translateY(60px);
+}
+
+100%{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+/* SMALL TEXT */
+
+@keyframes slideTop{
+
+0%{
+opacity:0;
+transform:translateY(-30px);
+}
+
+100%{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+/* TITLE */
+
+@keyframes zoomFade{
+
+0%{
+opacity:0;
+transform:scale(.8);
+}
+
+100%{
+opacity:1;
+transform:scale(1);
+}
+
+}
+
+/* PARAGRAPH */
+
+@keyframes fadeUpText{
+
+0%{
+opacity:0;
+transform:translateY(30px);
+}
+
+100%{
+opacity:.9;
+transform:translateY(0);
+}
+
+}
+
+/* BUTTONS */
+
+@keyframes fadeButtons{
+
+0%{
+opacity:0;
+transform:translateY(30px);
+}
+
+100%{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+/* FLOATING CARDS */
+
+@keyframes floatingCard{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-18px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
+/* CARD GLOW */
+
+@keyframes glowCard{
+
+0%{
+box-shadow:0 0 0 rgba(255,122,0,0);
+}
+
+50%{
+box-shadow:0 0 35px rgba(255,122,0,.25);
+}
+
+100%{
+box-shadow:0 0 0 rgba(255,122,0,0);
+}
+
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+.hero-content h1{
+font-size:4rem;
+}
+
+}
+
+@media(max-width:600px){
+
+.hero-content h1{
+font-size:3rem;
+}
+
+.hero-btns{
+flex-direction:column;
+align-items:center;
+}
+
+}
+.hero-btns a{
+padding:18px 38px;
+border-radius:60px;
+text-decoration:none;
+font-weight:600;
+transition:.4s;
+}
+
+.btn1{
+background:linear-gradient(135deg,#ff7a00,#ffb347);
+color:#fff;
+box-shadow:0 10px 30px rgba(255,122,0,.35);
+}
+
+.btn2{
+border:2px solid rgba(255,255,255,.5);
+color:#fff;
+backdrop-filter:blur(10px);
+}
+
+.hero-btns a:hover{
+transform:translateY(-8px) scale(1.03);
+}
+
+/* FLOATING CARDS */
+
+.floating-card{
+position:absolute;
+background:rgba(255,255,255,.1);
+border:1px solid rgba(255,255,255,.2);
+backdrop-filter:blur(12px);
+padding:20px;
+border-radius:24px;
+color:#fff;
+animation:float 5s ease-in-out infinite;
+}
+
+.card1{
+top:18%;
+left:8%;
+}
+
+.card2{
+bottom:20%;
+right:10%;
+animation-delay:2s;
+}
+
+/* STORY */
+
+.story{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:60px;
+align-items:center;
+}
+
+.story-img{
+position:relative;
+}
+
+.story-img img{
+width:100%;
+border-radius:35px;
+box-shadow:var(--shadow);
+transition:.6s;
+}
+
+.story-img:hover img{
+transform:scale(1.03);
+}
+
+.exp-box{
+position:absolute;
+bottom:30px;
+left:30px;
+background:rgba(255,255,255,.12);
+backdrop-filter:var(--glass);
+padding:30px;
+border-radius:30px;
+border:1px solid rgba(255,255,255,.2);
+color:#fff;
+}
+
+.exp-box h3{
+font-size:3rem;
+color:var(--primary);
+}
+
+.story-text h2{
+font-size:3.5rem;
+margin-bottom:25px;
+}
+
+.story-text p{
+line-height:2;
+margin-bottom:22px;
+opacity:.85;
+}
+
+.quote{
+padding:30px;
+border-radius:28px;
+background:var(--card);
+backdrop-filter:var(--glass);
+border:1px solid var(--border);
+font-size:1.1rem;
+font-style:italic;
+}
+
+/* WHY */
+
+.choose-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:35px;
+}
+
+.choose-card{
+padding:45px 35px;
+border-radius:35px;
+background:var(--card);
+backdrop-filter:var(--glass);
+border:1px solid var(--border);
+position:relative;
+overflow:hidden;
+transition:.5s;
+}
+
+.choose-card::before{
+content:"";
+position:absolute;
+width:180px;
+height:180px;
+background:rgba(255,122,0,.1);
+border-radius:50%;
+top:-80px;
+right:-60px;
+}
+
+.choose-card:hover{
+transform:translateY(-14px);
+box-shadow:0 20px 40px rgba(255,122,0,.18);
+}
+
+.choose-card i{
+font-size:60px;
+color:var(--primary);
+margin-bottom:25px;
+}
+
+.choose-card h3{
+font-size:1.5rem;
+margin-bottom:14px;
+}
+
+/* TIMELINE */
+
+/* TIMELINE */
+
+.timeline{
+position:relative;
+max-width:1100px;
+margin:auto;
+padding-top:20px;
+}
+
+.timeline::before{
+content:"";
+position:absolute;
+left:50%;
+top:0;
+width:5px;
+height:100%;
+background:linear-gradient(to bottom,#ff7a00,#ffb347,transparent);
+transform:translateX(-50%);
+border-radius:20px;
+box-shadow:0 0 20px rgba(255,122,0,.4);
+}
+
+.timeline-item{
+width:50%;
+padding:30px 45px;
+position:relative;
+animation:fadeUp 1s ease;
+}
+
+.timeline-item:nth-child(odd){
+left:0;
+text-align:right;
+}
+
+.timeline-item:nth-child(even){
+left:50%;
+}
+
+.timeline-item::before{
+content:"";
+position:absolute;
+top:45px;
+width:22px;
+height:22px;
+background:linear-gradient(135deg,#ff7a00,#ffb347);
+border-radius:50%;
+box-shadow:0 0 20px rgba(255,122,0,.6);
+z-index:5;
+}
+
+.timeline-item:nth-child(odd)::before{
+right:-12px;
+}
+
+.timeline-item:nth-child(even)::before{
+left:-10px;
+}
+
+/* CARD */
+
+.timeline-box{
+position:relative;
+padding:35px;
+border-radius:32px;
+
+/* VISIBLE CARD */
+background:rgba(255,255,255,.88);
+
+backdrop-filter:blur(18px);
+-webkit-backdrop-filter:blur(18px);
+
+border:1px solid rgba(255,255,255,.4);
+
+box-shadow:
+0 15px 45px rgba(0,0,0,.12),
+0 5px 15px rgba(255,122,0,.08);
+
+overflow:hidden;
+transition:.5s;
+}
+
+/* DARK MODE CARD */
+
+body.dark .timeline-box{
+background:rgba(20,20,20,.92);
+border:1px solid rgba(255,255,255,.08);
+box-shadow:
+0 15px 45px rgba(0,0,0,.45),
+0 5px 20px rgba(255,122,0,.15);
+}
+
+/* GLOW EFFECT */
+
+.timeline-box::before{
+content:"";
+position:absolute;
+width:180px;
+height:180px;
+background:rgba(255,122,0,.08);
+border-radius:50%;
+top:-80px;
+right:-70px;
+}
+
+/* HOVER */
+
+.timeline-box:hover{
+transform:translateY(-10px) scale(1.03);
+box-shadow:
+0 25px 60px rgba(255,122,0,.18),
+0 15px 30px rgba(0,0,0,.18);
+}
+
+/* TEXT */
+
+.timeline-box h3{
+font-size:2.2rem;
+color:var(--primary);
+margin-bottom:15px;
+font-weight:700;
+}
+
+.timeline-box p{
+line-height:1.9;
+opacity:.85;
+font-size:1rem;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.timeline::before{
+left:18px;
+}
+
+.timeline-item{
+width:100%;
+left:0 !important;
+padding-left:70px;
+padding-right:15px;
+text-align:left !important;
+}
+
+.timeline-item::before{
+left:7px !important;
+}
+
+}
+/* CHEFS */
+
+.chefs-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:35px;
+}
+
+.chef-card{
+border-radius:35px;
+overflow:hidden;
+position:relative;
+box-shadow:var(--shadow);
+}
+
+.chef-card img{
+width:100%;
+height:460px;
+object-fit:cover;
+transition:.6s;
+}
+
+.chef-card:hover img{
+transform:scale(1.1);
+}
+
+.chef-overlay{
+position:absolute;
+inset:0;
+background:linear-gradient(to top,rgba(0,0,0,.92),transparent);
+display:flex;
+flex-direction:column;
+justify-content:flex-end;
+padding:35px;
+color:#fff;
+}
+
+.chef-overlay h3{
+font-size:2rem;
+}
+
+.chef-overlay span{
+color:var(--secondary);
+margin:12px 0;
+}
+
+.socials{
+display:flex;
+gap:14px;
+margin-top:18px;
+}
+
+.socials i{
+width:44px;
+height:44px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+background:rgba(255,255,255,.14);
+transition:.4s;
+cursor:pointer;
+}
+
+.socials i:hover{
+background:var(--primary);
+transform:translateY(-5px);
+}
+
+/* STATS */
+
+.stats{
+background:
+linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.6)),
+url("https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1600&auto=format&fit=crop")
+center/cover;
+border-radius:40px;
+padding:90px 40px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+gap:30px;
+text-align:center;
+color:#fff;
+overflow:hidden;
+}
+
+.stat-box{
+background:rgba(255,255,255,.08);
+padding:35px;
+border-radius:30px;
+backdrop-filter:blur(10px);
+}
+
+.stat-box h2{
+font-size:4rem;
+color:var(--secondary);
+margin-bottom:10px;
+}
+
+/* PROCESS */
+
+.process-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:30px;
+}
+
+.process-card{
+padding:40px 30px;
+border-radius:30px;
+background:var(--card);
+border:1px solid var(--border);
+text-align:center;
+backdrop-filter:var(--glass);
+transition:.5s;
+position:relative;
+overflow:hidden;
+}
+
+.process-card::after{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(135deg,transparent,rgba(255,122,0,.08));
+opacity:0;
+transition:.5s;
+}
+
+.process-card:hover::after{
+opacity:1;
+}
+
+.process-card:hover{
+transform:translateY(-12px);
+}
+
+.process-card i{
+font-size:55px;
+color:var(--primary);
+margin-bottom:20px;
+}
+
+/* TESTIMONIALS */
+
+.testimonial-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:35px;
+}
+
+.testimonial-card{
+padding:45px;
+border-radius:35px;
+background:var(--card);
+border:1px solid var(--border);
+backdrop-filter:var(--glass);
+transition:.5s;
+}
+
+.testimonial-card:hover{
+transform:translateY(-10px);
+}
+
+.stars{
+color:gold;
+font-size:1.2rem;
+margin-bottom:20px;
+}
+
+.client{
+display:flex;
+align-items:center;
+gap:16px;
+margin-top:28px;
+}
+
+.client img{
+width:75px;
+height:75px;
+border-radius:50%;
+object-fit:cover;
+border:3px solid var(--primary);
+}
+
+/* AWARDS */
+
+/* ================= AWARDS ================= */
+
+.award-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:35px;
+}
+
+/* LIGHT THEME */
+
+.award-card{
+position:relative;
+padding:55px 35px;
+border-radius:35px;
+overflow:hidden;
+text-align:center;
+
+/* VISIBLE LIGHT CARD */
+background:#ffffff;
+
+border:1px solid rgba(0,0,0,.08);
+
+box-shadow:
+0 15px 40px rgba(0,0,0,.08),
+0 5px 15px rgba(255,122,0,.08);
+
+transition:.6s ease;
+
+animation:
+floating 6s ease-in-out infinite,
+glowMove 8s linear infinite;
+}
+
+/* DARK THEME */
+
+body.dark .award-card{
+
+background:#121212;
+
+border:1px solid rgba(255,255,255,.06);
+
+box-shadow:
+0 20px 50px rgba(0,0,0,.45),
+0 0 25px rgba(255,122,0,.08);
+
+}
+
+/* ORANGE GLOW */
+
+.award-card::before{
+content:"";
+position:absolute;
+width:220px;
+height:220px;
+background:rgba(255,122,0,.12);
+border-radius:50%;
+top:-100px;
+right:-80px;
+}
+
+/* ICON */
+
+.award-card i{
+font-size:65px;
+margin-bottom:22px;
+color:var(--primary);
+
+animation:pulse 3s infinite;
+}
+
+/* TEXT */
+
+.award-card h3{
+font-size:1.6rem;
+margin-bottom:14px;
+color:var(--text);
+}
+
+.award-card p{
+line-height:1.8;
+opacity:.8;
+color:var(--text);
+}
+
+/* AUTO ANIMATION */
+
+.award-card:nth-child(2){
+animation-delay:1s;
+}
+
+.award-card:nth-child(3){
+animation-delay:2s;
+}
+
+/* FLOAT */
+
+@keyframes floating{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-12px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
+/* GLOW */
+
+@keyframes glowMove{
+
+0%{
+box-shadow:
+0 0 0 rgba(255,122,0,0);
+}
+
+50%{
+box-shadow:
+0 0 35px rgba(255,122,0,.18);
+}
+
+100%{
+box-shadow:
+0 0 0 rgba(255,122,0,0);
+}
+
+}
+
+/* ICON PULSE */
+
+@keyframes pulse{
+
+0%{
+transform:scale(1);
+}
+
+50%{
+transform:scale(1.08);
+}
+
+100%{
+transform:scale(1);
+}
+
+}
+
+
+
+/* THEME BUTTON */
+
+.theme-btn{
+position:fixed;
+right:25px;
+bottom:25px;
+width:65px;
+height:65px;
+border:none;
+border-radius:50%;
+background:linear-gradient(135deg,#ff7a00,#ffb347);
+color:#fff;
+font-size:24px;
+cursor:pointer;
+z-index:999;
+box-shadow:0 10px 30px rgba(255,122,0,.4);
+}
+
+/* ANIMATION */
+
+/* =========================
+PREMIUM AUTO ANIMATIONS
+========================= */
+
+.fade{
+opacity:0;
+transform:translateY(80px) scale(.96);
+transition:
+opacity 1.2s ease,
+transform 1.2s ease;
+}
+
+/* ACTIVE */
+
+.fade.active{
+opacity:1;
+transform:translateY(0) scale(1);
+}
+
+/* AUTO FLOAT */
+
+.process-card,
+.choose-card,
+.timeline-box,
+.testimonial-card,
+.award-card,
+.stat-box{
+
+animation:
+floating 6s ease-in-out infinite,
+glowMove 8s linear infinite;
+
+}
+
+/* DIFFERENT DELAYS */
+
+.process-card:nth-child(2),
+.choose-card:nth-child(2),
+.timeline-item:nth-child(2) .timeline-box{
+animation-delay:1s;
+}
+
+.process-card:nth-child(3),
+.choose-card:nth-child(3),
+.timeline-item:nth-child(3) .timeline-box{
+animation-delay:2s;
+}
+
+.process-card:nth-child(4),
+.choose-card:nth-child(4),
+.timeline-item:nth-child(4) .timeline-box{
+animation-delay:3s;
+}
+
+.process-card:nth-child(5),
+.choose-card:nth-child(5){
+animation-delay:4s;
+}
+
+.process-card:nth-child(6),
+.choose-card:nth-child(6){
+animation-delay:5s;
+}
+
+/* CARD VISIBILITY */
+
+.process-card,
+.choose-card,
+.timeline-box,
+.testimonial-card,
+.award-card{
+
+background:#ffffff;
+border:1px solid rgba(0,0,0,.08);
+
+box-shadow:
+0 15px 40px rgba(0,0,0,.08),
+0 5px 15px rgba(255,122,0,.08);
+
+}
+
+/* DARK MODE */
+
+body.dark .process-card,
+body.dark .choose-card,
+body.dark .timeline-box,
+body.dark .testimonial-card,
+body.dark .award-card{
+
+background:#121212;
+border:1px solid rgba(255,255,255,.06);
+
+box-shadow:
+0 20px 50px rgba(0,0,0,.45),
+0 0 25px rgba(255,122,0,.08);
+
+}
+
+/* FLOATING */
+
+@keyframes floating{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-12px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
+/* GLOW EFFECT */
+
+@keyframes glowMove{
+
+0%{
+box-shadow:
+0 0 0 rgba(255,122,0,0);
+}
+
+50%{
+box-shadow:
+0 0 30px rgba(255,122,0,.18);
+}
+
+100%{
+box-shadow:
+0 0 0 rgba(255,122,0,0);
+}
+
+}
+
+/* SECTION TITLE ANIMATION */
+
+.section-title{
+animation:fadeTitle 1.4s ease;
+}
+
+@keyframes fadeTitle{
+
+from{
+opacity:0;
+transform:translateY(40px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+/* HERO TEXT */
+
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+.hero-content h1{
+font-size:4rem;
+}
+
+.section-title h2{
+font-size:2.6rem;
+}
+
+.timeline::before{
+left:20px;
+}
+
+.timeline-item{
+width:100%;
+left:0 !important;
+padding-left:70px;
+text-align:left !important;
+}
+
+}
+
+@media(max-width:600px){
+
+.hero-content h1{
+font-size:3rem;
+}
+
+section{
+padding:90px 6%;
+}
+
+.hero-btns{
+flex-direction:column;
+align-items:center;
+}
+
+}
+
+
+.container{
+  width:min(1200px,92%);
+  margin:auto;
+}
+
+/* ================= HEADER ================= */
+
+
+.main-header{
+  width:100%;
+  background:var(--card);
+  border-bottom:1px solid var(--border);
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+.nav-wrapper{
+  height:82px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:30px;
+}
+
+
+/* ================= NAV LOGO ORANGE ================= */
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+
+  font-size: 24px;
+  font-weight:600;
+  color:var(--primary);   /* ORANGE LOGO */
+
+  letter-spacing:.5px;
+  transition:.3s;
+}
+
+.logo:hover{
+  color:#ff9a3d;
+}
+
+
+
+.logo i{
+  color:var(--primary);
+  font-size:1.7rem;
+}
+
+/* ================= NAVIGATION ================= */
+
+.nav-links{
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:52px;
+}
+
+.nav-links > a,
+.dropdown-toggle{
+  height:46px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  color:var(--text);
+  font-weight:500;
+  position:relative;
+  transition:.3s;
+}
+
+.nav-links > a:hover,
+.dropdown-toggle:hover{
+  color:var(--primary);
+}
+
+
+
+/* ================= DROPDOWN ================= */
+
+.dropdown{
+  position:relative;
+  display:flex;
+  align-items:center;
+}
+
+.dropdown-toggle{
+  gap:8px;
+}
+
+.dropdown-toggle i{
+  font-size:.75rem;
+  transition:.3s;
+}
+
+.dropdown:hover .dropdown-toggle i{
+  transform:rotate(180deg);
+}
+
+/* MENU */
+
+.dropdown-menu{
+  position:absolute;
+  top:115%;
+  left:0;
+  width:140px;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:10px;
+  box-shadow:var(--shadow);
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(10px);
+  transition:.3s;
+  z-index:999;
+}
+
+.dropdown:hover .dropdown-menu{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+
+.dropdown-menu a{
+  display:flex;
+  align-items:center;
+  width:75%;
+  padding:12px 14px;
+  border-radius:10px;
+  text-decoration:none;
+  color:var(--text);
+  transition:.3s;
+}
+
+.dropdown-menu a:hover{
+  background:var(--primary);
+  color:#fff;
+}
+
+/* ================= ACTIONS ================= */
+
+.header-actions{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex-shrink:0;
+}
+
+/* ================= ICON BUTTONS ================= */
+
+.icon-btn{
+  width:46px;
+  height:46px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  background:var(--card);
+  color:var(--text);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.icon-btn i{
+  font-size:1rem;
+}
+
+.icon-btn:hover{
+  background:var(--primary);
+  border-color:var(--primary);
+  color:#fff;
+}
+
+/* ================= CTA ================= */
+
+.btn{
+  height:46px;
+  min-width:95px;
+  padding:0 24px;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  font-weight:600;
+  transition:.3s;
+}
+
+.btn-outline{
+  border:1px solid var(--border);
+  color:var(--text);
+  background:transparent;
+}
+
+.btn-outline:hover{
+  background:var(--primary);
+  border-color:var(--primary);
+  color:#fff;
+}
+
+/* ================= RTL ================= */
+
+body.rtl{
+  direction:rtl;
+}
+
+body.rtl .dropdown-menu{
+  left:auto;
+  right:0;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:992px){
+
+  .nav-wrapper{
+    flex-direction:column;
+    height:auto;
+    padding:18px 0;
+  }
+
+  .nav-links{
+    flex-wrap:wrap;
+    gap:18px;
+  }
+
+  .header-actions{
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+
+}
+/* ================= FOOTER ================= */
+
+.footer{
+  background:var(--card);
+  border-top:1px solid var(--border);
+  margin-top:80px;/* ================= FOOTER TOP ORANGE ANIMATION ================= */
+
+  position:relative;
+  overflow:hidden;
+}
+
+/* ANIMATED TOP BORDER */
+
+.footer::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:100%;
+  height:3px;
+
+  background:linear-gradient(
+    90deg,
+    transparent,
+    #ff7a00,
+    #ffb347,
+    #ff7a00,
+    transparent
+  );
+
+  animation:footerBorder 4s linear infinite;
+}
+
+/* ANIMATION */
+
+@keyframes footerBorder{
+
+  0%{
+    left:-100%;
+  }
+
+  100%{
+    left:100%;
+  }
+
+}
+
+
+
+.footer-grid{
+  padding:70px 0;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:40px;
+}
+
+/* ================= FOOTER HEADINGS EQUAL SIZE ================= */
+
+.footer h2,
+.footer h4{
+  font-size:1.4rem;   /* SAME SIZE */
+  font-weight:700;
+  color:var(--primary);
+  margin-bottom:20px;
+  line-height:1.2;
+}
+
+.footer p{
+  line-height:1.8;
+  opacity:.85;
+}
+
+.footer-links{
+  display:flex;
+  flex-direction:column;
+}
+
+.footer-links a{
+  text-decoration:none;
+  color:var(--text);
+  margin-bottom:12px;
+  transition:.3s;
+}
+
+.footer-links a:hover{
+  color:var(--primary);
+}
+
+.footer-contact p{
+  margin-bottom:14px;
+}
+
+.footer-contact i{
+  color:var(--primary);
+  margin-right:8px;
+}
+/* ================= FOLLOW US ================= */
+
+.footer-social p{
+  line-height:1.8;
+  opacity:.85;
+  margin-bottom:20px;
+}
+
+.social-icons{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.social-icons a{
+  width:44px;
+  height:44px;
+  border-radius:12px;
+  background:var(--bg);
+  border:1px solid var(--border);
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  text-decoration:none;
+  color:var(--text);
+
+  transition:.3s;
+}
+
+.social-icons a:hover{
+  background:var(--primary);
+  border-color:var(--primary);
+  color:#fff;
+  transform:translateY(-4px);
+}
+
+.social-icons i{
+  font-size:1rem;
+}
+
+/* ================= FOOTER BOTTOM ================= */
+
+.footer-bottom{
+  border-top:1px solid var(--border);
+  padding:22px 0;
+}
+
+.footer-bottom .container{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+/* COPYRIGHT */
+
+.footer-bottom p{
+  margin:0;
+  font-size:.95rem;
+  color:var(--text);
+}
+
+/* RIGHT LINKS */
+
+.footer-bottom-links{
+  display:flex;
+  align-items:center;
+  gap:28px;
+}
+
+.footer-bottom-links a{
+  text-decoration:none;
+  color:var(--text);
+  font-size:.95rem;
+  transition:.3s;
+  white-space:nowrap;
+}
+
+.footer-bottom-links a:hover{
+  color:var(--primary);
+}
+
+/* RTL */
+
+body.rtl .footer-bottom .container{
+  flex-direction:row-reverse;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+  .footer-bottom .container{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .footer-bottom-links{
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:16px;
+  }
+
+}
+
+/* ================= RTL ================= */
+
+body.rtl{
+  direction:rtl;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:992px){
+
+  .nav-wrapper{
+    flex-wrap:wrap;
+    height:auto;
+    padding:18px 0;
+  }
+
+  .nav-links{
+    width:100%;
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+
+  .header-actions{
+    width:100%;
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+
+}
+
+</style>
+
+
 </head>
-
 <body>
 
-<!-- HEADER -->
-<header>
-  <div class="navbar">
+<!-- HERO -->
+<header class="main-header">
+  <div class="container nav-wrapper">
 
-    <div class="logo">Sweet Crumbs</div>
-
-    <nav>
-      <ul>
-
-        <li class="dropdown">
-          <a href="index.html">Home ▼</a>
-          
-          <ul class="dropdown-menu">
-            <li><a href="index.html">Home 1</a></li>
-            <li><a href="home.html">Home 2</a></li>
-            
-          </ul>
-        </li>
-        
-
-        <li><a href="about.html">About</a></li>
-           <li><a href="service.html">Service</a></li>
-          <li><a href="price.html">Price</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="dashboard.html">Dashboard</a></li>
-<li>
-    <a href="login.html" class="login-btn">
-      <i class="bi bi-box-arrow-in-right"></i> Login
+    <!-- LOGO -->
+    <a href="#" class="logo">
+      <span>Sweet Crumbs</span>
     </a>
-  </li>
-      </ul>
+
+    <!-- NAVIGATION -->
+    <nav class="nav-links">
+
+      <!-- HOME DROPDOWN -->
+      <div class="dropdown">
+
+        <a href="index.html" class="dropdown-toggle">
+          <span>Home</span>
+          <i class="bi bi-chevron-down"></i>
+        </a>
+
+        <div class="dropdown-menu">
+          <a href="index.html">Home1</a>
+          <a href="home.html">Home2</a>
+        </div>
+
+      </div>
+
+       <a href="about.html">About</a>
+       <a href="service.html">Service</a>
+      <a href="price.html">Price</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+      <a href="dashboard.html" class="dashboard-link">Dashboard</a>
+
+
     </nav>
 
-    <div class="header-buttons">
+    <!-- ACTIONS -->
+    <div class="header-actions">
 
-  <button class="theme-btn">
-    <i class="bi bi-moon-stars"></i>
-  </button>
+      <!-- RTL -->
+      <button class="icon-btn" id="rtlToggle" title="RTL Mode">
+        <i class="bi bi-text-right"></i>
+      </button>
 
-  <button class="rtl-btn">⇄</button>
+      <!-- DARK MODE -->
+      <button class="icon-btn" id="themeToggle" title="Dark Mode">
+        <i class="bi bi-moon-stars-fill"></i>
+      </button>
 
-</div>
+      <!-- CTA -->
+      <a href="login.html" class="btn btn-outline">  <i class="bi bi-box-arrow-in-right"> Login</i></a>
+
+    </div>
+
+  </div>
 </header>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-overlay"></div>
 
-  <div class="hero-content">
-    <h1 class="hero-title">Freshly Baked <span>Luxury Cakes</span></h1>
 
-    <p class="hero-subtitle">
-      Handmade premium cakes, pastries & desserts crafted with love and perfection.
-    </p>
+<section class="about-hero">
 
-    <div class="hero-buttons">
-      <a href="#collections" class="btn">Explore Menu</a>
-      <a href="#contact" class="btn outline">Order Now</a>
-    </div>
-  </div>
+<div class="floating-card card1">
+<h3>15K+</h3>
+<p>Happy Customers</p>
+</div>
+
+<div class="floating-card card2">
+<h3>Premium</h3>
+<p>Luxury Desserts</p>
+</div>
+
+<div class="hero-content">
+
+<span>LUXURY BAKERY EXPERIENCE</span>
+
+<h1>Crafting Premium Bakery Moments Since 2018</h1>
+
+<p>
+From handcrafted cakes to artistic desserts,
+we create unforgettable bakery experiences with elegance,
+premium ingredients and modern luxury presentation.
+</p>
+
+<div class="hero-btns">
+<a href="#" class="btn1">Explore Story</a>
+<a href="#" class="btn2">Meet Chefs</a>
+</div>
+
+</div>
+
 </section>
 
-<!-- SECTION 1 -->
-<div class="section">
-  <div class="text">
-    <h2>Our Story</h2>
-    <p>We started with a passion for baking premium cakes and desserts.</p>
-  </div>
-  <div class="image">
-    <img src="https://images.unsplash.com/photo-1542826438-bd32f43d626f">
-  </div>
+<!-- STORY -->
+
+<section class="fade">
+
+<div class="story">
+
+<div class="story-img">
+
+<img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?q=80&w=1200&auto=format&fit=crop">
+
+<div class="exp-box">
+<h3>8+</h3>
+<p>Years Experience</p>
 </div>
 
-<!-- SECTION 2 -->
-<div class="section">
-  <div class="text">
-    <h2>Fresh Ingredients</h2>
-    <p>We use only fresh, organic ingredients for premium taste.</p>
-  </div>
-  <div class="image">
-    <img src="images/c4.webp">
-  </div>
 </div>
 
-<!-- SECTION 3 -->
-<div class="section">
-  <div class="text">
-    <h2>Master Bakers</h2>
-    <p>Our expert bakers design beautiful and delicious cakes.</p>
-  </div>
-  <div class="image">
-    <img src="images/rs.jpg">
-  </div>
+<div class="story-text">
+
+<h2>Our Sweet Bakery Journey</h2>
+
+<p>
+Sweet Crumbs began with a vision to redefine luxury bakery experiences through handcrafted desserts and premium artistry.
+</p>
+
+<p>
+Every pastry, cake and dessert is crafted with perfection, blending creativity with rich flavors and modern bakery elegance.
+</p>
+
+<div class="quote">
+“Every dessert tells a story of passion, creativity and perfection.”
 </div>
 
-<!-- SECTION 4 -->
-<div class="section center">
-  <h2 class="title">Our Specialties</h2>
-
-  <div class="cards">
-
-    <div class="card">
-      <img src="images/c2.jpg">
-      <h3>Wedding Cakes</h3>
-      <p>Elegant cakes for special occasions.</p>
-    </div>
-
-    <div class="card">
-      <img src="images/bf.jpg">
-      <h3>Custom Cakes</h3>
-      <p>Made as per your imagination.</p>
-    </div>
-
-    <div class="card">
-      <img src="https://cdn.pixabay.com/photo/2016/03/27/22/38/cake-1284548_960_720.jpg">
-      <h3>Pastries</h3>
-      <p>Soft and creamy premium pastries.</p>
-    </div>
-
-  </div>
 </div>
 
-<!-- SECTION 5 -->
-<div class="section">
-  <div class="text">
-    <h2>Modern Kitchen</h2>
-    <p>Hygienic and fully equipped baking environment.</p>
-  </div>
-  <div class="image">
-    <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d">
-  </div>
 </div>
 
-<!-- SECTION 6 -->
-<div class="section">
-  <div class="text">
-    <h2>Customer Happiness</h2>
-    <p>Customer satisfaction is our top priority.</p>
-  </div>
-  <div class="image">
-    <img src="images/sbc.webp">
-  </div>
+</section>
+
+<!-- WHY -->
+
+<section class="fade">
+
+<div class="section-title">
+<span>WHY US</span>
+<h2>Why Choose Our Bakery</h2>
+<p>Premium handcrafted desserts with world-class bakery experiences.</p>
 </div>
-<div class="section center premium-timeline">
 
-  <h2 class="title">Our Journey</h2>
+<div class="choose-grid">
 
-  <div class="timeline">
-
-    <div class="timeline-box">
-      <i class="bi bi-flag-fill"></i>
-      <h3>Started 2020</h3>
-      <p>We began with a small home bakery passion project.</p>
-    </div>
-
-    <div class="timeline-box">
-      <i class="bi bi-people-fill"></i>
-      <h3>Growing Team</h3>
-      <p>Expert bakers joined to expand creativity and quality.</p>
-    </div>
-
-    <div class="timeline-box">
-      <i class="bi bi-trophy-fill"></i>
-      <h3>Premium Brand</h3>
-      <p>Now recognized as a luxury bakery experience brand.</p>
-    </div>
-
-  </div>
-
+<div class="choose-card">
+<i class="bi bi-flower1"></i>
+<h3>Fresh Ingredients</h3>
+<p>Premium organic ingredients sourced daily.</p>
 </div>
-<div class="section premium-flex">
 
-  <div class="text animate-left">
-    <h2>Our Philosophy</h2>
-    <p>
-      Baking is not just food — it is emotion, art, and experience.
-      We believe in crafting happiness in every bite.
-    </p>
-  </div>
-
-  <div class="image animate-right">
-    <img src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5">
-  </div>
-
+<div class="choose-card">
+<i class="bi bi-heart-fill"></i>
+<h3>Handmade Daily</h3>
+<p>Every dessert handcrafted with perfection.</p>
 </div>
-<div class="section center team-section">
 
-  <h2 class="title">Meet Our Expert Bakers</h2>
+<div class="choose-card">
+<i class="bi bi-box-seam"></i>
+<h3>Luxury Packaging</h3>
+<p>Elegant packaging for premium presentation.</p>
+</div>
 
-  <div class="team-grid">
+<div class="choose-card">
+<i class="bi bi-truck"></i>
+<h3>Fast Delivery</h3>
+<p>Fresh bakery products delivered quickly.</p>
+</div>
 
-    <div class="team-card">
-      <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1">
-      <h3>Chef Daniel</h3>
-      <p>Head Baker</p>
-    </div>
+<div class="choose-card">
+<i class="bi bi-award-fill"></i>
+<h3>Award Winning</h3>
+<p>Recognized globally for bakery excellence.</p>
+</div>
 
-    <div class="team-card">
-      <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba">
-      <h3>Chef Maria</h3>
-      <p>Pastry Expert</p>
-    </div>
-
-    <div class="team-card">
-      <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c">
-      <h3>Chef John</h3>
-      <p>Designer Cakes</p>
-    </div>
-
-  </div>
+<div class="choose-card">
+<i class="bi bi-stars"></i>
+<h3>Luxury Experience</h3>
+<p>Modern atmosphere with premium service.</p>
+</div>
 
 </div>
-<!-- FOOTER -->
-<footer id="contact">
 
-  <div class="footer-container">
+</section>
 
-    <div class="footer-box">
-      <h3>Sweet Crumbs</h3>
+<!-- TIMELINE -->
+
+<section class="fade">
+
+<div class="section-title">
+<span>OUR HISTORY</span>
+<h2>Bakery Timeline</h2>
+</div>
+
+<div class="timeline">
+
+<div class="timeline-item">
+<div class="timeline-box">
+<h3>2018</h3>
+<p>Started our luxury bakery journey.</p>
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-box">
+<h3>2020</h3>
+<p>Opened our first premium bakery branch.</p>
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-box">
+<h3>2023</h3>
+<p>Launched international dessert delivery.</p>
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-box">
+<h3>2026</h3>
+<p>Became a globally recognized bakery brand.</p>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- CHEFS -->
+
+<section class="fade">
+
+<div class="section-title">
+<span>OUR TEAM</span>
+<h2>Meet Our Master Chefs</h2>
+</div>
+
+<div class="chefs-grid">
+
+<div class="chef-card">
+<img src="https://images.unsplash.com/photo-1607631568010-a87245c0daf8?q=80&w=1200&auto=format&fit=crop">
+
+<div class="chef-overlay">
+
+<h3>Daniel Cooper</h3>
+<span>Executive Pastry Chef • 12 Years</span>
+
+<div class="socials">
+<i class="bi bi-facebook"></i>
+<i class="bi bi-instagram"></i>
+<i class="bi bi-twitter-x"></i>
+</div>
+
+</div>
+
+</div>
+
+<div class="chef-card">
+<img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?q=80&w=1200&auto=format&fit=crop">
+
+<div class="chef-overlay">
+
+<h3>Sophia Miller</h3>
+<span>Luxury Dessert Artist • 9 Years</span>
+
+<div class="socials">
+<i class="bi bi-facebook"></i>
+<i class="bi bi-instagram"></i>
+<i class="bi bi-twitter-x"></i>
+</div>
+
+</div>
+
+</div>
+
+<div class="chef-card">
+<img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=1200&auto=format&fit=crop">
+
+<div class="chef-overlay">
+
+<h3>Michael Ross</h3>
+<span>Bakery Specialist • 10 Years</span>
+
+<div class="socials">
+<i class="bi bi-facebook"></i>
+<i class="bi bi-instagram"></i>
+<i class="bi bi-twitter-x"></i>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- STATS -->
+
+<section class="fade">
+
+<div class="stats">
+
+<div class="stat-box">
+<h2>15K+</h2>
+<p>Happy Customers</p>
+</div>
+
+<div class="stat-box">
+<h2>120+</h2>
+<p>Cake Designs</p>
+</div>
+
+<div class="stat-box">
+<h2>50+</h2>
+<p>Team Members</p>
+</div>
+
+<div class="stat-box">
+<h2>10+</h2>
+<p>International Awards</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- PROCESS -->
+
+<section class="fade">
+
+<div class="section-title">
+<span>WORKFLOW</span>
+<h2>Premium Bakery Process</h2>
+</div>
+
+<div class="process-grid">
+
+<div class="process-card">
+<i class="bi bi-basket"></i>
+<h3>Fresh Ingredients</h3>
+<p>Carefully selected premium quality ingredients.</p>
+</div>
+
+<div class="process-card">
+<i class="bi bi-egg-fried"></i>
+<h3>Handmade Preparation</h3>
+<p>Traditional handcrafted bakery techniques.</p>
+</div>
+
+<div class="process-card">
+<i class="bi bi-fire"></i>
+<h3>Baking Perfection</h3>
+<p>Perfect baking for rich luxury flavor.</p>
+</div>
+
+<div class="process-card">
+<i class="bi bi-gift"></i>
+<h3>Luxury Packaging</h3>
+<p>Elegant premium packaging for every order.</p>
+</div>
+
+<div class="process-card">
+<i class="bi bi-truck"></i>
+<h3>Fast Delivery</h3>
+<p>Fresh desserts delivered at the perfect time.</p>
+</div>
+
+<!-- NEW CARD 1 -->
+
+<div class="process-card">
+<i class="bi bi-stars"></i>
+<h3>Premium Decoration</h3>
+<p>Luxury finishing touches with artistic dessert styling.</p>
+</div>
+
+<!-- NEW CARD 2 -->
+
+<div class="process-card">
+<i class="bi bi-cup-hot"></i>
+<h3>Flavor Testing</h3>
+<p>Every recipe tested carefully for perfect taste balance.</p>
+</div>
+
+<!-- NEW CARD 3 -->
+
+<div class="process-card">
+<i class="bi bi-shield-check"></i>
+<h3>Quality Inspection</h3>
+<p>Strict hygiene and quality checks before final delivery.</p>
+</div>
+
+</div>
+
+</section>
+<!-- TESTIMONIAL -->
+
+<section class="fade">
+
+<div class="section-title">
+<span>CLIENT REVIEWS</span>
+<h2>What Clients Say</h2>
+</div>
+
+<div class="testimonial-grid">
+
+<div class="testimonial-card">
+
+<div class="stars">★★★★★</div>
+
+<p>
+Absolutely stunning cakes and premium quality desserts.
+The experience was unforgettable.
+</p>
+
+<div class="client">
+
+<img src="https://randomuser.me/api/portraits/women/44.jpg">
+
+<div>
+<h3>Priya Sharma</h3>
+<span>Wedding Client</span>
+</div>
+
+</div>
+
+</div>
+
+<div class="testimonial-card">
+
+<div class="stars">★★★★★</div>
+
+<p>
+Luxury presentation and handcrafted flavors are truly incredible.
+Highly recommended.
+</p>
+
+<div class="client">
+
+<img src="https://randomuser.me/api/portraits/men/32.jpg">
+
+<div>
+<h3>Rahul Verma</h3>
+<span>Food Blogger</span>
+</div>
+
+</div>
+
+</div>
+
+<div class="testimonial-card">
+
+<div class="stars">★★★★★</div>
+
+<p>
+Every pastry feels premium and beautifully crafted.
+Excellent bakery experience.
+</p>
+
+<div class="client">
+
+<img src="https://randomuser.me/api/portraits/women/65.jpg">
+
+<div>
+<h3>Ananya Kapoor</h3>
+<span>Regular Customer</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- AWARDS -->
+
+<section class="fade">
+
+<div class="section-title">
+<span>ACHIEVEMENTS</span>
+<h2>Awards & Certifications</h2>
+</div>
+
+<div class="award-grid">
+
+<div class="award-card">
+<i class="bi bi-award-fill"></i>
+<h3>Best Bakery Award</h3>
+<p>Recognized globally for bakery excellence.</p>
+</div>
+
+<div class="award-card">
+<i class="bi bi-patch-check-fill"></i>
+<h3>Hygienic Certified</h3>
+<p>International food safety certified bakery.</p>
+</div>
+
+<div class="award-card">
+<i class="bi bi-stars"></i>
+<h3>Premium Quality Badge</h3>
+<p>Trusted by thousands of happy customers.</p>
+</div>
+
+</div>
+
+</section>
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="container footer-grid">
+
+    <div class="footer-brand">
+      <h2>Sweet Crumbs</h2>
       <p>
-        Sweet Crumbs creates handcrafted luxury cakes,
-        pastries and premium bakery products with fresh
-        ingredients and elegant designs every single day.
+        Freshly baked breads, pastries, and cakes crafted
+        with love every single day.
       </p>
     </div>
 
-    <div class="footer-box">
-      <h3>Quick Links</h3>
-      <ul>
-</li>
-        <li><a href="home.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="service.html">Service</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <a href="#">Home</a>
+      <a href="#">Shop</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
     </div>
 
-    <div class="footer-box">
-      <h3>Follow Us</h3>
-        <p class="social-text">
-    Stay connected with us on social media for latest bakery updates,
-    offers, and fresh creations every day.
-  </p>
-      <div class="social-icons">
-        
-        <a href="#"><i class="bi bi-twitter"></i></a>
-        <a href="#"><i class="bi bi-instagram"></i></a>
-        <a href="#"><i class="bi bi-facebook"></i></a>
-        <a href="#"><i class="bi bi-whatsapp"></i></a>
-      </div>
-    </div>
+  <div class="footer-social">
 
-    <div class="footer-box">
-      <h3>Newsletter</h3>
-       <p class="newsletter-text">
-    Subscribe to get fresh bakery updates, special offers,
-    and delicious new arrivals directly in your inbox.
+  <h4>Follow Us</h4>
+
+  <p>
+    Follow Sweet Crumbs for fresh bakery updates,
+    premium cakes and daily dessert inspiration.
   </p>
-      <input type="email" placeholder="Enter email" class="newsletter-input">
-      <button class="newsletter-btn">Subscribe</button>
+
+  <div class="social-icons">
+
+    <a href="#">
+      <i class="bi bi-facebook"></i>
+    </a>
+
+    <a href="#">
+      <i class="bi bi-instagram"></i>
+    </a>
+
+    <a href="#">
+      <i class="bi bi-twitter-x"></i>
+    </a>
+
+    <a href="#">
+      <i class="bi bi-youtube"></i>
+    </a>
+
+  </div>
+
+</div>
+    <div class="footer-contact">
+      <h4>Contact</h4>
+      <p><i class="bi bi-geo-alt"></i> Bangalore, India</p>
+      <p><i class="bi bi-envelope"></i> hello@sweetcrumbs.com</p>
+      <p><i class="bi bi-telephone"></i> +91 98765 43210</p>
     </div>
 
   </div>
 
-  <div class="copyright">
-    © 2026 Sweet Crumbs Bakery
+  <!-- ================= FOOTER BOTTOM ================= -->
+
+<div class="footer-bottom">
+  
+  <div class="container">
+
+    <p>© 2026 Sweet Crumbs. All Rights Reserved.</p>
+
+    <div class="footer-bottom-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms & Conditions</a>
+    </div>
+
   </div>
 
+</div>
 </footer>
+
+
+<!-- THEME BUTTON -->
+
+
+
 <script>
-const body = document.body;
-const html = document.documentElement;
 
-// THEME TOGGLE
-function toggleTheme() {
-  body.classList.toggle("dark");
 
-  const btn = document.querySelector(".theme-btn");
 
-  if (body.classList.contains("dark")) {
-    btn.innerHTML = '<i class="bi bi-brightness-high"></i>';
-  } else {
-    btn.innerHTML = '<i class="bi bi-moon-stars"></i>';
-  }
+const themeToggle = document.getElementById("themeToggle");
+const rtlToggle = document.getElementById("rtlToggle");
+
+/* DARK MODE */
+themeToggle.onclick = () => {
+  document.body.classList.toggle("dark");
+};
+
+/* RTL MODE */
+rtlToggle.onclick = () => {
+  document.body.classList.toggle("rtl");
+};
+
+
+/* SCROLL ANIMATION */
+
+const fades=document.querySelectorAll(".fade");
+
+window.addEventListener("scroll",()=>{
+
+fades.forEach(section=>{
+
+const top=section.getBoundingClientRect().top;
+
+if(top<window.innerHeight-100){
+section.classList.add("active");
 }
 
-// RTL TOGGLE
-function toggleRTL() {
-  const rtlBtn = document.querySelector(".rtl-btn");
+});
 
-  if (html.dir === "rtl") {
-    html.dir = "ltr";
-    body.classList.remove("rtl");
-    rtlBtn.textContent = "⇄";
-  } else {
-    html.dir = "rtl";
-    body.classList.add("rtl");
-    rtlBtn.textContent = "⇆";
-  }
-}
+});
 
-// EVENTS
-document.querySelector(".theme-btn").addEventListener("click", toggleTheme);
-document.querySelector(".rtl-btn").addEventListener("click", toggleRTL);
 </script>
+
 </body>
 </html>

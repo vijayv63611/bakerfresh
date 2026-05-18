@@ -2,112 +2,82 @@
 <html lang="en" dir="ltr">
 
 <head>
-
   <meta charset="UTF-8" />
-
-  <meta name="viewport"
-    content="width=device-width, initial-scale=1.0"/>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Baker Fresh - Pricing</title>
 
-  <!-- GOOGLE FONT -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link rel="preconnect"
-    href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet">
-
-  <!-- BOOTSTRAP ICONS -->
-
-  <link rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-  <!-- CSS FILE -->
-
-  <link rel="stylesheet"
-    href="price.css">
-
+  <link rel="stylesheet" href="price.css">
 </head>
+<!-- ================= HEADER ================= -->
+<header class="main-header">
+  <div class="container nav-wrapper">
 
-<body>
+    <!-- LOGO -->
+    <a href="#" class="logo">
+      <span>Sweet Crumbs</span>
+    </a>
 
-  <header>
+    <!-- NAVIGATION -->
+    <nav class="nav-links">
 
-  <div class="navbar">
+      <!-- HOME DROPDOWN -->
+      <div class="dropdown">
 
-    <div class="logo">
-      Sweet Crumbs
-    </div>
+        <a href="index.html" class="dropdown-toggle">
+          <span>Home</span>
+          <i class="bi bi-chevron-down"></i>
+        </a>
 
-    <nav>
+        <div class="dropdown-menu">
+          <a href="index.html">Home1</a>
+          <a href="home.html">Home2</a>
+        </div>
 
-      <ul>
+      </div>
 
-        <!-- DROPDOWN -->
-        <li class="dropdown">
+       <a href="about.html">About</a>
+       <a href="service.html">Service</a>
+      <a href="price.html">Price</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+      <a href="dashboard.html" class="dashboard-link">Dashboard</a>
 
-          <a href="index.html">Home ▼</a>
-
-          <ul class="dropdown-menu">
-            <li><a href="index.html">Home 1</a></li>
-                <li><a href="home.html">Home 2</a></li>
-
-          </ul>
-
-        </li> <!-- MISSING CLOSING -->
-
-        <li><a href="about.html">About</a></li>
-
-        <li><a href="service.html">Service</a></li>
-
-        <li><a href="price.html">Price</a></li>
-
-        <li><a href="blog.html">Blog</a></li>
-
-        <li><a href="contact.html">Contact</a></li>
-                <li><a href="dashboard.html">Dashboard</a></li>
-
-
-        <li>
-          <a href="login.html" class="login-btn">
-            <i class="bi bi-box-arrow-in-right"></i> Login
-          </a>
-        </li>
-
-      </ul>
 
     </nav>
 
-    <div class="header-buttons">
+    <!-- ACTIONS -->
+    <div class="header-actions">
 
-      <button class="theme-btn" onclick="toggleTheme()">
-        <i class="bi bi-moon-stars"></i>
+      <!-- RTL -->
+      <button class="icon-btn" id="rtlToggle" title="RTL Mode">
+        <i class="bi bi-text-right"></i>
       </button>
 
-      <button class="rtl-btn" onclick="toggleRTL()">
-        ⇄
+      <!-- DARK MODE -->
+      <button class="icon-btn" id="themeToggle" title="Dark Mode">
+        <i class="bi bi-moon-stars-fill"></i>
       </button>
+
+      <!-- CTA -->
+      <a href="login.html" class="btn btn-outline">  <i class="bi bi-box-arrow-in-right"> Login</i></a>
 
     </div>
 
   </div>
-
 </header>
+<body>
 
 <!-- HERO SECTION -->
-
 <section class="pricing-hero">
 
-  <!-- LEFT CONTENT -->
   <div class="hero-content">
-
-    
 
     <h1>
       Fresh Bakery <span>Luxury Pricing</span>
@@ -120,18 +90,9 @@
     </p>
 
     <div class="hero-btns">
-
-      <button class="btn primary-btn">
-        Explore Pricing
-      </button>
-
-      <button class="btn secondary-btn">
-        View Desserts
-      </button>
-
+      <button class="btn primary-btn">Explore Pricing</button>
+      <button class="btn secondary-btn">View Desserts</button>
     </div>
-
-    <!-- STATS -->
 
     <div class="hero-stats">
 
@@ -145,402 +106,253 @@
         <p>Luxury Cakes</p>
       </div>
 
-    
     </div>
 
   </div>
 
-  <!-- RIGHT IMAGE -->
-
   <div class="hero-image">
-
     <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=1200&auto=format&fit=crop">
+  </div>
+
+</section>
+
+<!-- PRICING -->
+<section>
+
+  <div class="section-title">
+    <h2>Pricing Packages</h2>
+    <p>Luxury bakery plans for every celebration.</p>
+  </div>
+
+  <div class="pricing-grid">
+
+    <div class="pricing-card">
+      <h3>Classic Pack</h3>
+      <div class="price">$29</div>
+      <ul>
+        <li>Custom Cupcakes</li>
+        <li>Fresh Pastries</li>
+        <li>Birthday Dessert Box</li>
+        <li>Free Delivery</li>
+      </ul>
+      <button class="btn secondary-btn">Choose Plan</button>
+    </div>
+
+    <div class="pricing-card popular">
+      <div class="tag">Popular</div>
+      <h3>Premium Pack</h3>
+      <div class="price">$59</div>
+      <ul>
+        <li>Luxury Cakes</li>
+        <li>Premium Desserts</li>
+        <li>Event Catering</li>
+        <li>Priority Delivery</li>
+      </ul>
+      <button class="btn primary-btn">Choose Plan</button>
+    </div>
+
+    <div class="pricing-card">
+      <h3>Royal Pack</h3>
+      <div class="price">$99</div>
+      <ul>
+        <li>Wedding Cakes</li>
+        <li>Unlimited Desserts</li>
+        <li>Luxury Decoration</li>
+        <li>VIP Support</li>
+      </ul>
+      <button class="btn secondary-btn">Choose Plan</button>
+    </div>
 
   </div>
 
 </section>
 
-  <!-- PRICING -->
+<!-- FEATURES -->
+<section>
 
-  <section>
+  <div class="section-title">
+    <h2>Why Choose Baker Fresh</h2>
+    <p>Premium bakery quality with handcrafted perfection.</p>
+  </div>
 
-    <div class="section-title">
+  <div class="features">
 
-      <h2>Pricing Packages</h2>
+    <div class="feature-card">
+      <i class="bi bi-cake2-fill"></i>
+      <h3>Fresh Cakes</h3>
+      <p>Daily handcrafted cakes with premium ingredients.</p>
+    </div>
 
+    <div class="feature-card">
+      <i class="bi bi-heart-fill"></i>
+      <h3>Luxury Taste</h3>
+      <p>Elegant flavors designed for unforgettable moments.</p>
+    </div>
+
+    <div class="feature-card">
+      <i class="bi bi-truck"></i>
+      <h3>Fast Delivery</h3>
+      <p>Quick doorstep delivery with premium packaging.</p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- PROCESS -->
+<section>
+
+  <div class="section-title">
+    <h2>Luxury Baking Process</h2>
+    <p>Premium handcrafted bakery journey.</p>
+  </div>
+
+  <div class="features">
+
+    <div class="feature-card">
+      <i class="bi bi-basket2-fill"></i>
+      <h3>Fresh Ingredients</h3>
+      <p>Organic ingredients selected from trusted farms.</p>
+    </div>
+
+    <div class="feature-card">
+      <i class="bi bi-cake2-fill"></i>
+      <h3>Master Baking</h3>
+      <p>Expert bakers create handcrafted desserts.</p>
+    </div>
+
+    <div class="feature-card">
+      <i class="bi bi-gem"></i>
+      <h3>Luxury Finish</h3>
+      <p>Elegant presentation crafted beautifully.</p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- GALLERY -->
+<section>
+
+  <div class="section-title">
+    <h2>Luxury Dessert Gallery</h2>
+    <p>Premium handcrafted dessert collection.</p>
+  </div>
+
+  <div class="gallery-grid">
+
+    <div class="gallery-card">
+      <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=1000&auto=format&fit=crop">
+      <div class="gallery-overlay">Chocolate Cakes</div>
+    </div>
+
+    <div class="gallery-card">
+      <img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?q=80&w=1000&auto=format&fit=crop">
+      <div class="gallery-overlay">Premium Pastries</div>
+    </div>
+
+    <div class="gallery-card">
+      <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1000&auto=format&fit=crop">
+      <div class="gallery-overlay">Artisan Bakery</div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CTA -->
+<section>
+
+  <div class="testimonial">
+
+    <h2>Ready For Sweet Luxury?</h2>
+
+    <p>
+      Order handcrafted premium desserts and celebrate your special moments.
+    </p>
+
+    <button class="btn primary-btn">Order Now</button>
+
+  </div>
+
+</section>
+
+<script src="price.js"></script>
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="container footer-grid">
+
+    <div class="footer-brand">
+      <h2>Sweet Crumbs</h2>
       <p>
-        Luxury bakery plans for every celebration.
+        Freshly baked breads, pastries, and cakes crafted
+        with love every single day.
       </p>
-
     </div>
 
-    <div class="pricing-grid">
-
-      <!-- CARD -->
-
-      <div class="pricing-card">
-
-        <h3>Classic Pack</h3>
-
-        <div class="price">$29</div>
-
-        <ul>
-
-          <li>Custom Cupcakes</li>
-
-          <li>Fresh Pastries</li>
-
-          <li>Birthday Dessert Box</li>
-
-          <li>Free Delivery</li>
-
-        </ul>
-
-        <button class="btn secondary-btn">
-          Choose Plan
-        </button>
-
-      </div>
-
-      <!-- POPULAR -->
-
-      <div class="pricing-card popular">
-
-        <div class="tag">
-          Popular
-        </div>
-
-        <h3>Premium Pack</h3>
-
-        <div class="price">$59</div>
-
-        <ul>
-
-          <li>Luxury Cakes</li>
-
-          <li>Premium Desserts</li>
-
-          <li>Event Catering</li>
-
-          <li>Priority Delivery</li>
-
-        </ul>
-
-        <button class="btn primary-btn">
-          Choose Plan
-        </button>
-
-      </div>
-
-      <!-- CARD -->
-
-      <div class="pricing-card">
-
-        <h3>Royal Pack</h3>
-
-        <div class="price">$99</div>
-
-        <ul>
-
-          <li>Wedding Cakes</li>
-
-          <li>Unlimited Desserts</li>
-
-          <li>Luxury Decoration</li>
-
-          <li>VIP Support</li>
-
-        </ul>
-
-        <button class="btn secondary-btn">
-          Choose Plan
-        </button>
-
-      </div>
-
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <a href="#">Home</a>
+      <a href="#">Shop</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
     </div>
 
-  </section>
+  <div class="footer-social">
 
-  <!-- FEATURES -->
+  <h4>Follow Us</h4>
 
-  <section>
-
-    <div class="section-title">
-
-      <h2>Why Choose Baker Fresh</h2>
-
-      <p>
-        Premium bakery quality with handcrafted perfection.
-      </p>
-
-    </div>
-
-    <div class="features">
-
-      <div class="feature-card">
-
-        <i class="bi bi-cake2-fill"></i>
-
-        <h3>Fresh Cakes</h3>
-
-        <p>
-          Daily handcrafted cakes with premium ingredients.
-        </p>
-
-      </div>
-
-      <div class="feature-card">
-
-        <i class="bi bi-heart-fill"></i>
-
-        <h3>Luxury Taste</h3>
-
-        <p>
-          Elegant flavors designed for unforgettable moments.
-        </p>
-
-      </div>
-
-      <div class="feature-card">
-
-        <i class="bi bi-truck"></i>
-
-        <h3>Fast Delivery</h3>
-
-        <p>
-          Quick doorstep delivery with premium packaging.
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- PROCESS -->
-
-  <section>
-
-    <div class="section-title">
-
-      <h2>Luxury Baking Process</h2>
-
-      <p>
-        Premium handcrafted bakery journey.
-      </p>
-
-    </div>
-
-    <div class="features">
-
-      <div class="feature-card">
-
-        <i class="bi bi-basket2-fill"></i>
-
-        <h3>Fresh Ingredients</h3>
-
-        <p>
-          Organic ingredients selected from trusted farms.
-        </p>
-
-      </div>
-
-      <div class="feature-card">
-
-        <i class="bi bi-cake2-fill"></i>
-
-        <h3>Master Baking</h3>
-
-        <p>
-          Expert bakers create handcrafted desserts.
-        </p>
-
-      </div>
-
-      <div class="feature-card">
-
-        <i class="bi bi-gem"></i>
-
-        <h3>Luxury Finish</h3>
-
-        <p>
-          Elegant presentation crafted beautifully.
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- GALLERY -->
-
-  <section>
-
-    <div class="section-title">
-
-      <h2>Luxury Dessert Gallery</h2>
-
-      <p>
-        Premium handcrafted dessert collection.
-      </p>
-
-    </div>
-
-    <div class="gallery-grid">
-
-      <div class="gallery-card">
-
-        <img
-          src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=1000&auto=format&fit=crop">
-
-        <div class="gallery-overlay">
-          Chocolate Cakes
-        </div>
-
-      </div>
-
-      <div class="gallery-card">
-
-        <img
-          src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?q=80&w=1000&auto=format&fit=crop">
-
-        <div class="gallery-overlay">
-          Premium Pastries
-        </div>
-
-      </div>
-
-      <div class="gallery-card">
-
-        <img
-          src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1000&auto=format&fit=crop">
-
-        <div class="gallery-overlay">
-          Artisan Bakery
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- CTA -->
-
-  <section>
-
-    <div class="testimonial">
-
-      <h2>Ready For Sweet Luxury?</h2>
-
-      <p>
-
-        Order handcrafted premium desserts and celebrate
-        your special moments with Baker Fresh today.
-
-      </p>
-
-      <br><br>
-
-      <button class="btn primary-btn">
-        Order Now
-      </button>
-
-    </div>
-
-  </section>
-
-  <!-- FOOTER -->
-
-  <footer>
-
-    <div class="footer-container">
-
-      <div class="footer-box">
-
-        <h3>Sweet Crumbs</h3>
-
-        <p>
-          Premium handcrafted bakery creations designed
-          for luxury celebrations and sweet experiences.
-        </p>
-
-      </div>
-
-      <div class="footer-box">
-
-        <h3>Quick Links</h3>
-
-        <ul>
-
-          <li>Home</li>
-
-          <li>Pricing</li>
-
-          <li>Menu</li>
-
-          <li>About</li>
-
-        </ul>
-
-      </div>
-
-      <div class="footer-box">
-
-        <h3>Follow Us</h3>
-        <p class="social-text">
-    Stay connected with us on social media for latest bakery updates,
-    offers, and fresh creations every day.
+  <p>
+    Follow Sweet Crumbs for fresh bakery updates,
+    premium cakes and daily dessert inspiration.
   </p>
 
-        <div class="social-icons">
+  <div class="social-icons">
 
-          <a href="#"><i class="bi bi-instagram"></i></a>
+    <a href="#">
+      <i class="bi bi-facebook"></i>
+    </a>
 
-          <a href="#"><i class="bi bi-facebook"></i></a>
+    <a href="#">
+      <i class="bi bi-instagram"></i>
+    </a>
 
-          <a href="#"><i class="bi bi-twitter"></i></a>
+    <a href="#">
+      <i class="bi bi-twitter-x"></i>
+    </a>
 
-          <a href="#"><i class="bi bi-whatsapp"></i></a>
+    <a href="#">
+      <i class="bi bi-youtube"></i>
+    </a>
 
-        </div>
+  </div>
 
-      </div>
-
-      <!-- NEWSLETTER -->
-
-      <div class="footer-box">
-
-        <h3>Newsletter</h3>
-
-        <p>
-          Subscribe for bakery offers and dessert updates.
-        </p>
-
-        <input type="email"
-          placeholder="Enter your email"
-          class="newsletter-input">
-
-        <button class="newsletter-btn">
-          Subscribe Now
-        </button>
-
-      </div>
-
+</div>
+    <div class="footer-contact">
+      <h4>Contact</h4>
+      <p><i class="bi bi-geo-alt"></i> Bangalore, India</p>
+      <p><i class="bi bi-envelope"></i> hello@sweetcrumbs.com</p>
+      <p><i class="bi bi-telephone"></i> +91 98765 43210</p>
     </div>
 
-    <div class="copyright">
-      © 2026 Baker Fresh. All Rights Reserved.
+  </div>
+
+  <!-- ================= FOOTER BOTTOM ================= -->
+
+<div class="footer-bottom">
+  
+  <div class="container">
+
+    <p>© 2026 Sweet Crumbs. All Rights Reserved.</p>
+
+    <div class="footer-bottom-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms & Conditions</a>
     </div>
 
-  </footer>
+  </div>
 
-  <!-- JS -->
-
-  <script src="price.js"></script>
-
+</div>
+</footer>
 </body>
-
 </html>

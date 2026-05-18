@@ -1,44 +1,12 @@
-const body = document.body;
+const themeToggle = document.getElementById("themeToggle");
+const rtlToggle = document.getElementById("rtlToggle");
 
-const html = document.documentElement;
+/* DARK MODE */
+themeToggle.onclick = () => {
+  document.body.classList.toggle("dark");
+};
 
-function toggleTheme(){
-
-  body.classList.toggle("dark");
-
-  const btn = document.querySelector(".theme-btn");
-
-  if(body.classList.contains("dark")){
-
-    btn.innerHTML =
-    '<i class="bi bi-brightness-high"></i>';
-
-  }else{
-
-    btn.innerHTML =
-    '<i class="bi bi-moon-stars"></i>';
-
-  }
-
-}
-
-function toggleRTL(){
-
-  const rtlBtn =
-  document.querySelector(".rtl-btn");
-
-  if(html.getAttribute("dir")==="rtl"){
-
-    html.setAttribute("dir","ltr");
-
-    rtlBtn.innerHTML="⇄";
-
-  }else{
-
-    html.setAttribute("dir","rtl");
-
-    rtlBtn.innerHTML="⇆";
-
-  }
-
-}
+/* RTL MODE */
+rtlToggle.onclick = () => {
+  document.body.classList.toggle("rtl");
+};
