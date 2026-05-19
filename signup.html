@@ -207,6 +207,171 @@ body{
   text-decoration:none;
   font-weight:600;
 }
+/* ================= BODY ================= */
+
+body{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#f4f4f4;
+  transition:0.4s;
+}
+
+/* COMPLETE DARK PAGE */
+body.dark{
+  background:#050505;
+}
+
+/* ================= CARD ================= */
+
+.card{
+  width:380px;
+  padding:30px;
+  border-radius:18px;
+  background:#fff;
+  box-shadow:0 20px 50px rgba(0,0,0,0.1);
+  position:relative;
+  direction:ltr;
+  transition:0.4s;
+}
+
+/* DARK CARD */
+.card.dark{
+  background:#121212;
+  color:#fff;
+  box-shadow:0 20px 60px rgba(0,0,0,0.6);
+  border:1px solid rgba(255,255,255,0.06);
+}
+
+/* ================= INPUTS ================= */
+
+.input-box input{
+  width:100%;
+  padding:12px;
+  border:1px solid #ddd;
+  border-radius:10px;
+  outline:none;
+  background:transparent;
+  color:inherit;
+  transition:0.3s;
+}
+
+/* DARK INPUT */
+.card.dark input{
+  background:#1c1c1c;
+  border:1px solid #333;
+  color:#fff;
+}
+
+/* PLACEHOLDER */
+.card.dark input::placeholder{
+  color:#9ca3af;
+}
+
+/* ================= PASSWORD ICON ================= */
+
+.eye{
+  position:absolute;
+  right:10px;
+  top:50%;
+  transform:translateY(-50%);
+  cursor:pointer;
+  transition:0.3s;
+}
+
+/* DARK ICON */
+.card.dark .eye{
+  color:#fff;
+}
+
+/* ================= SOCIAL ================= */
+
+.social{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin-top:15px;
+}
+
+/* SOCIAL BUTTON */
+.social button{
+  width:40px;
+  height:40px;
+  border:1px solid #ddd;
+  border-radius:10px;
+  background:#fff;
+  color:#111;
+  transition:0.3s;
+  cursor:pointer;
+}
+
+/* DARK SOCIAL */
+.card.dark .social button{
+  background:#1c1c1c;
+  border:1px solid #333;
+  color:#fff;
+}
+
+/* HOVER */
+.social button:hover{
+  background:#ff7a00;
+  border-color:#ff7a00;
+  color:#fff;
+  transform:translateY(-5px) scale(1.08);
+}
+
+/* ================= TEXT ================= */
+
+.card.dark h3,
+.card.dark p,
+.card.dark .link{
+  color:#fff;
+}
+
+/* LINKS */
+.card.dark a{
+  color:#ff7a00;
+}
+
+/* ================= ICON BUTTONS ================= */
+
+.icon-btn{
+  width:36px;
+  height:36px;
+  border:none;
+  border-radius:50%;
+  background:#ff7a00;
+  color:#fff;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:0.3s;
+}
+
+.icon-btn:hover{
+  transform:rotate(12deg) scale(1.1);
+}
+
+/* ================= BUTTON ================= */
+
+.btn{
+  width:100%;
+  padding:12px;
+  background:#ff7a00;
+  border:none;
+  color:#fff;
+  border-radius:10px;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.btn:hover{
+  background:#e96d00;
+  transform:scale(1.03);
+}
 </style>
 </head>
 
@@ -226,8 +391,7 @@ body{
   </div>
 
   <!-- LOGO -->
-  <a class="logo">Sweet Crumbs</a>
-  <h3>Create Account</h3>
+<a href="index.html" class="logo">Sweet Crumbs</a>  <h3>Create Account</h3>
 
   <!-- INPUTS -->
   <div class="input-box">
@@ -266,10 +430,15 @@ body{
 </div>
 
 <script>
-const card=document.getElementById("card");
+const card = document.getElementById("card");
 
 function toggleTheme(){
+
   card.classList.toggle("dark");
+
+  /* COMPLETE PAGE DARK */
+  document.body.classList.toggle("dark");
+
 }
 
 function toggleDir(){

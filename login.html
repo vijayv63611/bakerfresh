@@ -18,6 +18,61 @@ body{
   align-items:center;
   background:#f4f4f4;
 }
+/* DARK MODE */
+body.dark{
+  background:#0f0f0f;
+}
+
+.card.dark{
+  background:#1a1a1a;
+  color:#fff;
+  box-shadow:0 20px 50px rgba(0,0,0,0.5);
+}
+
+/* INPUTS */
+.card.dark input{
+  background:#111;
+  border:1px solid #333;
+  color:#fff;
+}
+
+.card.dark input::placeholder{
+  color:#aaa;
+}
+
+/* PASSWORD EYE ICON */
+.card.dark .eye{
+  color:#fff;
+}
+
+/* LINKS */
+.card.dark a{
+  color:#ff7a00;
+}
+
+/* OPTIONS TEXT */
+.card.dark .options{
+  color:#fff;
+}
+
+/* SOCIAL BUTTONS */
+.card.dark .social button{
+  background:#111;
+  border:1px solid #333;
+  color:#fff;
+}
+
+/* SOCIAL ICON HOVER */
+.card.dark .social button:hover{
+  background:#ff7a00;
+  color:#fff;
+  border-color:#ff7a00;
+}
+
+/* COMPANY TEXT */
+.card.dark .company{
+  color:#bbb;
+}
 
 /* CARD */
 .card{
@@ -34,7 +89,9 @@ body{
 .card.dark{
   background:#1a1a1a;
   color:#fff;
+  box-shadow:0 20px 50px rgba(0,0,0,0.5);
 }
+
 
 /* RTL */
 .card.rtl{
@@ -154,7 +211,7 @@ body{
   </div>
 
   <!-- LOGO -->
-  <a class="logo">Sweet Crumbs</a>
+  <a href="index.html" class="logo">Sweet Crumbs</a>
 
 
   <div class="input-box">
@@ -193,15 +250,20 @@ body{
 </div>
 
 <script>
-const card=document.getElementById("card");
+const card = document.getElementById("card");
 
 function togglePass(){
-  let p=document.getElementById("pass");
-  p.type = p.type==="password"?"text":"password";
+  let p = document.getElementById("pass");
+  p.type = p.type === "password" ? "text" : "password";
 }
 
 function toggleTheme(){
+
   card.classList.toggle("dark");
+
+  /* BODY DARK */
+  document.body.classList.toggle("dark");
+
 }
 
 function toggleDir(){

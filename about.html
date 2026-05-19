@@ -1,174 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!-- ADD THIS INSIDE <head> JUST BEFORE </head> -->
-
-<style>
-
-/* =========================================
-HAMBURGER MENU PREMIUM RESPONSIVE
-========================================= */
-
-.menu-toggle{
-  display:none;
-  width:48px;
-  height:48px;
-  border:none;
-  border-radius:14px;
-  background:var(--card);
-  border:1px solid var(--border);
-  color:var(--text);
-  cursor:pointer;
-  align-items:center;
-  justify-content:center;
-  font-size:1.4rem;
-  transition:.3s;
-}
-
-.menu-toggle:hover{
-  background:var(--primary);
-  color:#fff;
-  border-color:var(--primary);
-}
-
-/* MOBILE NAV */
-
-@media(max-width:992px){
-
-  .nav-wrapper{
-    flex-direction:row;
-    height:82px;
-    position:relative;
-  }
-
-  .menu-toggle{
-    display:flex;
-  }
-
-  .nav-links{
-    position:absolute;
-    top:100%;
-    left:0;
-    width:100%;
-
-    background:rgba(255,255,255,.96);
-    backdrop-filter:blur(18px);
-
-    border-bottom:1px solid var(--border);
-
-    flex-direction:column;
-    align-items:flex-start;
-
-    padding:25px;
-
-    gap:10px;
-
-    opacity:0;
-    visibility:hidden;
-    transform:translateY(-20px);
-
-    transition:.4s ease;
-
-    z-index:999;
-  }
-
-  body.dark .nav-links{
-    background:rgba(10,10,10,.96);
-  }
-
-  .nav-links.active{
-    opacity:1;
-    visibility:visible;
-    transform:translateY(0);
-  }
-
-  .nav-links > a,
-  .dropdown{
-    width:100%;
-  }
-
-  .nav-links > a,
-  .dropdown-toggle{
-    width:100%;
-    justify-content:space-between;
-    padding:14px 16px;
-    border-radius:14px;
-  }
-
-  .nav-links > a:hover,
-  .dropdown-toggle:hover{
-    background:rgba(255,122,0,.08);
-  }
-
-  /* MOBILE DROPDOWN */
-
-  .dropdown{
-    flex-direction:column;
-    align-items:flex-start;
-  }
-
-  .dropdown-menu{
-    position:relative;
-    top:0;
-    width:100%;
-    opacity:1;
-    visibility:visible;
-    transform:none;
-    display:none;
-    margin-top:10px;
-    border-radius:16px;
-  }
-
-  .dropdown.active .dropdown-menu{
-    display:block;
-  }
-
-  .dropdown-menu a{
-    width:100%;
-  }
-
-  /* ACTIONS */
-
-  .header-actions{
-    gap:10px;
-  }
-
-  .btn{
-    min-width:auto;
-    padding:0 18px;
-  }
-
-}
-
-/* EXTRA SMALL MOBILE */
-
-@media(max-width:600px){
-
-  .logo{
-    font-size:20px;
-  }
-
-  .header-actions .btn{
-    display:none;
-  }
-
-  .icon-btn{
-    width:42px;
-    height:42px;
-  }
-
-  .menu-toggle{
-    width:42px;
-    height:42px;
-  }
-
-}
-
-</style>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<title>Luxury Bakery About Page</title>
+<title>Sweet Crumbs - Luxury Bakery About</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -178,23 +14,578 @@ href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.c
 
 <style>
 
+/* ================= RESET ================= */
+
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-scroll-behavior:smooth;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-:root{
---bg:#fff8f0;
---text:#111;
---card:rgba(255,255,255,0.14);
---border:rgba(255,255,255,0.22);
---primary:#ff7a00;
---secondary:#ffb347;
---shadow:0 20px 60px rgba(0,0,0,.12);
+html{
+  scroll-behavior:smooth;
 }
+
+body{
+  font-family:'Poppins',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+  transition:.4s;
+}
+
+/* ================= VARIABLES ================= */
+
+:root{
+  --bg:#fff8f0;
+  --text:#111827;
+  --card:#ffffff;
+  --border:#ececec;
+  --primary:#ff7a00;
+  --secondary:#ffb347;
+  --shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+body.dark{
+  --bg:#0f0f0f;
+  --text:#ffffff;
+  --card:#171717;
+  --border:#2a2a2a;
+}
+
+/* ================= CONTAINER ================= */
+
+.container{
+  width:min(1200px,92%);
+  margin:auto;
+}
+
+/* ================= BODY EFFECT ================= */
+
+body::before{
+  content:"";
+  position:fixed;
+  width:600px;
+  height:600px;
+  background:rgba(255,122,0,.10);
+  border-radius:50%;
+  top:-250px;
+  right:-200px;
+  filter:blur(100px);
+  z-index:-1;
+}
+
+body::after{
+  content:"";
+  position:fixed;
+  width:500px;
+  height:500px;
+  background:rgba(255,179,71,.08);
+  border-radius:50%;
+  bottom:-250px;
+  left:-200px;
+  filter:blur(100px);
+  z-index:-1;
+}
+
+/* ================= FLOATING THEME BUTTON ================= */
+
+.theme-floating{
+  position:fixed;
+  top:30px;
+  right:30px;
+  width:55px;
+  height:55px;
+  border:none;
+  border-radius:18px;
+  background:var(--card);
+  border:1px solid var(--border);
+  color:var(--text);
+  font-size:1.2rem;
+  cursor:pointer;
+  z-index:999;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:.4s;
+  box-shadow:var(--shadow);
+}
+
+.theme-floating:hover{
+  background:var(--primary);
+  color:#fff;
+  transform:translateY(-5px);
+}
+
+/* ================= HERO ================= */
+
+.about-hero{
+  min-height:100vh;
+
+  background:
+  linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.65)),
+  url("https://images.unsplash.com/photo-1517433670267-08bbd4be890f?q=80&w=1600&auto=format&fit=crop")
+  center/cover;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:120px 20px;
+  position:relative;
+}
+
+.hero-content{
+  max-width:900px;
+  color:#fff;
+  animation:fadeUp 1.2s ease;
+}
+
+.hero-content span{
+  color:var(--secondary);
+  letter-spacing:4px;
+  font-weight:600;
+}
+
+.hero-content h1{
+  font-size:5rem;
+  margin:25px 0;
+  line-height:1.1;
+}
+
+.hero-content p{
+  line-height:2;
+  font-size:1.1rem;
+  opacity:.9;
+}
+
+.hero-btns{
+  margin-top:40px;
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  flex-wrap:wrap;
+}
+
+.hero-btns a{
+  padding:16px 34px;
+  border-radius:60px;
+  text-decoration:none;
+  transition:.4s;
+  font-weight:600;
+}
+
+.btn1{
+  background:linear-gradient(135deg,#ff7a00,#ffb347);
+  color:#fff;
+}
+
+.btn2{
+  border:2px solid rgba(255,255,255,.5);
+  color:#fff;
+}
+
+.hero-btns a:hover{
+  transform:translateY(-6px);
+}
+
+/* ================= FLOATING CARD ================= */
+
+.floating-card{
+  position:absolute;
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.2);
+  backdrop-filter:blur(12px);
+  color:#fff;
+  padding:20px;
+  border-radius:24px;
+  animation:floating 5s ease-in-out infinite;
+}
+
+.card1{
+  top:18%;
+  left:8%;
+}
+
+.card2{
+  bottom:18%;
+  right:8%;
+}
+
+/* ================= SECTIONS ================= */
+
+section{
+  padding:110px 0;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:70px;
+}
+
+.section-title span{
+  color:var(--primary);
+  letter-spacing:3px;
+  font-weight:700;
+}
+
+.section-title h2{
+  font-size:3rem;
+  margin:18px 0;
+}
+
+.section-title p{
+  max-width:700px;
+  margin:auto;
+  line-height:2;
+  opacity:.8;
+}
+
+/* ================= STORY ================= */
+
+.story{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:60px;
+  align-items:center;
+}
+
+.story-img{
+  position:relative;
+}
+
+.story-img img{
+  width:100%;
+  border-radius:30px;
+  box-shadow:var(--shadow);
+}
+
+.exp-box{
+  position:absolute;
+  left:25px;
+  bottom:25px;
+  background:rgba(255,255,255,.15);
+  backdrop-filter:blur(10px);
+  padding:25px;
+  border-radius:24px;
+  color:#fff;
+}
+
+.exp-box h3{
+  color:var(--primary);
+  font-size:3rem;
+}
+
+.story-text h2{
+  font-size:3rem;
+  margin-bottom:20px;
+}
+
+.story-text p{
+  line-height:2;
+  margin-bottom:20px;
+  opacity:.85;
+}
+
+.quote{
+  padding:25px;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:24px;
+  font-style:italic;
+}
+
+/* ================= GRIDS ================= */
+
+.choose-grid,
+.process-grid,
+.award-grid,
+.testimonial-grid,
+.chefs-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+}
+
+/* ================= CARDS ================= */
+
+.choose-card,
+.process-card,
+.award-card,
+.testimonial-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:30px;
+  padding:35px;
+  transition:.4s;
+  box-shadow:var(--shadow);
+}
+
+.choose-card:hover,
+.process-card:hover,
+.award-card:hover,
+.testimonial-card:hover{
+  transform:translateY(-10px);
+}
+
+.choose-card i,
+.process-card i,
+.award-card i{
+  font-size:55px;
+  color:var(--primary);
+  margin-bottom:20px;
+}
+
+.choose-card h3,
+.process-card h3,
+.award-card h3{
+  margin-bottom:12px;
+}
+
+/* ================= TIMELINE ================= */
+
+.timeline{
+  position:relative;
+  max-width:1000px;
+  margin:auto;
+}
+
+.timeline::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  width:4px;
+  height:100%;
+  background:linear-gradient(to bottom,#ff7a00,#ffb347);
+  transform:translateX(-50%);
+}
+
+.timeline-item{
+  width:50%;
+  padding:30px 40px;
+  position:relative;
+}
+
+.timeline-item:nth-child(odd){
+  left:0;
+  text-align:right;
+}
+
+.timeline-item:nth-child(even){
+  left:50%;
+}
+
+.timeline-item::before{
+  content:"";
+  position:absolute;
+  top:45px;
+  width:20px;
+  height:20px;
+  border-radius:50%;
+  background:var(--primary);
+}
+
+.timeline-item:nth-child(odd)::before{
+  right:-10px;
+}
+
+.timeline-item:nth-child(even)::before{
+  left:-10px;
+}
+
+.timeline-box{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:28px;
+  padding:30px;
+  box-shadow:var(--shadow);
+}
+
+.timeline-box h3{
+  color:var(--primary);
+  margin-bottom:12px;
+}
+
+/* ================= CHEFS ================= */
+
+.chef-card{
+  position:relative;
+  overflow:hidden;
+  border-radius:30px;
+}
+
+.chef-card img{
+  width:100%;
+  height:450px;
+  object-fit:cover;
+  transition:.6s;
+}
+
+.chef-card:hover img{
+  transform:scale(1.1);
+}
+
+.chef-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.9),transparent);
+  color:#fff;
+  padding:30px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+}
+
+.socials{
+  display:flex;
+  gap:12px;
+  margin-top:18px;
+}
+
+.socials i{
+  width:42px;
+  height:42px;
+  background:rgba(255,255,255,.12);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.socials i:hover{
+  background:var(--primary);
+}
+
+/* ================= STATS ================= */
+
+.stats{
+  background:
+  linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.6)),
+  url("https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1600&auto=format&fit=crop")
+  center/cover;
+
+  border-radius:40px;
+  padding:80px 30px;
+
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:25px;
+  text-align:center;
+}
+
+.stat-box{
+  background:rgba(255,255,255,.1);
+  padding:35px;
+  border-radius:28px;
+  color:#fff;
+  backdrop-filter:blur(10px);
+}
+
+.stat-box h2{
+  font-size:3.5rem;
+  color:var(--secondary);
+}
+
+/* ================= TESTIMONIAL ================= */
+
+.stars{
+  color:gold;
+  margin-bottom:18px;
+}
+
+.client{
+  display:flex;
+  align-items:center;
+  gap:15px;
+  margin-top:25px;
+}
+
+.client img{
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  object-fit:cover;
+  border:3px solid var(--primary);
+}
+
+/* ================= ANIMATION ================= */
+
+.fade{
+  opacity:0;
+  transform:translateY(60px);
+  transition:1s;
+}
+
+.fade.active{
+  opacity:1;
+  transform:translateY(0);
+}
+
+@keyframes floating{
+  0%{transform:translateY(0);}
+  50%{transform:translateY(-14px);}
+  100%{transform:translateY(0);}
+}
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(50px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:992px){
+
+  .hero-content h1{
+    font-size:3.8rem;
+  }
+
+  .timeline::before{
+    left:20px;
+  }
+
+  .timeline-item{
+    width:100%;
+    left:0 !important;
+    text-align:left !important;
+    padding-left:70px;
+  }
+
+  .timeline-item::before{
+    left:10px !important;
+  }
+
+}
+
+@media(max-width:600px){
+
+  section{
+    padding:90px 0;
+  }
+
+  .hero-content h1{
+    font-size:2.8rem;
+  }
+
+  .section-title h2{
+    font-size:2.2rem;
+  }
+
+  .hero-btns{
+    flex-direction:column;
+  }
+
+}
+
+
 :root{
   --bg:#ffffff;
   --text:#111827;
@@ -212,1195 +603,18 @@ body.dark{
   --border:black;
 }
 
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
 body{
-background:var(--bg);
-color:var(--text);
-overflow-x:hidden;
-transition:.4s;
+  font-family:Arial, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  transition:.3s;
 }
-
-
-
-body::before{
-content:"";
-position:fixed;
-width:700px;
-height:700px;
-background:rgba(255,122,0,.08);
-border-radius:50%;
-top:-300px;
-right:-200px;
-filter:blur(90px);
-z-index:-1;
-animation:float 10s linear infinite;
-}
-
-body::after{
-content:"";
-position:fixed;
-width:600px;
-height:600px;
-background:rgba(255,255,255,.06);
-border-radius:50%;
-bottom:-250px;
-left:-200px;
-filter:blur(100px);
-z-index:-1;
-animation:float2 12s linear infinite;
-}
-
-section{
-padding:120px 9%;
-position:relative;
-}
-
-.section-title{
-text-align:center;
-margin-bottom:80px;
-}
-
-.section-title span{
-color:var(--primary);
-font-weight:700;
-letter-spacing:3px;
-}
-
-.section-title h2{
-font-size:3.5rem;
-margin:18px 0;
-}
-
-.section-title p{
-max-width:760px;
-margin:auto;
-line-height:2;
-opacity:.8;
-}
-
-/* HERO */
-
-.about-hero{
-height:100vh;
-background:
-linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.65)),
-url("https://images.unsplash.com/photo-1517433670267-08bbd4be890f?q=80&w=1600&auto=format&fit=crop")
-center/cover;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-overflow:hidden;
-}
-
-/* ================= HERO CONTENT ================= */
-
-.hero-content{
-max-width:950px;
-color:#fff;
-position:relative;
-z-index:10;
-
-/* MAIN HERO ANIMATION */
-animation:heroReveal 1.4s ease forwards;
-
-opacity:0;
-transform:translateY(60px);
-}
-
-/* SMALL TEXT */
-
-.hero-content span{
-display:inline-block;
-color:var(--secondary);
-letter-spacing:4px;
-font-weight:600;
-
-animation:slideTop 1s ease forwards;
-animation-delay:.3s;
-
-opacity:0;
-}
-
-/* TITLE */
-
-.hero-content h1{
-font-size:6rem;
-line-height:1.05;
-margin:30px 0;
-font-weight:800;
-
-animation:zoomFade 1.3s ease forwards;
-animation-delay:.6s;
-
-opacity:0;
-}
-
-/* PARAGRAPH */
-
-.hero-content p{
-font-size:1.15rem;
-line-height:2;
-max-width:750px;
-margin:auto;
-opacity:0;
-
-animation:fadeUpText 1.2s ease forwards;
-animation-delay:1s;
-}
-
-/* BUTTONS */
-
-.hero-btns{
-margin-top:45px;
-display:flex;
-justify-content:center;
-gap:20px;
-flex-wrap:wrap;
-
-opacity:0;
-
-animation:fadeButtons 1.2s ease forwards;
-animation-delay:1.4s;
-}
-
-/* FLOATING CARDS */
-
-.floating-card{
-position:absolute;
-background:rgba(255,255,255,.12);
-border:1px solid rgba(255,255,255,.18);
-backdrop-filter:blur(14px);
-
-padding:20px;
-border-radius:24px;
-color:#fff;
-
-animation:
-floatingCard 5s ease-in-out infinite,
-glowCard 6s linear infinite;
-}
-
-/* CARD POSITION */
-
-.card1{
-top:18%;
-left:8%;
-}
-
-.card2{
-bottom:20%;
-right:10%;
-animation-delay:2s;
-}
-
-/* ================= ANIMATIONS ================= */
-
-/* HERO CONTAINER */
-
-@keyframes heroReveal{
-
-0%{
-opacity:0;
-transform:translateY(60px);
-}
-
-100%{
-opacity:1;
-transform:translateY(0);
-}
-
-}
-
-/* SMALL TEXT */
-
-@keyframes slideTop{
-
-0%{
-opacity:0;
-transform:translateY(-30px);
-}
-
-100%{
-opacity:1;
-transform:translateY(0);
-}
-
-}
-
-/* TITLE */
-
-@keyframes zoomFade{
-
-0%{
-opacity:0;
-transform:scale(.8);
-}
-
-100%{
-opacity:1;
-transform:scale(1);
-}
-
-}
-
-/* PARAGRAPH */
-
-@keyframes fadeUpText{
-
-0%{
-opacity:0;
-transform:translateY(30px);
-}
-
-100%{
-opacity:.9;
-transform:translateY(0);
-}
-
-}
-
-/* BUTTONS */
-
-@keyframes fadeButtons{
-
-0%{
-opacity:0;
-transform:translateY(30px);
-}
-
-100%{
-opacity:1;
-transform:translateY(0);
-}
-
-}
-
-/* FLOATING CARDS */
-
-@keyframes floatingCard{
-
-0%{
-transform:translateY(0px);
-}
-
-50%{
-transform:translateY(-18px);
-}
-
-100%{
-transform:translateY(0px);
-}
-
-}
-
-/* CARD GLOW */
-
-@keyframes glowCard{
-
-0%{
-box-shadow:0 0 0 rgba(255,122,0,0);
-}
-
-50%{
-box-shadow:0 0 35px rgba(255,122,0,.25);
-}
-
-100%{
-box-shadow:0 0 0 rgba(255,122,0,0);
-}
-
-}
-
-/* RESPONSIVE */
-
-@media(max-width:900px){
-
-.hero-content h1{
-font-size:4rem;
-}
-
-}
-
-@media(max-width:600px){
-
-.hero-content h1{
-font-size:3rem;
-}
-
-.hero-btns{
-flex-direction:column;
-align-items:center;
-}
-
-}
-.hero-btns a{
-padding:18px 38px;
-border-radius:60px;
-text-decoration:none;
-font-weight:600;
-transition:.4s;
-}
-
-.btn1{
-background:linear-gradient(135deg,#ff7a00,#ffb347);
-color:#fff;
-box-shadow:0 10px 30px rgba(255,122,0,.35);
-}
-
-.btn2{
-border:2px solid rgba(255,255,255,.5);
-color:#fff;
-backdrop-filter:blur(10px);
-}
-
-.hero-btns a:hover{
-transform:translateY(-8px) scale(1.03);
-}
-
-/* FLOATING CARDS */
-
-.floating-card{
-position:absolute;
-background:rgba(255,255,255,.1);
-border:1px solid rgba(255,255,255,.2);
-backdrop-filter:blur(12px);
-padding:20px;
-border-radius:24px;
-color:#fff;
-animation:float 5s ease-in-out infinite;
-}
-
-.card1{
-top:18%;
-left:8%;
-}
-
-.card2{
-bottom:20%;
-right:10%;
-animation-delay:2s;
-}
-
-/* STORY */
-
-.story{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-gap:60px;
-align-items:center;
-}
-
-.story-img{
-position:relative;
-}
-
-.story-img img{
-width:100%;
-border-radius:35px;
-box-shadow:var(--shadow);
-transition:.6s;
-}
-
-.story-img:hover img{
-transform:scale(1.03);
-}
-
-.exp-box{
-position:absolute;
-bottom:30px;
-left:30px;
-background:rgba(255,255,255,.12);
-backdrop-filter:var(--glass);
-padding:30px;
-border-radius:30px;
-border:1px solid rgba(255,255,255,.2);
-color:#fff;
-}
-
-.exp-box h3{
-font-size:3rem;
-color:var(--primary);
-}
-
-.story-text h2{
-font-size:3.5rem;
-margin-bottom:25px;
-}
-
-.story-text p{
-line-height:2;
-margin-bottom:22px;
-opacity:.85;
-}
-
-.quote{
-padding:30px;
-border-radius:28px;
-background:var(--card);
-backdrop-filter:var(--glass);
-border:1px solid var(--border);
-font-size:1.1rem;
-font-style:italic;
-}
-
-/* WHY */
-
-.choose-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:35px;
-}
-
-.choose-card{
-padding:45px 35px;
-border-radius:35px;
-background:var(--card);
-backdrop-filter:var(--glass);
-border:1px solid var(--border);
-position:relative;
-overflow:hidden;
-transition:.5s;
-}
-
-.choose-card::before{
-content:"";
-position:absolute;
-width:180px;
-height:180px;
-background:rgba(255,122,0,.1);
-border-radius:50%;
-top:-80px;
-right:-60px;
-}
-
-.choose-card:hover{
-transform:translateY(-14px);
-box-shadow:0 20px 40px rgba(255,122,0,.18);
-}
-
-.choose-card i{
-font-size:60px;
-color:var(--primary);
-margin-bottom:25px;
-}
-
-.choose-card h3{
-font-size:1.5rem;
-margin-bottom:14px;
-}
-
-/* TIMELINE */
-
-/* TIMELINE */
-
-.timeline{
-position:relative;
-max-width:1100px;
-margin:auto;
-padding-top:20px;
-}
-
-.timeline::before{
-content:"";
-position:absolute;
-left:50%;
-top:0;
-width:5px;
-height:100%;
-background:linear-gradient(to bottom,#ff7a00,#ffb347,transparent);
-transform:translateX(-50%);
-border-radius:20px;
-box-shadow:0 0 20px rgba(255,122,0,.4);
-}
-
-.timeline-item{
-width:50%;
-padding:30px 45px;
-position:relative;
-animation:fadeUp 1s ease;
-}
-
-.timeline-item:nth-child(odd){
-left:0;
-text-align:right;
-}
-
-.timeline-item:nth-child(even){
-left:50%;
-}
-
-.timeline-item::before{
-content:"";
-position:absolute;
-top:45px;
-width:22px;
-height:22px;
-background:linear-gradient(135deg,#ff7a00,#ffb347);
-border-radius:50%;
-box-shadow:0 0 20px rgba(255,122,0,.6);
-z-index:5;
-}
-
-.timeline-item:nth-child(odd)::before{
-right:-12px;
-}
-
-.timeline-item:nth-child(even)::before{
-left:-10px;
-}
-
-/* CARD */
-
-.timeline-box{
-position:relative;
-padding:35px;
-border-radius:32px;
-
-/* VISIBLE CARD */
-background:rgba(255,255,255,.88);
-
-backdrop-filter:blur(18px);
--webkit-backdrop-filter:blur(18px);
-
-border:1px solid rgba(255,255,255,.4);
-
-box-shadow:
-0 15px 45px rgba(0,0,0,.12),
-0 5px 15px rgba(255,122,0,.08);
-
-overflow:hidden;
-transition:.5s;
-}
-
-/* DARK MODE CARD */
-
-body.dark .timeline-box{
-background:rgba(20,20,20,.92);
-border:1px solid rgba(255,255,255,.08);
-box-shadow:
-0 15px 45px rgba(0,0,0,.45),
-0 5px 20px rgba(255,122,0,.15);
-}
-
-/* GLOW EFFECT */
-
-.timeline-box::before{
-content:"";
-position:absolute;
-width:180px;
-height:180px;
-background:rgba(255,122,0,.08);
-border-radius:50%;
-top:-80px;
-right:-70px;
-}
-
-/* HOVER */
-
-.timeline-box:hover{
-transform:translateY(-10px) scale(1.03);
-box-shadow:
-0 25px 60px rgba(255,122,0,.18),
-0 15px 30px rgba(0,0,0,.18);
-}
-
-/* TEXT */
-
-.timeline-box h3{
-font-size:2.2rem;
-color:var(--primary);
-margin-bottom:15px;
-font-weight:700;
-}
-
-.timeline-box p{
-line-height:1.9;
-opacity:.85;
-font-size:1rem;
-}
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-.timeline::before{
-left:18px;
-}
-
-.timeline-item{
-width:100%;
-left:0 !important;
-padding-left:70px;
-padding-right:15px;
-text-align:left !important;
-}
-
-.timeline-item::before{
-left:7px !important;
-}
-
-}
-/* CHEFS */
-
-.chefs-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:35px;
-}
-
-.chef-card{
-border-radius:35px;
-overflow:hidden;
-position:relative;
-box-shadow:var(--shadow);
-}
-
-.chef-card img{
-width:100%;
-height:460px;
-object-fit:cover;
-transition:.6s;
-}
-
-.chef-card:hover img{
-transform:scale(1.1);
-}
-
-.chef-overlay{
-position:absolute;
-inset:0;
-background:linear-gradient(to top,rgba(0,0,0,.92),transparent);
-display:flex;
-flex-direction:column;
-justify-content:flex-end;
-padding:35px;
-color:#fff;
-}
-
-.chef-overlay h3{
-font-size:2rem;
-}
-
-.chef-overlay span{
-color:var(--secondary);
-margin:12px 0;
-}
-
-.socials{
-display:flex;
-gap:14px;
-margin-top:18px;
-}
-
-.socials i{
-width:44px;
-height:44px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-background:rgba(255,255,255,.14);
-transition:.4s;
-cursor:pointer;
-}
-
-.socials i:hover{
-background:var(--primary);
-transform:translateY(-5px);
-}
-
-/* STATS */
-
-.stats{
-background:
-linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.6)),
-url("https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1600&auto=format&fit=crop")
-center/cover;
-border-radius:40px;
-padding:90px 40px;
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-gap:30px;
-text-align:center;
-color:#fff;
-overflow:hidden;
-}
-
-.stat-box{
-background:rgba(255,255,255,.08);
-padding:35px;
-border-radius:30px;
-backdrop-filter:blur(10px);
-}
-
-.stat-box h2{
-font-size:4rem;
-color:var(--secondary);
-margin-bottom:10px;
-}
-
-/* PROCESS */
-
-.process-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:30px;
-}
-
-.process-card{
-padding:40px 30px;
-border-radius:30px;
-background:var(--card);
-border:1px solid var(--border);
-text-align:center;
-backdrop-filter:var(--glass);
-transition:.5s;
-position:relative;
-overflow:hidden;
-}
-
-.process-card::after{
-content:"";
-position:absolute;
-inset:0;
-background:linear-gradient(135deg,transparent,rgba(255,122,0,.08));
-opacity:0;
-transition:.5s;
-}
-
-.process-card:hover::after{
-opacity:1;
-}
-
-.process-card:hover{
-transform:translateY(-12px);
-}
-
-.process-card i{
-font-size:55px;
-color:var(--primary);
-margin-bottom:20px;
-}
-
-/* TESTIMONIALS */
-
-.testimonial-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-gap:35px;
-}
-
-.testimonial-card{
-padding:45px;
-border-radius:35px;
-background:var(--card);
-border:1px solid var(--border);
-backdrop-filter:var(--glass);
-transition:.5s;
-}
-
-.testimonial-card:hover{
-transform:translateY(-10px);
-}
-
-.stars{
-color:gold;
-font-size:1.2rem;
-margin-bottom:20px;
-}
-
-.client{
-display:flex;
-align-items:center;
-gap:16px;
-margin-top:28px;
-}
-
-.client img{
-width:75px;
-height:75px;
-border-radius:50%;
-object-fit:cover;
-border:3px solid var(--primary);
-}
-
-/* AWARDS */
-
-/* ================= AWARDS ================= */
-
-.award-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:35px;
-}
-
-/* LIGHT THEME */
-
-.award-card{
-position:relative;
-padding:55px 35px;
-border-radius:35px;
-overflow:hidden;
-text-align:center;
-
-/* VISIBLE LIGHT CARD */
-background:#ffffff;
-
-border:1px solid rgba(0,0,0,.08);
-
-box-shadow:
-0 15px 40px rgba(0,0,0,.08),
-0 5px 15px rgba(255,122,0,.08);
-
-transition:.6s ease;
-
-animation:
-floating 6s ease-in-out infinite,
-glowMove 8s linear infinite;
-}
-
-/* DARK THEME */
-
-body.dark .award-card{
-
-background:#121212;
-
-border:1px solid rgba(255,255,255,.06);
-
-box-shadow:
-0 20px 50px rgba(0,0,0,.45),
-0 0 25px rgba(255,122,0,.08);
-
-}
-
-/* ORANGE GLOW */
-
-.award-card::before{
-content:"";
-position:absolute;
-width:220px;
-height:220px;
-background:rgba(255,122,0,.12);
-border-radius:50%;
-top:-100px;
-right:-80px;
-}
-
-/* ICON */
-
-.award-card i{
-font-size:65px;
-margin-bottom:22px;
-color:var(--primary);
-
-animation:pulse 3s infinite;
-}
-
-/* TEXT */
-
-.award-card h3{
-font-size:1.6rem;
-margin-bottom:14px;
-color:var(--text);
-}
-
-.award-card p{
-line-height:1.8;
-opacity:.8;
-color:var(--text);
-}
-
-/* AUTO ANIMATION */
-
-.award-card:nth-child(2){
-animation-delay:1s;
-}
-
-.award-card:nth-child(3){
-animation-delay:2s;
-}
-
-/* FLOAT */
-
-@keyframes floating{
-
-0%{
-transform:translateY(0px);
-}
-
-50%{
-transform:translateY(-12px);
-}
-
-100%{
-transform:translateY(0px);
-}
-
-}
-
-/* GLOW */
-
-@keyframes glowMove{
-
-0%{
-box-shadow:
-0 0 0 rgba(255,122,0,0);
-}
-
-50%{
-box-shadow:
-0 0 35px rgba(255,122,0,.18);
-}
-
-100%{
-box-shadow:
-0 0 0 rgba(255,122,0,0);
-}
-
-}
-
-/* ICON PULSE */
-
-@keyframes pulse{
-
-0%{
-transform:scale(1);
-}
-
-50%{
-transform:scale(1.08);
-}
-
-100%{
-transform:scale(1);
-}
-
-}
-
-
-
-/* THEME BUTTON */
-
-.theme-btn{
-position:fixed;
-right:25px;
-bottom:25px;
-width:65px;
-height:65px;
-border:none;
-border-radius:50%;
-background:linear-gradient(135deg,#ff7a00,#ffb347);
-color:#fff;
-font-size:24px;
-cursor:pointer;
-z-index:999;
-box-shadow:0 10px 30px rgba(255,122,0,.4);
-}
-
-/* ANIMATION */
-
-/* =========================
-PREMIUM AUTO ANIMATIONS
-========================= */
-
-.fade{
-opacity:0;
-transform:translateY(80px) scale(.96);
-transition:
-opacity 1.2s ease,
-transform 1.2s ease;
-}
-
-/* ACTIVE */
-
-.fade.active{
-opacity:1;
-transform:translateY(0) scale(1);
-}
-
-/* AUTO FLOAT */
-
-.process-card,
-.choose-card,
-.timeline-box,
-.testimonial-card,
-.award-card,
-.stat-box{
-
-animation:
-floating 6s ease-in-out infinite,
-glowMove 8s linear infinite;
-
-}
-
-/* DIFFERENT DELAYS */
-
-.process-card:nth-child(2),
-.choose-card:nth-child(2),
-.timeline-item:nth-child(2) .timeline-box{
-animation-delay:1s;
-}
-
-.process-card:nth-child(3),
-.choose-card:nth-child(3),
-.timeline-item:nth-child(3) .timeline-box{
-animation-delay:2s;
-}
-
-.process-card:nth-child(4),
-.choose-card:nth-child(4),
-.timeline-item:nth-child(4) .timeline-box{
-animation-delay:3s;
-}
-
-.process-card:nth-child(5),
-.choose-card:nth-child(5){
-animation-delay:4s;
-}
-
-.process-card:nth-child(6),
-.choose-card:nth-child(6){
-animation-delay:5s;
-}
-
-/* CARD VISIBILITY */
-
-.process-card,
-.choose-card,
-.timeline-box,
-.testimonial-card,
-.award-card{
-
-background:#ffffff;
-border:1px solid rgba(0,0,0,.08);
-
-box-shadow:
-0 15px 40px rgba(0,0,0,.08),
-0 5px 15px rgba(255,122,0,.08);
-
-}
-
-/* DARK MODE */
-
-body.dark .process-card,
-body.dark .choose-card,
-body.dark .timeline-box,
-body.dark .testimonial-card,
-body.dark .award-card{
-
-background:#121212;
-border:1px solid rgba(255,255,255,.06);
-
-box-shadow:
-0 20px 50px rgba(0,0,0,.45),
-0 0 25px rgba(255,122,0,.08);
-
-}
-
-/* FLOATING */
-
-@keyframes floating{
-
-0%{
-transform:translateY(0px);
-}
-
-50%{
-transform:translateY(-12px);
-}
-
-100%{
-transform:translateY(0px);
-}
-
-}
-
-/* GLOW EFFECT */
-
-@keyframes glowMove{
-
-0%{
-box-shadow:
-0 0 0 rgba(255,122,0,0);
-}
-
-50%{
-box-shadow:
-0 0 30px rgba(255,122,0,.18);
-}
-
-100%{
-box-shadow:
-0 0 0 rgba(255,122,0,0);
-}
-
-}
-
-/* SECTION TITLE ANIMATION */
-
-.section-title{
-animation:fadeTitle 1.4s ease;
-}
-
-@keyframes fadeTitle{
-
-from{
-opacity:0;
-transform:translateY(40px);
-}
-
-to{
-opacity:1;
-transform:translateY(0);
-}
-
-}
-
-/* HERO TEXT */
-
-
-/* RESPONSIVE */
-
-@media(max-width:900px){
-
-.hero-content h1{
-font-size:4rem;
-}
-
-.section-title h2{
-font-size:2.6rem;
-}
-
-.timeline::before{
-left:20px;
-}
-
-.timeline-item{
-width:100%;
-left:0 !important;
-padding-left:70px;
-text-align:left !important;
-}
-
-}
-
-@media(max-width:600px){
-
-.hero-content h1{
-font-size:3rem;
-}
-
-section{
-padding:90px 6%;
-}
-
-.hero-btns{
-flex-direction:column;
-align-items:center;
-}
-
-}
-
 
 .container{
   width:min(1200px,92%);
@@ -1436,8 +650,9 @@ align-items:center;
   gap:10px;
   text-decoration:none;
 
-  font-size: 24px;
+  font-size:2rem;
   font-weight:600;
+
   color:var(--primary);   /* ORANGE LOGO */
 
   letter-spacing:.5px;
@@ -1874,13 +1089,14 @@ body.rtl{
 
 }
 
+
+
+
 </style>
-
-
 </head>
+
 <body>
 
-<!-- HERO -->
 <header class="main-header">
   <div class="container nav-wrapper">
 
@@ -1918,11 +1134,10 @@ body.rtl{
     </nav>
 
     <!-- ACTIONS -->
-      <button class="menu-toggle" id="menuToggle">
-    <i class="bi bi-list"></i>
-  </button>
+    <div class="header-actions">
 
-     <!-- RTL / LTR BUTTON -->
+      
+ <!-- RTL / LTR BUTTON -->
   <button class="icon-btn" id="rtlToggle" title="RTL / LTR Mode">
     <span id="rtlText">LTR</span>
   </button>
@@ -1938,457 +1153,390 @@ body.rtl{
 
   </div>
 </header>
-
-
+<!-- ================= HERO ================= -->
 
 <section class="about-hero">
 
-<div class="floating-card card1">
-<h3>15K+</h3>
-<p>Happy Customers</p>
-</div>
+  <div class="floating-card card1">
+    <h3>15K+</h3>
+    <p>Happy Customers</p>
+  </div>
 
-<div class="floating-card card2">
-<h3>Premium</h3>
-<p>Luxury Desserts</p>
-</div>
+  <div class="floating-card card2">
+    <h3>Premium</h3>
+    <p>Luxury Desserts</p>
+  </div>
 
-<div class="hero-content">
+  <div class="hero-content">
 
-<span>LUXURY BAKERY EXPERIENCE</span>
+    <span>LUXURY BAKERY EXPERIENCE</span>
 
-<h1>Crafting Premium Bakery Moments Since 2018</h1>
+    <h1>Crafting Premium Bakery Moments Since 2018</h1>
 
-<p>
-From handcrafted cakes to artistic desserts,
-we create unforgettable bakery experiences with elegance,
-premium ingredients and modern luxury presentation.
-</p>
+    <p>
+      From handcrafted cakes to artistic desserts,
+      we create unforgettable bakery experiences with elegance,
+      premium ingredients and modern luxury presentation.
+    </p>
 
-<div class="hero-btns">
-<a href="#" class="btn1">Explore Story</a>
-<a href="#" class="btn2">Meet Chefs</a>
-</div>
+    <div class="hero-btns">
+      <a href="#" class="btn1">Explore Story</a>
+      <a href="#" class="btn2">Meet Chefs</a>
+    </div>
 
-</div>
+  </div>
 
 </section>
 
-<!-- STORY -->
+<!-- ================= STORY ================= -->
 
 <section class="fade">
 
-<div class="story">
+  <div class="container story">
 
-<div class="story-img">
+    <div class="story-img">
 
-<img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?q=80&w=1200&auto=format&fit=crop">
+      <img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?q=80&w=1200&auto=format&fit=crop">
 
-<div class="exp-box">
-<h3>8+</h3>
-<p>Years Experience</p>
-</div>
+      <div class="exp-box">
+        <h3>8+</h3>
+        <p>Years Experience</p>
+      </div>
 
-</div>
+    </div>
 
-<div class="story-text">
+    <div class="story-text">
 
-<h2>Our Sweet Bakery Journey</h2>
+      <h2>Our Sweet Bakery Journey</h2>
 
-<p>
-Sweet Crumbs began with a vision to redefine luxury bakery experiences through handcrafted desserts and premium artistry.
-</p>
+      <p>
+        Sweet Crumbs began with a vision to redefine luxury bakery experiences through handcrafted desserts and premium artistry.
+      </p>
 
-<p>
-Every pastry, cake and dessert is crafted with perfection, blending creativity with rich flavors and modern bakery elegance.
-</p>
+      <p>
+        Every pastry, cake and dessert is crafted with perfection, blending creativity with rich flavors and modern bakery elegance.
+      </p>
 
-<div class="quote">
-“Every dessert tells a story of passion, creativity and perfection.”
-</div>
+      <div class="quote">
+        “Every dessert tells a story of passion, creativity and perfection.”
+      </div>
 
-</div>
+    </div>
 
-</div>
+  </div>
 
 </section>
 
-<!-- WHY -->
+<!-- ================= WHY CHOOSE ================= -->
 
 <section class="fade">
 
-<div class="section-title">
-<span>WHY US</span>
-<h2>Why Choose Our Bakery</h2>
-<p>Premium handcrafted desserts with world-class bakery experiences.</p>
-</div>
+  <div class="container">
 
-<div class="choose-grid">
+    <div class="section-title">
+      <span>WHY US</span>
+      <h2>Why Choose Our Bakery</h2>
+      <p>Premium handcrafted desserts with world-class bakery experiences.</p>
+    </div>
 
-<div class="choose-card">
-<i class="bi bi-flower1"></i>
-<h3>Fresh Ingredients</h3>
-<p>Premium organic ingredients sourced daily.</p>
-</div>
+    <div class="choose-grid">
 
-<div class="choose-card">
-<i class="bi bi-heart-fill"></i>
-<h3>Handmade Daily</h3>
-<p>Every dessert handcrafted with perfection.</p>
-</div>
+      <div class="choose-card">
+        <i class="bi bi-flower1"></i>
+        <h3>Fresh Ingredients</h3>
+        <p>Premium organic ingredients sourced daily.</p>
+      </div>
 
-<div class="choose-card">
-<i class="bi bi-box-seam"></i>
-<h3>Luxury Packaging</h3>
-<p>Elegant packaging for premium presentation.</p>
-</div>
+      <div class="choose-card">
+        <i class="bi bi-heart-fill"></i>
+        <h3>Handmade Daily</h3>
+        <p>Every dessert handcrafted with perfection.</p>
+      </div>
 
-<div class="choose-card">
-<i class="bi bi-truck"></i>
-<h3>Fast Delivery</h3>
-<p>Fresh bakery products delivered quickly.</p>
-</div>
+      <div class="choose-card">
+        <i class="bi bi-truck"></i>
+        <h3>Fast Delivery</h3>
+        <p>Fresh bakery products delivered quickly.</p>
+      </div>
 
-<div class="choose-card">
-<i class="bi bi-award-fill"></i>
-<h3>Award Winning</h3>
-<p>Recognized globally for bakery excellence.</p>
-</div>
+    </div>
 
-<div class="choose-card">
-<i class="bi bi-stars"></i>
-<h3>Luxury Experience</h3>
-<p>Modern atmosphere with premium service.</p>
-</div>
-
-</div>
+  </div>
 
 </section>
 
-<!-- TIMELINE -->
+<!-- ================= TIMELINE ================= -->
 
 <section class="fade">
 
-<div class="section-title">
-<span>OUR HISTORY</span>
-<h2>Bakery Timeline</h2>
-</div>
+  <div class="container">
 
-<div class="timeline">
+    <div class="section-title">
+      <span>OUR HISTORY</span>
+      <h2>Bakery Timeline</h2>
+    </div>
 
-<div class="timeline-item">
-<div class="timeline-box">
-<h3>2018</h3>
-<p>Started our luxury bakery journey.</p>
-</div>
-</div>
+    <div class="timeline">
 
-<div class="timeline-item">
-<div class="timeline-box">
-<h3>2020</h3>
-<p>Opened our first premium bakery branch.</p>
-</div>
-</div>
+      <div class="timeline-item">
+        <div class="timeline-box">
+          <h3>2018</h3>
+          <p>Started our luxury bakery journey.</p>
+        </div>
+      </div>
 
-<div class="timeline-item">
-<div class="timeline-box">
-<h3>2023</h3>
-<p>Launched international dessert delivery.</p>
-</div>
-</div>
+      <div class="timeline-item">
+        <div class="timeline-box">
+          <h3>2020</h3>
+          <p>Opened our first premium bakery branch.</p>
+        </div>
+      </div>
 
-<div class="timeline-item">
-<div class="timeline-box">
-<h3>2026</h3>
-<p>Became a globally recognized bakery brand.</p>
-</div>
-</div>
+      <div class="timeline-item">
+        <div class="timeline-box">
+          <h3>2023</h3>
+          <p>Launched international dessert delivery.</p>
+        </div>
+      </div>
 
-</div>
+      <div class="timeline-item">
+        <div class="timeline-box">
+          <h3>2026</h3>
+          <p>Became a globally recognized bakery brand.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
 
 </section>
 
-<!-- CHEFS -->
+<!-- ================= CHEFS ================= -->
 
 <section class="fade">
 
-<div class="section-title">
-<span>OUR TEAM</span>
-<h2>Meet Our Master Chefs</h2>
-</div>
+  <div class="container">
 
-<div class="chefs-grid">
+    <div class="section-title">
+      <span>OUR TEAM</span>
+      <h2>Meet Our Master Chefs</h2>
+    </div>
 
-<div class="chef-card">
-<img src="https://images.unsplash.com/photo-1607631568010-a87245c0daf8?q=80&w=1200&auto=format&fit=crop">
+    <div class="chefs-grid">
 
-<div class="chef-overlay">
+      <div class="chef-card">
 
-<h3>Daniel Cooper</h3>
-<span>Executive Pastry Chef • 12 Years</span>
+        <img src="https://images.unsplash.com/photo-1607631568010-a87245c0daf8?q=80&w=1200&auto=format&fit=crop">
 
-<div class="socials">
-<i class="bi bi-facebook"></i>
-<i class="bi bi-instagram"></i>
-<i class="bi bi-twitter-x"></i>
-</div>
+        <div class="chef-overlay">
 
-</div>
+          <h3>Daniel Cooper</h3>
+          <span>Executive Pastry Chef</span>
 
-</div>
+          <div class="socials">
+            <i class="bi bi-facebook"></i>
+            <i class="bi bi-instagram"></i>
+            <i class="bi bi-twitter-x"></i>
+          </div>
 
-<div class="chef-card">
-<img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?q=80&w=1200&auto=format&fit=crop">
+        </div>
 
-<div class="chef-overlay">
+      </div>
 
-<h3>Sophia Miller</h3>
-<span>Luxury Dessert Artist • 9 Years</span>
+      <div class="chef-card">
 
-<div class="socials">
-<i class="bi bi-facebook"></i>
-<i class="bi bi-instagram"></i>
-<i class="bi bi-twitter-x"></i>
-</div>
+        <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?q=80&w=1200&auto=format&fit=crop">
 
-</div>
+        <div class="chef-overlay">
 
-</div>
+          <h3>Sophia Miller</h3>
+          <span>Luxury Dessert Artist</span>
 
-<div class="chef-card">
-<img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=1200&auto=format&fit=crop">
+          <div class="socials">
+            <i class="bi bi-facebook"></i>
+            <i class="bi bi-instagram"></i>
+            <i class="bi bi-twitter-x"></i>
+          </div>
 
-<div class="chef-overlay">
+        </div>
 
-<h3>Michael Ross</h3>
-<span>Bakery Specialist • 10 Years</span>
+      </div>
 
-<div class="socials">
-<i class="bi bi-facebook"></i>
-<i class="bi bi-instagram"></i>
-<i class="bi bi-twitter-x"></i>
-</div>
+    </div>
 
-</div>
-
-</div>
-
-</div>
+  </div>
 
 </section>
 
-<!-- STATS -->
+<!-- ================= STATS ================= -->
 
 <section class="fade">
 
-<div class="stats">
+  <div class="container">
 
-<div class="stat-box">
-<h2>15K+</h2>
-<p>Happy Customers</p>
-</div>
+    <div class="stats">
 
-<div class="stat-box">
-<h2>120+</h2>
-<p>Cake Designs</p>
-</div>
+      <div class="stat-box">
+        <h2>15K+</h2>
+        <p>Happy Customers</p>
+      </div>
 
-<div class="stat-box">
-<h2>50+</h2>
-<p>Team Members</p>
-</div>
+      <div class="stat-box">
+        <h2>120+</h2>
+        <p>Cake Designs</p>
+      </div>
 
-<div class="stat-box">
-<h2>10+</h2>
-<p>International Awards</p>
-</div>
+      <div class="stat-box">
+        <h2>50+</h2>
+        <p>Team Members</p>
+      </div>
 
-</div>
+      <div class="stat-box">
+        <h2>10+</h2>
+        <p>International Awards</p>
+      </div>
+
+    </div>
+
+  </div>
 
 </section>
 
-<!-- PROCESS -->
+<!-- ================= PROCESS ================= -->
 
 <section class="fade">
 
-<div class="section-title">
-<span>WORKFLOW</span>
-<h2>Premium Bakery Process</h2>
-</div>
+  <div class="container">
 
-<div class="process-grid">
+    <div class="section-title">
+      <span>WORKFLOW</span>
+      <h2>Premium Bakery Process</h2>
+    </div>
 
-<div class="process-card">
-<i class="bi bi-basket"></i>
-<h3>Fresh Ingredients</h3>
-<p>Carefully selected premium quality ingredients.</p>
-</div>
+    <div class="process-grid">
 
-<div class="process-card">
-<i class="bi bi-egg-fried"></i>
-<h3>Handmade Preparation</h3>
-<p>Traditional handcrafted bakery techniques.</p>
-</div>
+      <div class="process-card">
+        <i class="bi bi-basket"></i>
+        <h3>Fresh Ingredients</h3>
+        <p>Carefully selected premium quality ingredients.</p>
+      </div>
 
-<div class="process-card">
-<i class="bi bi-fire"></i>
-<h3>Baking Perfection</h3>
-<p>Perfect baking for rich luxury flavor.</p>
-</div>
+      <div class="process-card">
+        <i class="bi bi-fire"></i>
+        <h3>Baking Perfection</h3>
+        <p>Perfect baking for rich luxury flavor.</p>
+      </div>
 
-<div class="process-card">
-<i class="bi bi-gift"></i>
-<h3>Luxury Packaging</h3>
-<p>Elegant premium packaging for every order.</p>
-</div>
+      <div class="process-card">
+        <i class="bi bi-gift"></i>
+        <h3>Luxury Packaging</h3>
+        <p>Elegant premium packaging for every order.</p>
+      </div>
 
-<div class="process-card">
-<i class="bi bi-truck"></i>
-<h3>Fast Delivery</h3>
-<p>Fresh desserts delivered at the perfect time.</p>
-</div>
+    </div>
 
-<!-- NEW CARD 1 -->
-
-<div class="process-card">
-<i class="bi bi-stars"></i>
-<h3>Premium Decoration</h3>
-<p>Luxury finishing touches with artistic dessert styling.</p>
-</div>
-
-<!-- NEW CARD 2 -->
-
-<div class="process-card">
-<i class="bi bi-cup-hot"></i>
-<h3>Flavor Testing</h3>
-<p>Every recipe tested carefully for perfect taste balance.</p>
-</div>
-
-<!-- NEW CARD 3 -->
-
-<div class="process-card">
-<i class="bi bi-shield-check"></i>
-<h3>Quality Inspection</h3>
-<p>Strict hygiene and quality checks before final delivery.</p>
-</div>
-
-</div>
+  </div>
 
 </section>
-<!-- TESTIMONIAL -->
+
+<!-- ================= TESTIMONIALS ================= -->
 
 <section class="fade">
 
-<div class="section-title">
-<span>CLIENT REVIEWS</span>
-<h2>What Clients Say</h2>
-</div>
+  <div class="container">
 
-<div class="testimonial-grid">
+    <div class="section-title">
+      <span>REVIEWS</span>
+      <h2>What Clients Say</h2>
+    </div>
 
-<div class="testimonial-card">
+    <div class="testimonial-grid">
 
-<div class="stars">★★★★★</div>
+      <div class="testimonial-card">
 
-<p>
-Absolutely stunning cakes and premium quality desserts.
-The experience was unforgettable.
-</p>
+        <div class="stars">★★★★★</div>
 
-<div class="client">
+        <p>
+          Absolutely stunning cakes and premium quality desserts.
+        </p>
 
-<img src="https://randomuser.me/api/portraits/women/44.jpg">
+        <div class="client">
 
-<div>
-<h3>Priya Sharma</h3>
-<span>Wedding Client</span>
-</div>
+          <img src="https://randomuser.me/api/portraits/women/44.jpg">
 
-</div>
+          <div>
+            <h3>Priya Sharma</h3>
+            <span>Wedding Client</span>
+          </div>
 
-</div>
+        </div>
 
-<div class="testimonial-card">
+      </div>
 
-<div class="stars">★★★★★</div>
+      <div class="testimonial-card">
 
-<p>
-Luxury presentation and handcrafted flavors are truly incredible.
-Highly recommended.
-</p>
+        <div class="stars">★★★★★</div>
 
-<div class="client">
+        <p>
+          Luxury presentation and handcrafted flavors are truly incredible.
+        </p>
 
-<img src="https://randomuser.me/api/portraits/men/32.jpg">
+        <div class="client">
 
-<div>
-<h3>Rahul Verma</h3>
-<span>Food Blogger</span>
-</div>
+          <img src="https://randomuser.me/api/portraits/men/32.jpg">
 
-</div>
+          <div>
+            <h3>Rahul Verma</h3>
+            <span>Food Blogger</span>
+          </div>
 
-</div>
+        </div>
 
-<div class="testimonial-card">
+      </div>
 
-<div class="stars">★★★★★</div>
+    </div>
 
-<p>
-Every pastry feels premium and beautifully crafted.
-Excellent bakery experience.
-</p>
-
-<div class="client">
-
-<img src="https://randomuser.me/api/portraits/women/65.jpg">
-
-<div>
-<h3>Ananya Kapoor</h3>
-<span>Regular Customer</span>
-</div>
-
-</div>
-
-</div>
-
-</div>
+  </div>
 
 </section>
 
-<!-- AWARDS -->
+<!-- ================= AWARDS ================= -->
 
 <section class="fade">
 
-<div class="section-title">
-<span>ACHIEVEMENTS</span>
-<h2>Awards & Certifications</h2>
-</div>
+  <div class="container">
 
-<div class="award-grid">
+    <div class="section-title">
+      <span>ACHIEVEMENTS</span>
+      <h2>Awards & Certifications</h2>
+    </div>
 
-<div class="award-card">
-<i class="bi bi-award-fill"></i>
-<h3>Best Bakery Award</h3>
-<p>Recognized globally for bakery excellence.</p>
-</div>
+    <div class="award-grid">
 
-<div class="award-card">
-<i class="bi bi-patch-check-fill"></i>
-<h3>Hygienic Certified</h3>
-<p>International food safety certified bakery.</p>
-</div>
+      <div class="award-card">
+        <i class="bi bi-award-fill"></i>
+        <h3>Best Bakery Award</h3>
+        <p>Recognized globally for bakery excellence.</p>
+      </div>
 
-<div class="award-card">
-<i class="bi bi-stars"></i>
-<h3>Premium Quality Badge</h3>
-<p>Trusted by thousands of happy customers.</p>
-</div>
+      <div class="award-card">
+        <i class="bi bi-patch-check-fill"></i>
+        <h3>Hygienic Certified</h3>
+        <p>International food safety certified bakery.</p>
+      </div>
 
-</div>
+      <div class="award-card">
+        <i class="bi bi-stars"></i>
+        <h3>Premium Quality Badge</h3>
+        <p>Trusted by thousands of happy customers.</p>
+      </div>
+
+    </div>
+
+  </div>
 
 </section>
-<!-- ================= FOOTER ================= -->
 <footer class="footer">
   <div class="container footer-grid">
 
@@ -2464,160 +1612,46 @@ Excellent bakery experience.
 
 </div>
 </footer>
+<!-- ================= SCRIPT ================= -->
 
+<script>
 
-<!-- THEME BUTTON -->
-
-
-
-<script>- 
-/* =========================================
-MOBILE MENU
-========================================= */
-
-const menuToggle = document.getElementById("menuToggle");
-const navLinks = document.querySelector(".nav-links");
-const dropdowns = document.querySelectorAll(".dropdown");
-
-menuToggle.onclick = () => {
-
-  navLinks.classList.toggle("active");
-
-  /* ICON CHANGE */
-
-  const icon = menuToggle.querySelector("i");
-
-  if(navLinks.classList.contains("active")){
-
-    icon.classList.remove("bi-list");
-    icon.classList.add("bi-x-lg");
-
-  }else{
-
-    icon.classList.remove("bi-x-lg");
-    icon.classList.add("bi-list");
-
-  }
-
-};
-
-/* MOBILE DROPDOWN */
-
-dropdowns.forEach(drop => {
-
-  const toggle = drop.querySelector(".dropdown-toggle");
-
-  toggle.addEventListener("click",(e)=>{
-
-    if(window.innerWidth <= 992){
-
-      e.preventDefault();
-
-      drop.classList.toggle("active");
-
-    }
-
-  });
-
-});
-
-/* CLOSE MENU WHEN CLICK LINK */
-
-document.querySelectorAll(".nav-links a").forEach(link=>{
-
-  link.addEventListener("click",()=>{
-
-    if(window.innerWidth <= 992){
-
-      navLinks.classList.remove("active");
-
-      const icon = menuToggle.querySelector("i");
-
-      icon.classList.remove("bi-x-lg");
-      icon.classList.add("bi-list");
-
-    }
-
-  });
-
-
-
-
-/* =========================================
-   DARK MODE + SUN / MOON TOGGLE
-========================================= */
+/* ================= THEME ================= */
 
 const themeToggle = document.getElementById("themeToggle");
-const themeIcon = document.getElementById("themeIcon");
-
-themeToggle.onclick = () => {
-
-  /* TOGGLE DARK CLASS */
-  document.body.classList.toggle("dark");
-
-  /* CHANGE ICON */
-  if(document.body.classList.contains("dark")){
-
-    themeIcon.classList.remove("bi-moon-stars-fill");
-    themeIcon.classList.add("bi-sun-fill");
-
-  } else {
-
-    themeIcon.classList.remove("bi-sun-fill");
-    themeIcon.classList.add("bi-moon-stars-fill");
-
-  }
-
-};
-
-
-/* =========================================
-   RTL / LTR TOGGLE
-========================================= */
-
 const rtlToggle = document.getElementById("rtlToggle");
-const rtlText = document.getElementById("rtlText");
 
-rtlToggle.onclick = () => {
-
-  /* TOGGLE RTL CLASS */
-  document.body.classList.toggle("rtl");
-
-  /* CHANGE BUTTON TEXT */
-  if(document.body.classList.contains("rtl")){
-
-    rtlText.innerHTML = "RTL";
-
-  } else {
-
-    rtlText.innerHTML = "LTR";
-
-  }
-
+/* DARK MODE */
+themeToggle.onclick = () => {
+  document.body.classList.toggle("dark");
 };
 
+/* RTL MODE */
+rtlToggle.onclick = () => {
+  document.body.classList.toggle("rtl");
+};
 
+/* ================= SCROLL ANIMATION ================= */
 
+const fades = document.querySelectorAll(".fade");
 
+function revealSections(){
 
+  fades.forEach(section => {
 
-/* SCROLL ANIMATION */
+    const top = section.getBoundingClientRect().top;
 
-const fades=document.querySelectorAll(".fade");
+    if(top < window.innerHeight - 100){
+      section.classList.add("active");
+    }
 
-window.addEventListener("scroll",()=>{
+  });
 
-fades.forEach(section=>{
-
-const top=section.getBoundingClientRect().top;
-
-if(top<window.innerHeight-100){
-section.classList.add("active");
 }
 
-});
+window.addEventListener("scroll", revealSections);
 
-});
+revealSections();
 
 </script>
 
